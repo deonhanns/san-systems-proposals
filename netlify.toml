@@ -1,0 +1,37 @@
+[build]
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ── Redirects ──
+
+# Root serves the proposal index
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Proposal sub-paths serve their index.html
+[[redirects]]
+  from = "/proposals/*"
+  to = "/proposals/:splat/index.html"
+  status = 200
+
+# ── Security Headers ──
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/proposals/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Proposals are sensitive — no caching beyond the browser
+    Cache-Control = "no-store, max-age=0"
