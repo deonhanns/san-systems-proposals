@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== OPEN GRAPH — WhatsApp Preview Card ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://proposals.thesanscribe.com/aspiral-001" />
+  <meta property="og:title" content="San Systems — Aspiral AI Proposal" />
+  <meta property="og:description" content="A confidential proposal to build an AI-powered operating system for Aspiral. Prepared by San Systems, a private division of The San Scribe." />
+  <meta property="og:image" content="https://proposals.thesanscribe.com/og-sansystems.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="San Systems · The San Scribe" />
+  <!-- Twitter/X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="San Systems — Aspiral AI Proposal" />
+  <meta name="twitter:description" content="Confidential proposal prepared by San Systems for Aspiral Coaching Practice." />
+  <meta name="twitter:image" content="https://proposals.thesanscribe.com/og-sansystems.png" />
+  <!-- Tracking: fires on page load, pings your n8n webhook -->
+  <script>
+    (function() {
+      var PROPOSAL_ID = 'aspiral-001';
+      var WEBHOOK_URL = 'https://YOUR_N8N_WEBHOOK_URL/proposal-opened'; // replace with your n8n webhook
+      fetch(WEBHOOK_URL + '?id=' + PROPOSAL_ID + '&t=' + Date.now(), { mode: 'no-cors' }).catch(function(){});
+      localStorage.setItem('ss_open_' + PROPOSAL_ID, new Date().toISOString());
+    })();
+  </script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aspiral AI Proposal — San Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #1a1408;
+  --soil: #2d2416;
+  --ochre: #c47c2b;
+  --ochre-light: #e8a84a;
+  --sand: #f2ead8;
+  --bone: #faf6ee;
+  --ash: #e8e0cc;
+  --muted: #7a7060;
+  --rule: #d8ceb8;
+  --white: #ffffff;
+  --green: #2a5c3a;
+  --rust: #8b3a1a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bone);
+  color: var(--earth);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* GRAIN */
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:999;
+}
+
+/* SIDEBAR NAV */
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 220px;
+  background: var(--earth);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0 32px;
+  z-index: 100;
+  overflow-y: auto;
+}
+.sidebar-brand {
+  padding: 0 28px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 24px;
+}
+.sidebar-brand .ss-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  margin-bottom: 6px;
+}
+.sidebar-brand .ss-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--bone);
+  line-height: 1.2;
+}
+.sidebar-brand .ss-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 4px;
+}
+.nav-section {
+  font-family: 'DM Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  padding: 0 28px;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+.nav-link {
+  display: block;
+  padding: 9px 28px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--ochre-light);
+  border-left-color: var(--ochre);
+  background: rgba(196,124,43,0.06);
+}
+.sidebar-footer {
+  margin-top: auto;
+  padding: 24px 28px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.8;
+}
+
+/* MAIN CONTENT */
+.main {
+  margin-left: 220px;
+  min-height: 100vh;
+}
+
+/* SECTIONS */
+.section { display: none; }
+.section.active { display: block; animation: fadeIn 0.5s ease both; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+/* COVER */
+.cover {
+  min-height: 100vh;
+  background: var(--earth);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.cover-texture {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 80% 40%, rgba(196,124,43,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(196,124,43,0.06) 0%, transparent 50%);
+}
+.cover-top {
+  padding: 48px 64px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+.cover-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  line-height: 1.8;
+}
+.cover-meta {
+  text-align: right;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.8;
+}
+.cover-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 64px 40px;
+  position: relative;
+  z-index: 2;
+}
+.cover-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cover-eyebrow::after { content:''; width: 48px; height: 1px; background: var(--ochre); opacity: 0.4; }
+.cover h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 5.5vw, 76px);
+  font-weight: 700;
+  color: var(--bone);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+.cover h1 em { font-style: italic; color: var(--ochre-light); }
+.cover-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  max-width: 540px;
+  line-height: 1.8;
+  margin-bottom: 56px;
+}
+.cover-stats {
+  display: flex;
+  gap: 48px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.cover-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ochre-light);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.cover-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.6;
+}
+.cover-bottom {
+  padding: 32px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.cover-client {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.8;
+}
+.cover-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  border: 1px solid rgba(196,124,43,0.3);
+  padding: 12px 24px;
+  cursor: pointer;
+  background: none;
+  transition: all 0.2s;
+}
+.cover-btn:hover { background: rgba(196,124,43,0.1); border-color: var(--ochre); }
+
+/* CONTENT PAGES */
+.content-page { padding: 64px; max-width: 860px; }
+.content-page.full { max-width: 100%; padding: 64px; }
+
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-eyebrow::after { content:''; flex:1; max-width:40px; height:1px; background:var(--ochre); opacity:0.35; }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--ochre); }
+.section-intro {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 580px;
+  line-height: 1.85;
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* WHAT IS IT */
+.what-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+.what-cell {
+  background: var(--white);
+  padding: 32px;
+}
+.what-cell.dark { background: var(--earth); }
+.what-cell-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.what-cell:not(.dark) .what-cell-label { color: var(--ochre); }
+.what-cell.dark .what-cell-label { color: rgba(196,124,43,0.6); }
+.what-cell h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+.what-cell:not(.dark) h3 { color: var(--earth); }
+.what-cell.dark h3 { color: var(--bone); }
+.what-cell p { font-size: 13px; line-height: 1.75; }
+.what-cell:not(.dark) p { color: var(--muted); }
+.what-cell.dark p { color: rgba(255,255,255,0.45); }
+
+/* DAY IN THE LIFE */
+.day-timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.day-timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--rule);
+}
+.day-event {
+  position: relative;
+  margin-bottom: 32px;
+}
+.day-event::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bone);
+  border: 2px solid var(--ochre);
+}
+.day-event.ai-moment::before { background: var(--ochre); }
+.day-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--ochre);
+  margin-bottom: 4px;
+}
+.day-event-card {
+  background: var(--white);
+  padding: 20px 24px;
+  border-left: 3px solid transparent;
+}
+.day-event.ai-moment .day-event-card { border-left-color: var(--ochre); }
+.day-event.roland-moment .day-event-card { border-left-color: var(--green); }
+.day-event h4 { font-size: 14px; font-weight: 500; margin-bottom: 5px; }
+.day-event p { font-size: 12px; color: var(--muted); line-height: 1.65; }
+.day-event .ai-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.ai-moment .ai-tag { background: rgba(196,124,43,0.1); color: var(--ochre); }
+.roland-moment .ai-tag { background: rgba(42,92,58,0.1); color: var(--green); }
+
+/* SCOPE TABLE */
+.scope-wrapper { overflow-x: auto; }
+.scope-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+}
+.scope-table th {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 2px solid var(--earth);
+  background: var(--sand);
+  white-space: nowrap;
+}
+.scope-table td {
+  padding: 14px 20px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--ash);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.scope-table tr:last-child td { border-bottom: none; }
+.scope-table tr:hover td { background: #faf7f0; }
+.phase-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.ph1 { background: rgba(196,124,43,0.1); color: var(--ochre); }
+.ph2 { background: rgba(42,92,58,0.1); color: var(--green); }
+.ph3 { background: rgba(26,20,8,0.07); color: var(--muted); }
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.dot-build { background: var(--ochre); }
+.dot-ready { background: var(--green); }
+.dot-later { background: var(--rule); }
+
+/* TIERS */
+.tiers-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  background: var(--earth);
+  border: 2px solid var(--earth);
+  margin-bottom: 3px;
+}
+.tier-card {
+  background: var(--bone);
+  padding: 36px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.tier-card.featured { background: var(--earth); }
+.tier-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--ochre);
+  color: white;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+}
+.tier-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.tier-card:not(.featured) .tier-name { color: var(--muted); }
+.tier-card.featured .tier-name { color: var(--ochre); }
+.tier-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.tier-card:not(.featured) .tier-price { color: var(--earth); }
+.tier-card.featured .tier-price { color: var(--bone); }
+.tier-period { font-size: 12px; margin-bottom: 8px; }
+.tier-card:not(.featured) .tier-period { color: var(--muted); }
+.tier-card.featured .tier-period { color: rgba(255,255,255,0.4); }
+.tier-anchor {
+  font-size: 11px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+}
+.tier-card:not(.featured) .tier-anchor { color: var(--muted); border-bottom: 1px solid var(--rule); }
+.tier-card.featured .tier-anchor { color: rgba(255,255,255,0.3); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.tier-features { list-style: none; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.tier-features li {
+  font-size: 12px;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.55;
+}
+.tier-card:not(.featured) .tier-features li { color: var(--earth); }
+.tier-card.featured .tier-features li { color: rgba(255,255,255,0.6); }
+.tier-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+}
+.tier-card:not(.featured) .tier-features li::before { color: var(--green); }
+.tier-card.featured .tier-features li::before { color: var(--ochre); }
+.tier-features li.off { opacity: 0.3; }
+.tier-features li.off::before { content: '—'; }
+.tier-setup {
+  margin-top: 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 10px 0 0;
+}
+.tier-card:not(.featured) .tier-setup { color: var(--muted); border-top: 1px solid var(--rule); }
+.tier-card.featured .tier-setup { color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.08); }
+
+/* TERMS */
+.terms-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-bottom: 32px;
+}
+.terms-cell {
+  background: var(--white);
+  padding: 24px 28px;
+}
+.terms-cell-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  margin-bottom: 8px;
+}
+.terms-cell p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+.terms-cell strong { color: var(--earth); font-weight: 500; }
+
+/* ACCEPTANCE */
+.acceptance-box {
+  background: var(--earth);
+  padding: 48px;
+  margin-bottom: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.acceptance-box::before {
+  content: '◈';
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 140px;
+  color: white;
+  opacity: 0.02;
+}
+.acceptance-box .acc-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  margin-bottom: 20px;
+}
+.acceptance-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-style: italic;
+  color: var(--bone);
+  margin-bottom: 16px;
+}
+.acceptance-box p { font-size: 13px; color: rgba(255,255,255,0.4); max-width: 520px; line-height: 1.8; margin-bottom: 32px; }
+.sig-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.sig-block { }
+.sig-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 40px;
+}
+.sig-line {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.8;
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px;
+  background: var(--rule);
+  margin: 48px 0;
+}
+
+/* PULL QUOTE */
+.pull-quote {
+  background: var(--sand);
+  border-left: 3px solid var(--ochre);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.pull-quote blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--earth);
+  line-height: 1.55;
+}
+.pull-quote blockquote strong { font-style: normal; color: var(--ochre); }
+.pull-quote cite {
+  display: block;
+  margin-top: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-style: normal;
+}
+
+/* INFO BOX */
+.info-box {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 24px 28px;
+  margin: 24px 0;
+}
+.info-box-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  margin-bottom: 10px;
+}
+.info-box p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+.info-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.info-box ul li { font-size: 13px; color: var(--muted); padding-left: 18px; position: relative; line-height: 1.6; }
+.info-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--ochre); font-size: 11px; }
+
+/* MOBILE */
+@media(max-width:768px){
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .content-page { padding: 32px 24px 80px; }
+  .cover-body { padding: 40px 32px; }
+  .cover-top, .cover-bottom { padding: 32px; }
+  .cover-stats { flex-wrap: wrap; gap: 24px; }
+  .what-grid, .tiers-wrap, .terms-grid, .sig-grid { grid-template-columns: 1fr; }
+  .tiers-wrap { background: var(--bone); border: none; gap: 16px; }
+  .day-timeline { padding-left: 24px; }
+}
+.mobile-nav {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--earth);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+@media(max-width:768px){ .mobile-nav { display: flex; } }
+.mobile-nav-btn {
+  flex-shrink: 0;
+  padding: 14px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+.mobile-nav-btn.active { color: var(--ochre); border-bottom-color: var(--ochre); }
+
+  /* ===== PASSWORD GATE ===== */
+  #ss-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #1a1408;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+  #ss-gate::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 60%, rgba(196,124,43,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .gate-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(196,124,43,0.6);
+    margin-bottom: 48px;
+    text-align: center;
+    position: relative;
+  }
+  .gate-symbol {
+    font-size: 36px;
+    margin-bottom: 8px;
+    opacity: 0.4;
+  }
+  .gate-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    color: #f2ead8;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .gate-title em { font-style: italic; color: #e8a84a; }
+  .gate-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+  .gate-input-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+  }
+  .gate-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(196,124,43,0.5);
+    align-self: flex-start;
+  }
+  .gate-input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(196,124,43,0.2);
+    color: #f2ead8;
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    padding: 16px 20px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .gate-input:focus { border-color: rgba(196,124,43,0.6); }
+  .gate-input.shake {
+    animation: shake 0.4s ease;
+    border-color: #8b3a1a;
+  }
+  @keyframes shake {
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-8px)}
+    40%{transform:translateX(8px)}
+    60%{transform:translateX(-5px)}
+    80%{transform:translateX(5px)}
+  }
+  .gate-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: none;
+    border: 1px solid rgba(196,124,43,0.4);
+    color: #e8a84a;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .gate-btn:hover { background: rgba(196,124,43,0.08); border-color: #c47c2b; }
+  .gate-error {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: #8b3a1a;
+    text-transform: uppercase;
+    min-height: 16px;
+  }
+  .gate-footer {
+    position: absolute;
+    bottom: 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.12);
+  }
+  #ss-gate.unlocking {
+    animation: fadeOut 0.6s ease forwards;
+  }
+  @keyframes fadeOut {
+    to { opacity: 0; pointer-events: none; }
+  }
+
+</style>
+</head>
+<body>
+<!-- ===== PASSWORD GATE ===== -->
+<div id="ss-gate">
+  <div class="gate-logo">
+    <div class="gate-symbol">◈</div>
+    San Systems · The San Scribe
+  </div>
+  <div class="gate-title">This proposal is<br><em>confidential.</em></div>
+  <div class="gate-sub">Enter your access code to continue</div>
+  <div class="gate-input-wrap">
+    <div class="gate-label">Access code</div>
+    <input class="gate-input" id="gate-input" type="password" placeholder="· · · · · · · ·" autocomplete="off" maxlength="20" />
+    <button class="gate-btn" onclick="checkGate()">Unlock Proposal →</button>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+  <div class="gate-footer">Proposal SS-ASP-001 · San Systems · Confidential</div>
+</div>
+
+<script>
+  // Enter key support
+  document.getElementById('gate-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkGate();
+  });
+
+  function checkGate() {
+    var input = document.getElementById('gate-input');
+    var val = input.value.trim().toLowerCase().replace(/\s/g,'');
+    // Password: "terrain" — change this per proposal
+    if (val === 'terrain') {
+      var gate = document.getElementById('ss-gate');
+      gate.classList.add('unlocking');
+      setTimeout(function() { gate.style.display = 'none'; }, 600);
+      // Fire unlock tracking
+      fetch('https://YOUR_N8N_WEBHOOK_URL/proposal-unlocked?id=aspiral-001&t=' + Date.now(), { mode: 'no-cors' }).catch(function(){});
+    } else {
+      input.classList.add('shake');
+      document.getElementById('gate-error').textContent = 'Incorrect. Try again.';
+      setTimeout(function() { input.classList.remove('shake'); }, 500);
+      input.value = '';
+    }
+  }
+</script>
+
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <div class="ss-label">San Systems</div>
+    <div class="ss-name">The San<br>Scribe</div>
+    <div class="ss-sub">Private Division</div>
+  </div>
+  <div class="nav-section">Proposal</div>
+  <a class="nav-link active" onclick="show('cover')">Cover</a>
+  <a class="nav-link" onclick="show('context')">Context &amp; Insight</a>
+  <a class="nav-link" onclick="show('what')">What Is This, Really?</a>
+  <a class="nav-link" onclick="show('day')">Roland's New Day</a>
+  <div class="nav-section">Scope</div>
+  <a class="nav-link" onclick="show('scope')">Deliverables</a>
+  <a class="nav-link" onclick="show('tiers')">Investment Tiers</a>
+  <div class="nav-section">Agreement</div>
+  <a class="nav-link" onclick="show('terms')">Terms &amp; Process</a>
+  <a class="nav-link" onclick="show('acceptance')">Acceptance</a>
+  <div class="sidebar-footer">
+    Proposal Ref: SS-ASP-001<br>
+    Prepared: May 2026<br>
+    Confidential
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav">
+  <button class="mobile-nav-btn active" onclick="show('cover')">Cover</button>
+  <button class="mobile-nav-btn" onclick="show('context')">Context</button>
+  <button class="mobile-nav-btn" onclick="show('what')">What Is This?</button>
+  <button class="mobile-nav-btn" onclick="show('day')">Your Day</button>
+  <button class="mobile-nav-btn" onclick="show('scope')">Scope</button>
+  <button class="mobile-nav-btn" onclick="show('tiers')">Investment</button>
+  <button class="mobile-nav-btn" onclick="show('terms')">Terms</button>
+  <button class="mobile-nav-btn" onclick="show('acceptance')">Sign</button>
+</nav>
+
+<main class="main">
+
+<!-- ===== COVER ===== -->
+<div class="section active" id="cover">
+  <div class="cover">
+    <div class="cover-texture"></div>
+    <div class="cover-top">
+      <div class="cover-logo">
+        San Systems<br>
+        <span style="color:rgba(255,255,255,0.2);font-size:7px;">A Private Division of The San Scribe Pty Ltd</span>
+      </div>
+      <div class="cover-meta">
+        Proposal No. SS-ASP-001<br>
+        May 2026 — Confidential<br>
+        Prepared for Roland
+      </div>
+    </div>
+    <div class="cover-body">
+      <div class="cover-eyebrow">Aspiral Coaching Practice</div>
+      <h1>Your practice.<br><em>Fully alive.</em><br>All the time.</h1>
+      <p class="cover-desc">
+        A proposal to build an AI-powered operating system for Aspiral — so Roland can coach more, admin less, recover lost revenue, and show up fully prepared for every client, every time.
+      </p>
+      <div class="cover-stats">
+        <div>
+          <div class="cover-stat-num">6 hrs</div>
+          <div class="cover-stat-label">Reclaimed monthly<br>from scheduling</div>
+        </div>
+        <div>
+          <div class="cover-stat-num">R45k+</div>
+          <div class="cover-stat-label">Estimated annual revenue<br>recovered from cold leads</div>
+        </div>
+        <div>
+          <div class="cover-stat-num">3 tiers</div>
+          <div class="cover-stat-label">Start at R3,500/month<br>scale as you see the value</div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-client">
+        Prepared by San Systems<br>
+        hello@thesanscribe.com · +27 73 302 0683
+      </div>
+      <button class="cover-btn" onclick="show('context')">Read the Proposal →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTEXT ===== -->
+<div class="section" id="context">
+<div class="content-page">
+  <div class="section-eyebrow">01 — Context &amp; Insight</div>
+  <h1 class="section-title">We've been watching<br>the <em>terrain.</em></h1>
+  <p class="section-intro">
+    Before we built anything, we mapped Aspiral's world — the pressures, the patterns, the gaps, and the opportunity. What we found is a practice with extraordinary depth and trust, held back by operational friction that AI can simply dissolve.
+  </p>
+
+  <div class="what-grid">
+    <div class="what-cell">
+      <div class="what-cell-label">The market reality</div>
+      <h3>The global coaching industry is at a fork in the road.</h3>
+      <p>The market is valued at $5.8 billion in 2026, growing at 9.1% annually through 2031. But a prediction is shaking the industry: 100,000 coaches globally will lose their practices in the next two years. The cause? Not a lack of skill. A lack of systems. Coaches who use AI to amplify their work will take the market. Those who don't will be outpaced — not by AI, but by other coaches using it.</p>
+    </div>
+    <div class="what-cell dark">
+      <div class="what-cell-label">The Aspiral reality</div>
+      <h3>Roland has the depth. The gap is infrastructure.</h3>
+      <p>Aspiral's strength is relational. Clients trust Roland deeply. That trust is the moat. But when Roland is busy, the practice quietly underperforms — leads go cold, follow-ups slip, scheduling eats hours. None of this is Roland's fault. It's what happens when a high-quality practice has no operating system underneath it.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="what-cell-label" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);margin-bottom:20px;">What the data shows about Aspiral right now</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;margin-bottom:32px;">
+    <div style="background:var(--white);padding:24px;">
+      <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Time lost</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--ochre);line-height:1;margin-bottom:6px;">6 hrs</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;">Every month on scheduling back-and-forth. That's 72 hours a year — nearly two full working weeks.</div>
+    </div>
+    <div style="background:var(--white);padding:24px;">
+      <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Revenue at risk</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--rust);line-height:1;margin-bottom:6px;">R45k+</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;">Lost annually when warm past-client leads go cold. These are the easiest sales — trust is already built. They just need a nudge.</div>
+    </div>
+    <div style="background:var(--white);padding:24px;">
+      <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">The window</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--green);line-height:1;margin-bottom:6px;">Now</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;">SA coaching industry AI adoption is early. The first-mover advantage in this market is real and available. This window closes within 12–18 months.</div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>
+      "AI won't replace great coaches. But coaches who use AI <strong>will replace those who don't.</strong> The differentiating factor is adoption — and the window for first-mover advantage is open right now."
+    </blockquote>
+    <cite>— Mindvalley Coach, Global Coaching Industry Report 2025</cite>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="what-cell-label" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);margin-bottom:20px;">Why San Systems?</div>
+
+  <div class="what-grid">
+    <div class="what-cell">
+      <div class="what-cell-label">Who we are</div>
+      <h3>San Systems is not a software company.</h3>
+      <p>San Systems is the intelligence infrastructure arm of The San Scribe — a private division available exclusively to people we know and trust. We don't take on clients we haven't met. We build systems that are deeply fitted to the person, the practice, and the relationships they've spent years building. This is not off-the-shelf. This is bespoke.</p>
+    </div>
+    <div class="what-cell">
+      <div class="what-cell-label">How we work</div>
+      <h3>We map the territory others cannot see.</h3>
+      <p>The San Scribe's core practice is visual thinking — turning complexity into clarity that people can act on. San Systems applies that same discipline to AI infrastructure. We don't automate for automation's sake. We identify the highest-leverage points in a practice, build precisely there, and leave everything else alone. Constraint-based. Purposeful. Yours.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== WHAT IS IT ===== -->
+<div class="section" id="what">
+<div class="content-page">
+  <div class="section-eyebrow">02 — What Is This, Really?</div>
+  <h1 class="section-title">Not a tool.<br>An <em>operating system</em><br>for Aspiral.</h1>
+  <p class="section-intro">
+    The Aspiral OS is a custom-built AI infrastructure that sits underneath Roland's practice — invisible to clients, indispensable to the business. It doesn't replace how Roland coaches. It replaces everything that gets in the way of it.
+  </p>
+
+  <div class="info-box">
+    <div class="info-box-label">The technical stack — plain English</div>
+    <ul>
+      <li><strong>WhatsApp Business API</strong> — the single interface Roland and his clients already use. No new apps, no logins, no friction.</li>
+      <li><strong>n8n automation engine</strong> — the invisible orchestration layer. Connects everything. Runs 24/7 without anyone touching it.</li>
+      <li><strong>Claude AI (Anthropic)</strong> — the intelligence that reads, drafts, personalises, and decides. This is what makes messages sound like Roland, not like a robot.</li>
+      <li><strong>Google Calendar</strong> — the scheduling backbone. Free, mobile-native, works with every client's calendar already.</li>
+      <li><strong>Google Drive</strong> — secure, searchable client document storage. Accessible from Roland's phone, anywhere, instantly.</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px;">
+    <div style="background:var(--white);padding:28px;">
+      <div class="what-cell-label" style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);margin-bottom:12px;">What the AI handles</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--ochre)">⚙</span> All scheduling back-and-forth with clients</li>
+        <li style="font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--ochre)">⚙</span> Cancellation handling and policy enforcement</li>
+        <li style="font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--ochre)">⚙</span> Session reminders to clients (24hr and 1hr before)</li>
+        <li style="font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--ochre)">⚙</span> Re-engagement messages to clients who've gone quiet</li>
+        <li style="font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--ochre)">⚙</span> Pre-session client brief (delivered to Roland's phone)</li>
+        <li style="font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--ochre)">⚙</span> Post-session outcome summary to client</li>
+        <li style="font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--ochre)">⚙</span> Between-session accountability check-ins</li>
+      </ul>
+    </div>
+    <div style="background:var(--earth);padding:28px;">
+      <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);margin-bottom:12px;">What Roland keeps</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:13px;color:rgba(255,255,255,0.5);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--green)">♦</span> Every coaching session — 100% Roland</li>
+        <li style="font-size:13px;color:rgba(255,255,255,0.5);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--green)">♦</span> Every relationship — human, warm, trusted</li>
+        <li style="font-size:13px;color:rgba(255,255,255,0.5);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--green)">♦</span> His voice in every message (AI drafts; Roland's tone)</li>
+        <li style="font-size:13px;color:rgba(255,255,255,0.5);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--green)">♦</span> Full control — approve any message before it sends</li>
+        <li style="font-size:13px;color:rgba(255,255,255,0.5);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--green)">♦</span> His methodology and assessment IP</li>
+        <li style="font-size:13px;color:rgba(255,255,255,0.5);padding-left:18px;position:relative;line-height:1.6;"><span style="position:absolute;left:0;color:var(--green)">♦</span> The breakthroughs — the moments only he can create</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>
+      "AI can hold the structure so Roland can <strong>hold the soul.</strong> The system handles what's mechanical. Roland shows up for what's human."
+    </blockquote>
+    <cite>— San Systems Design Principle</cite>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== DAY IN THE LIFE ===== -->
+<div class="section" id="day">
+<div class="content-page">
+  <div class="section-eyebrow">03 — Roland's New Day</div>
+  <h1 class="section-title">What this looks like<br><em>in practice.</em></h1>
+  <p class="section-intro">
+    This is a real Tuesday for Roland — on the Growth tier. The AI activity is shown in ochre. Roland's work is shown in green. Notice how much white space there is now. That's the point.
+  </p>
+
+  <div style="display:grid;grid-template-columns:160px 1fr;gap:24px;margin-bottom:24px;align-items:center;">
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:9px;color:var(--ochre);">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--ochre);flex-shrink:0;"></div> AI handles this
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:9px;color:var(--green);">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;"></div> Roland does this
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.7;">All AI messages are drafted in Roland's tone and voice. Outreach re-engagement messages require Roland's approval before sending. Everything else runs automatically.</div>
+  </div>
+
+  <div class="day-timeline">
+    <div class="day-event ai-moment">
+      <div class="day-time">06:45</div>
+      <div class="day-event-card">
+        <h4>Morning brief arrives on Roland's WhatsApp</h4>
+        <p>A short AI-generated summary of today's sessions. Each client: who they are, where they're at in their coaching journey, what they focused on last session, suggested talking points. Roland reads it over coffee. He's already prepared before he leaves home.</p>
+        <span class="ai-tag">🤖 Automated — no input from Roland</span>
+      </div>
+    </div>
+    <div class="day-event ai-moment">
+      <div class="day-time">07:30</div>
+      <div class="day-event-card">
+        <h4>Client 1 reminder sent automatically</h4>
+        <p>"Hi Sarah, just a reminder that your session with Roland is at 9:00 AM today. See you then!" Sent. No action from Roland.</p>
+        <span class="ai-tag">🤖 Automated — runs while Roland showers</span>
+      </div>
+    </div>
+    <div class="day-event roland-moment">
+      <div class="day-time">08:55</div>
+      <div class="day-event-card">
+        <h4>Roland drives to his first client — fully briefed</h4>
+        <p>On the way, he glances at the brief again. He knows exactly what Sarah needs to work on today. He walks in grounded, confident, and fully present. No scrambling through notes in the parking lot.</p>
+        <span class="ai-tag">♦ Roland — coaching at his best</span>
+      </div>
+    </div>
+    <div class="day-event roland-moment">
+      <div class="day-time">09:00 – 10:00</div>
+      <div class="day-event-card">
+        <h4>Session with Sarah — full presence, no distraction</h4>
+        <p>This hour is 100% Roland. Deep, focused coaching. No admin thoughts. No "I need to follow up with Marcus" anxiety. The system is handling everything else. Roland is just here.</p>
+        <span class="ai-tag">♦ Roland — this is what he does best</span>
+      </div>
+    </div>
+    <div class="day-event ai-moment">
+      <div class="day-time">10:05</div>
+      <div class="day-event-card">
+        <h4>Session summary sent to Sarah automatically</h4>
+        <p>Within five minutes of the calendar event ending: "Sarah, here's a summary of what we covered today..." — key themes, insights, homework. Drafted by AI in Roland's voice. Sarah receives it before she's even back at her desk. She feels seen. She refers Roland to a colleague that afternoon.</p>
+        <span class="ai-tag">🤖 Automated — Roland doesn't touch it</span>
+      </div>
+    </div>
+    <div class="day-event ai-moment">
+      <div class="day-time">10:15</div>
+      <div class="day-event-card">
+        <h4>New booking request from an org client on WhatsApp</h4>
+        <p>HR Manager at a corporate client types: "Roland, can we find a time next week for the leadership debrief?" The AI responds immediately, checks Roland's calendar, offers three slots, and books the meeting when she confirms. Roland never sees the exchange.</p>
+        <span class="ai-tag">🤖 Automated — diary managed autonomously</span>
+      </div>
+    </div>
+    <div class="day-event ai-moment">
+      <div class="day-time">11:00</div>
+      <div class="day-event-card">
+        <h4>Re-engagement message sent to a dormant client — for Roland's approval</h4>
+        <p>Marcus hasn't been in touch for 68 days. The system drafts a warm, personal WhatsApp message in Roland's voice and sends it to Roland first: "Here's a suggested message for Marcus — approve to send." Roland reads it, says "send" — and Marcus replies within an hour booking a session.</p>
+        <span class="ai-tag">🤖 Drafted by AI · ♦ Approved by Roland</span>
+      </div>
+    </div>
+    <div class="day-event roland-moment">
+      <div class="day-time">12:00 – 14:00</div>
+      <div class="day-event-card">
+        <h4>Lunch. A walk. Space to think.</h4>
+        <p>No emails to chase. No messages to draft. No scheduling to sort. The practice is running. Roland uses this time for himself — or for the deep thinking that makes him a better coach.</p>
+        <span class="ai-tag">♦ Roland — protected personal time</span>
+      </div>
+    </div>
+    <div class="day-event roland-moment">
+      <div class="day-time">14:00 – 16:00</div>
+      <div class="day-event-card">
+        <h4>Two more sessions — walk in prepared both times</h4>
+        <p>The briefs arrived this morning. Roland is ready. Each session gets his full attention. Between them, the AI sends reminders, confirms the next booking, and handles a cancellation from a fourth client — offering the slot to two clients on a waiting list.</p>
+        <span class="ai-tag">♦ Roland coaches · 🤖 AI manages the rest</span>
+      </div>
+    </div>
+    <div class="day-event ai-moment">
+      <div class="day-time">16:30</div>
+      <div class="day-event-card">
+        <h4>Daily digest: what the system did today</h4>
+        <p>A single WhatsApp message to Roland: "Today's summary — 3 sessions completed, 2 session summaries sent, 1 new booking confirmed, 1 re-engagement sent (awaiting response), 1 cancellation handled. Your calendar is 78% full next week." Roland reads it in 30 seconds. He's done.</p>
+        <span class="ai-tag">🤖 Automated daily digest</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== SCOPE ===== -->
+<div class="section" id="scope">
+<div class="content-page full">
+  <div class="section-eyebrow">04 — Deliverables &amp; Scope</div>
+  <h1 class="section-title">Exactly what gets <em>built.</em></h1>
+  <p class="section-intro">
+    Every deliverable is mapped to a phase, a tier, a timeline, and a clear outcome. Nothing vague. Nothing open-ended. If it's in this table, it's in scope. If it's not, it isn't — and we'll price it separately.
+  </p>
+
+  <div class="scope-wrapper">
+  <table class="scope-table">
+    <thead>
+      <tr>
+        <th style="width:30px">#</th>
+        <th>Deliverable</th>
+        <th>What it does for Roland</th>
+        <th style="width:90px">Phase</th>
+        <th style="width:100px">Timeline</th>
+        <th style="width:80px">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">1</td>
+        <td><strong>WhatsApp Business API setup</strong><br><span style="font-size:11px;color:var(--muted);">Official Meta-verified business number, connected to n8n</span></td>
+        <td style="font-size:12px;color:var(--muted);">The foundation. All automations run through this channel. Clients message one number; the system handles everything.</td>
+        <td><span class="phase-tag ph1">Phase 1</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 1</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">2</td>
+        <td><strong>AI scheduling agent</strong><br><span style="font-size:11px;color:var(--muted);">n8n + Google Calendar + Claude</span></td>
+        <td style="font-size:12px;color:var(--muted);">Handles all booking, rescheduling, and cancellation requests from clients via WhatsApp. Roland never touches the calendar negotiation again.</td>
+        <td><span class="phase-tag ph1">Phase 1</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 1–2</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">3</td>
+        <td><strong>Automated reminders</strong><br><span style="font-size:11px;color:var(--muted);">24hr and 1hr before each session</span></td>
+        <td style="font-size:12px;color:var(--muted);">Reduces no-shows. Clients arrive prepared. Roland's time is protected. Policy-linked: if client cancels inside 24hrs, system flags for fee.</td>
+        <td><span class="phase-tag ph1">Phase 1</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 2</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">4</td>
+        <td><strong>Cancellation policy enforcement</strong><br><span style="font-size:11px;color:var(--muted);">Automated, consistent, no awkwardness</span></td>
+        <td style="font-size:12px;color:var(--muted);">Roland's cancellation policy is enforced every time — by the system, not by Roland. Removes the human discomfort of chasing fees.</td>
+        <td><span class="phase-tag ph1">Phase 1</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 2</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">5</td>
+        <td><strong>Mobile client document access</strong><br><span style="font-size:11px;color:var(--muted);">Google Drive, structured and searchable via WhatsApp</span></td>
+        <td style="font-size:12px;color:var(--muted);">Roland types a client name into WhatsApp; system returns their folder. Assessments, session notes, reports — all on his phone, anywhere.</td>
+        <td><span class="phase-tag ph1">Phase 1</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 2–3</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">6</td>
+        <td><strong>Pre-session AI brief</strong><br><span style="font-size:11px;color:var(--muted);">Delivered to Roland's phone before every session</span></td>
+        <td style="font-size:12px;color:var(--muted);">One hour before each session, Roland receives a structured brief: client history, goals, last session summary, suggested focus. He walks in fully prepared, every time.</td>
+        <td><span class="phase-tag ph1">Phase 1</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 3</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">7</td>
+        <td><strong>Post-session outcome summary</strong><br><span style="font-size:11px;color:var(--muted);">Auto-sent to client within minutes of session ending</span></td>
+        <td style="font-size:12px;color:var(--muted);">Clients receive a WhatsApp summary of what was covered, key insights, and their homework. Roland looks exceptional. Client outcomes improve. Retention increases.</td>
+        <td><span class="phase-tag ph1">Phase 1</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 3</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr style="background:#faf8f4;">
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">8</td>
+        <td><strong>Warm lead re-engagement engine</strong><br><span style="font-size:11px;color:var(--muted);">Tiered outreach: 30 / 60 / 90 day sequences</span></td>
+        <td style="font-size:12px;color:var(--muted);">Monitors time-since-last-contact for every client. Drafts personalised outreach in Roland's voice at 30, 60, and 90 day intervals. Roland approves before sending. Dormant revenue reactivated.</td>
+        <td><span class="phase-tag ph2">Phase 2</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 4–5</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr style="background:#faf8f4;">
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">9</td>
+        <td><strong>Calendar-linked outreach throttle</strong><br><span style="font-size:11px;color:var(--muted);">Outreach rate tied to calendar fullness</span></td>
+        <td style="font-size:12px;color:var(--muted);">When Roland's calendar drops below 60% full, the system automatically increases re-engagement campaign activity. When full, it pauses. Revenue gaps fill themselves.</td>
+        <td><span class="phase-tag ph2">Phase 2</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 5</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr style="background:#faf8f4;">
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">10</td>
+        <td><strong>Between-session AI check-ins</strong><br><span style="font-size:11px;color:var(--muted);">Accountability nudges from the system, in Roland's voice</span></td>
+        <td style="font-size:12px;color:var(--muted);">Midway between sessions, clients receive a brief accountability check-in: "How's that goal coming along?" Improves outcomes. Makes Roland feel omnipresent. Dramatically increases referral likelihood.</td>
+        <td><span class="phase-tag ph2">Phase 2</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 6</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr style="background:#faf8f4;">
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">11</td>
+        <td><strong>Daily operations digest</strong><br><span style="font-size:11px;color:var(--muted);">End-of-day WhatsApp summary for Roland</span></td>
+        <td style="font-size:12px;color:var(--muted);">A single daily message: sessions completed, bookings confirmed, re-engagements sent, calendar status for the week ahead. Roland is always informed, never overwhelmed.</td>
+        <td><span class="phase-tag ph2">Phase 2</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Week 6</td>
+        <td><span class="status-dot dot-build"></span><span style="font-size:11px;">Buildable</span></td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">12</td>
+        <td><strong>Voice note → session notes transcription</strong><br><span style="font-size:11px;color:var(--muted);">Roland speaks; AI logs and structures</span></td>
+        <td style="font-size:12px;color:var(--muted);">After a session, Roland sends a quick voice note: "Sarah — we worked on X and Y, homework is Z." AI transcribes, structures, and files it. No typing, no admin.</td>
+        <td><span class="phase-tag ph3">Phase 3</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Month 3+</td>
+        <td><span class="status-dot dot-later"></span><span style="font-size:11px;">Phase 3</span></td>
+      </tr>
+      <tr>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">13</td>
+        <td><strong>AI coaching assistant ("the Roland layer")</strong><br><span style="font-size:11px;color:var(--muted);">Between-session AI trained on Roland's methodology</span></td>
+        <td style="font-size:12px;color:var(--muted);">An AI assistant that handles deeper between-session client interactions — resources, reflection prompts, goal tracking — trained to sound and think like Roland. The practice scales without Roland cloning himself.</td>
+        <td><span class="phase-tag ph3">Phase 3</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:11px;">Month 4+</td>
+        <td><span class="status-dot dot-later"></span><span style="font-size:11px;">Phase 3</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== TIERS ===== -->
+<div class="section" id="tiers">
+<div class="content-page">
+  <div class="section-eyebrow">05 — Investment</div>
+  <h1 class="section-title">Start where it <em>makes sense.</em><br>Grow as you see the value.</h1>
+  <p class="section-intro">
+    Three tiers. All include setup, build, and ongoing management. No once-off fee plus surprise retainer. One monthly number — inclusive. And if this system doesn't demonstrably pay for itself in 90 days, we talk.
+  </p>
+
+  <div class="tiers-wrap">
+    <div class="tier-card">
+      <div class="tier-name">Essentials</div>
+      <div class="tier-price">R3,500</div>
+      <div class="tier-period">/month — all inclusive</div>
+      <div class="tier-anchor">The foundation. Solves the daily chaos within the first two weeks. Deliverables 1–7.</div>
+      <ul class="tier-features">
+        <li>WhatsApp Business setup &amp; management</li>
+        <li>AI scheduling agent (Google Calendar)</li>
+        <li>Automated session reminders</li>
+        <li>Cancellation policy enforcement</li>
+        <li>Mobile client document access</li>
+        <li>Pre-session AI brief to Roland's phone</li>
+        <li>Post-session client summary</li>
+        <li class="off">Warm lead re-engagement engine</li>
+        <li class="off">Between-session check-ins</li>
+        <li class="off">Daily digest &amp; calendar throttle</li>
+      </ul>
+      <div class="tier-setup">Setup included · Monthly iteration · No lock-in after 3 months</div>
+    </div>
+
+    <div class="tier-card featured">
+      <div class="tier-ribbon">Recommended</div>
+      <div class="tier-name">Growth</div>
+      <div class="tier-price">R5,500</div>
+      <div class="tier-period">/month — all inclusive</div>
+      <div class="tier-anchor">Adds the revenue engine. One recovered client pays for 3 months. Deliverables 1–11.</div>
+      <ul class="tier-features">
+        <li>Everything in Essentials</li>
+        <li>Warm lead re-engagement engine</li>
+        <li>30 / 60 / 90 day re-engagement sequences</li>
+        <li>Calendar-linked outreach throttle</li>
+        <li>Between-session accountability check-ins</li>
+        <li>Daily operations digest</li>
+        <li>Monthly performance review call</li>
+        <li class="off">Voice note transcription</li>
+        <li class="off">AI coaching assistant</li>
+      </ul>
+      <div class="tier-setup">Setup included · Monthly iteration · No lock-in after 3 months</div>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-name">Aspiral OS</div>
+      <div class="tier-price">R8,500</div>
+      <div class="tier-period">/month — all inclusive</div>
+      <div class="tier-anchor">Full AI operating system. The practice runs like a firm. All 13 deliverables.</div>
+      <ul class="tier-features">
+        <li>Everything in Growth</li>
+        <li>Voice note → structured session notes</li>
+        <li>AI coaching assistant (Roland layer)</li>
+        <li>Org-client branded reporting portal</li>
+        <li>Invoice &amp; payment follow-up automation</li>
+        <li>Priority support (same-day response)</li>
+        <li>Weekly optimisation &amp; iteration</li>
+        <li>Quarterly strategic AI review</li>
+      </ul>
+      <div class="tier-setup">Setup included · Dedicated build sprint · Priority access</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="info-box-label">What "all inclusive" means</div>
+    <ul>
+      <li>Initial build and configuration of all deliverables in your chosen tier</li>
+      <li>Ongoing hosting and maintenance of all automations</li>
+      <li>Monthly refinements based on what's working and what isn't</li>
+      <li>WhatsApp API costs covered up to 1,000 conversations/month (standard practice usage)</li>
+      <li>Claude AI usage costs covered within normal practice volume</li>
+    </ul>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>
+      "A part-time PA in South Africa costs R6,000–R8,000 a month — and doesn't work evenings, weekends, or when sick. <strong>The Growth tier costs less, works 24/7, and recovers revenue a PA never could.</strong>"
+    </blockquote>
+    <cite>— San Systems Pricing Rationale</cite>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== TERMS ===== -->
+<div class="section" id="terms">
+<div class="content-page">
+  <div class="section-eyebrow">06 — Terms &amp; Process</div>
+  <h1 class="section-title">How we work <em>together.</em></h1>
+  <p class="section-intro">
+    Straightforward terms. No surprises. We operate on trust — which is exactly the same foundation Roland's practice runs on.
+  </p>
+
+  <div class="terms-grid">
+    <div class="terms-cell">
+      <div class="terms-cell-label">Commitment</div>
+      <p><strong>Three-month minimum</strong> to allow the system to bed in and show measurable results. After that, month-to-month with 30 days written notice. No penalty for leaving — we'd rather earn the relationship every month.</p>
+    </div>
+    <div class="terms-cell">
+      <div class="terms-cell-label">Payment</div>
+      <p>Monthly in advance by EFT. Invoice raised on the 1st of each month. Payment due by the 7th. Banking details: <strong>The San Scribe Pty Ltd, FNB, Acc: 63051329225, Branch: 200409.</strong></p>
+    </div>
+    <div class="terms-cell">
+      <div class="terms-cell-label">Build timeline</div>
+      <p>Phase 1 deliverables (Essentials tier) live within <strong>2–3 weeks</strong> of sign-off and WhatsApp API approval. Phase 2 additions within 6 weeks. Roland will feel the first impact in week one.</p>
+    </div>
+    <div class="terms-cell">
+      <div class="terms-cell-label">Data &amp; privacy</div>
+      <p>All client data remains Roland's. San Systems has no commercial interest in Aspiral's client information. Data is stored in Roland's own Google Drive account. We configure; Roland owns.</p>
+    </div>
+    <div class="terms-cell">
+      <div class="terms-cell-label">AI disclosure</div>
+      <p>We recommend Roland informs clients that his practice uses AI tools to support client care between sessions. Framed correctly — <strong>"My practice uses AI to ensure you're always looked after"</strong> — this is a selling point, not a vulnerability.</p>
+    </div>
+    <div class="terms-cell">
+      <div class="terms-cell-label">Tier flexibility</div>
+      <p>Roland can upgrade tiers at any time with 7 days notice. Downgrading is available after the initial 3-month period. We'll always recommend what's right for the practice — not what's right for our invoice.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="what-cell-label" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);margin-bottom:20px;">Onboarding process — what happens after sign-off</div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px;">
+    <div style="background:var(--white);padding:24px;text-align:center;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--rule);margin-bottom:12px;">1</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);margin-bottom:8px;">Week 1</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65;">Discovery session. We map Roland's client list, calendar structure, communication patterns, and tone. Build begins.</div>
+    </div>
+    <div style="background:var(--white);padding:24px;text-align:center;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--rule);margin-bottom:12px;">2</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);margin-bottom:8px;">Week 2</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65;">WhatsApp live. Scheduling agent tested. Reminders running. Roland experiences the first impact — calendar managed without effort.</div>
+    </div>
+    <div style="background:var(--white);padding:24px;text-align:center;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--rule);margin-bottom:12px;">3</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);margin-bottom:8px;">Week 3</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65;">Pre-session briefs and post-session summaries activated. Roland walks into every session prepared. Clients notice immediately.</div>
+    </div>
+    <div style="background:var(--white);padding:24px;text-align:center;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--rule);margin-bottom:12px;">4</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);margin-bottom:8px;">Week 4–6</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65;">Re-engagement engine goes live. First dormant clients receive outreach. Roland sees direct revenue return. Monthly review scheduled.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== ACCEPTANCE ===== -->
+<div class="section" id="acceptance">
+<div class="content-page">
+  <div class="section-eyebrow">07 — Acceptance</div>
+  <h1 class="section-title">When you're ready,<br><em>this is how we begin.</em></h1>
+  <p class="section-intro" style="margin-bottom:32px;">
+    This proposal is valid for 30 days from the date of issue. Acceptance can be by signature below, or simply by responding to the accompanying WhatsApp message with "Let's go."
+  </p>
+
+  <div class="acceptance-box">
+    <div class="acc-label">Proposal Acceptance</div>
+    <h3>Aspiral × San Systems — AI Operating System</h3>
+    <p>By signing below, both parties agree to the terms outlined in this proposal, including the selected tier, the three-month minimum commitment, and the onboarding process. San Systems will issue a formal invoice upon receipt of this signed document.</p>
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="sig-label">For Aspiral — Client Signature</div>
+        <div class="sig-line">
+          Name: Roland ____________________<br>
+          Date: ___________________________<br>
+          Selected Tier: □ Essentials □ Growth □ Aspiral OS
+        </div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-label">For San Systems — Authorised Signature</div>
+        <div class="sig-line">
+          Name: ___________________________<br>
+          The San Scribe Pty Ltd<br>
+          Date: ___________________________
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-top:3px;">
+    <div class="info-box-label">Questions? Let's talk.</div>
+    <p>This proposal covers the scope but can't cover everything. If you have questions about how something works, what happens in an edge case, or whether a specific feature is possible — reach out directly.</p>
+    <ul>
+      <li>WhatsApp: +27 73 302 0683</li>
+      <li>Email: hello@thesanscribe.com</li>
+      <li>Website: thesanscribe.com</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:32px;padding:28px;background:var(--sand);border-top:2px solid var(--ochre);">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--earth);line-height:1.55;margin-bottom:12px;">
+      "When the map is visible, alignment stops being a debate. <strong>Let's make Aspiral's map visible.</strong>"
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);">— The San Scribe · We map what matters</div>
+  </div>
+
+</div>
+</div>
+
+</main>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-link, .mobile-nav-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick')?.includes(`'${id}'`));
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

@@ -4,37 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>San Systems — Proposals</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,400&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --earth: #1a1408; --ochre: #c47c2b; --sand: #f2ead8;
+      --bone: #faf6ee; --muted: #7a7060; --rule: #d8ceb8; --white: #fff;
+      --green: #2a5c3a; --rust: #8b3a1a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body { background:var(--bone); color:var(--earth); font-family:'Inter',sans-serif; font-weight:300; line-height:1.7; }
+    .cover {
+      min-height: 60vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 60px 80px;
+      background: var(--earth);
+      color: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,124,43,0.12);
+    }
+    .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .cover-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.2em; color:var(--ochre); text-transform:uppercase; }
+    .cover-date { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(242,234,216,0.4); }
+    .cover-main { max-width:700px; align-self:center; }
+    .cover-eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.25em; color:var(--ochre); text-transform:uppercase; margin-bottom:28px; }
+    .cover-title { font-family:'Cormorant Garamond',serif; font-size:clamp(48px,6vw,72px); font-weight:700; line-height:1.0; letter-spacing:-0.02em; margin-bottom:20px; }
+    .cover-title em { font-style:italic; color:var(--ochre); }
+    .cover-sub { font-size:17px; font-weight:300; color:rgba(242,234,216,0.6); max-width:480px; line-height:1.6; margin-bottom:40px; }
+    .cover-divider { width:60px; height:1px; background:var(--ochre); }
+    .cover-footer { display:flex; justify-content:space-between; align-items:flex-end; border-top:1px solid rgba(242,234,216,0.1); padding-top:24px; }
+    .cover-footer-left { font-family:'DM Mono',monospace; font-size:11px; color:rgba(242,234,216,0.3); letter-spacing:0.1em; }
+    .cover-footer-right { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--ochre); }
+    .body-wrap { max-width:900px; margin:0 auto; padding:80px 60px; }
+    .section { margin-bottom:60px; }
+    .section-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.3em; color:var(--ochre); text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+    .section-label::after { content:''; flex:1; height:1px; background:var(--rule); }
+    .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3.5vw,40px); font-weight:700; line-height:1.15; letter-spacing:-0.02em; margin-bottom:32px; }
+    .section-title em { font-style:italic; color:var(--green); }
+    .proposal-grid { display:flex; flex-direction:column; gap:2px; background:var(--rule); }
+    .proposal-card { display:grid; grid-template-columns:80px 1fr; gap:0; background:var(--bone); text-decoration:none; color:inherit; transition:background 0.2s; overflow:hidden; }
+    .proposal-card:hover { background:var(--sand); }
+    .card-number { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:700; color:var(--rule); display:flex; align-items:center; justify-content:center; padding:28px 16px; background:var(--bone); transition:color 0.2s; }
+    .proposal-card:hover .card-number { color:var(--ochre); }
+    .card-body { padding:28px 32px 28px 20px; }
+    .card-client { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; color:var(--ochre); text-transform:uppercase; margin-bottom:4px; }
+    .card-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; margin-bottom:8px; }
+    .card-desc { font-size:14px; color:var(--muted); line-height:1.6; margin-bottom:16px; max-width:600px; }
+    .card-meta { display:flex; align-items:center; gap:16px; }
+    .card-status { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; padding:3px 10px; border-radius:2px; }
+    .card-status.sent { background:rgba(196,124,43,0.1); color:var(--ochre); }
+    .card-status.live { background:rgba(42,92,58,0.1); color:var(--green); }
+    .card-status.pending { background:rgba(139,58,26,0.1); color:var(--rust); }
+    .card-date { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); }
+    .doc-footer { padding:32px 60px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--rule); background:var(--bone); }
+    .doc-footer-left { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+    .doc-footer-right { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; color:var(--green); }
+    @media(max-width:640px){
+      .cover { padding:40px 24px; }
+      .body-wrap { padding:40px 24px; }
+      .doc-footer { padding:24px; flex-direction:column; gap:8px; text-align:center; }
+      .proposal-card { grid-template-columns:1fr; }
+      .card-number { display:none; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════ COVER -->
   <div class="cover">
     <div class="cover-top">
       <div class="cover-label">Proposal Index</div>
       <div class="cover-date">Updated June 2026</div>
     </div>
-
     <div class="cover-main">
       <div class="cover-eyebrow">San Systems · A division of The San Scribe Pty Ltd</div>
-      <h1 class="cover-title">
-        Client <em>proposals</em>
-      </h1>
-      <p class="cover-sub">
-        Confidential proposals prepared for prospective clients. Each document is individually access-controlled.
-      </p>
+      <h1 class="cover-title">Client <em>proposals</em></h1>
+      <p class="cover-sub">Confidential proposals prepared for prospective clients. Each document is password-protected and individually accessible.</p>
       <div class="cover-divider"></div>
     </div>
-
     <div class="cover-footer">
-      <div class="cover-footer-left">thesanscribe.com · deon@thesanscribe.com</div>
+      <div class="cover-footer-left">thesanscribe.com · hello@thesanscribe.com</div>
       <div class="cover-footer-right">San Systems</div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ PROPOSAL LIST -->
   <div class="body-wrap">
     <div class="section">
       <div class="section-label">Active proposals</div>
@@ -42,15 +102,15 @@
 
       <div class="proposal-grid">
 
-        <a href="proposals/rabia-transitions/" class="proposal-card">
+        <a href="/aspiral-001/" class="proposal-card">
           <div class="card-number">01</div>
           <div class="card-body">
-            <div class="card-client">Rabia Transitions</div>
-            <div class="card-title">Intelligence Publishing Engine</div>
-            <div class="card-desc">Automated daily LinkedIn publishing pipeline grounded in five years of climate finance research. Signal intelligence, AI-authored posts, branded data visualisation cards, approval workflow.</div>
+            <div class="card-client">Aspiral Coaching Practice</div>
+            <div class="card-title">AI Operating System</div>
+            <div class="card-desc">A custom AI-powered operating system for Roland's coaching practice — built on WhatsApp Business API, n8n, Claude, and Google Calendar. Three tiers: R3,500 / R5,500 / R8,500 per month.</div>
             <div class="card-meta">
-              <span class="card-status active">In discussion</span>
-              <span class="card-date">13 May 2026</span>
+              <span class="card-status sent">Sent</span>
+              <span class="card-date">May 2026</span>
             </div>
           </div>
         </a>
@@ -61,10 +121,9 @@
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ FOOTER -->
   <div class="doc-footer">
     <div class="doc-footer-left">
-      San Systems · A division of The San Scribe Pty Ltd · deon@thesanscribe.com
+      San Systems · A division of The San Scribe Pty Ltd · hello@thesanscribe.com
     </div>
     <div class="doc-footer-right">The Sanscribe</div>
   </div>
