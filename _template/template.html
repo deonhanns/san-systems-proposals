@@ -45,11 +45,49 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Caveat:wght@400;600;700&family=Patrick+Hand&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/design-tokens.css">
-
 <style>
 
 
+
+    :root {
+      --paper:#F8F3EC;--paper-warm:#F5EFE0;--paper-deep:#ECE3D0;
+      --ink:#1B1B1B;--ink-soft:#2B2724;--ink-mute:#6B6258;
+      --sun-50:#FFF6D9;--sun-100:#FBE7A0;--sun-300:#F4D262;--sun-500:#F2C43A;--sun-700:#C7902A;
+      --ochre-50:#FBE4DC;--ochre-300:#E08054;--ochre-500:#C8512A;--ochre-700:#8E3416;
+      --clay-500:#B47148;--sand-500:#D9B27A;--grass-500:#8A8534;
+      --sky-50:#DCEFF1;--sky-300:#7FCBCB;--sky-500:#2EA8A8;--sky-700:#1A6F70;
+      --wash-ochre:rgba(200,81,42,0.12);--wash-yellow:rgba(242,196,58,0.22);
+      --wash-teal:rgba(46,168,168,0.14);--wash-ink:rgba(27,27,27,0.07);
+      --wash-yellow-dark:rgba(242,196,58,0.18);--wash-ochre-dark:rgba(200,81,42,0.20);
+      --wash-teal-dark:rgba(46,168,168,0.20);
+      --surface-dark:rgba(248,243,236,0.06);--border-dark:rgba(248,243,236,0.10);
+      --body-dark:rgba(248,243,236,0.55);--label-dark:rgba(248,243,236,0.35);
+      --bg:var(--paper);--bg-alt:var(--paper-warm);--bg-deep:var(--paper-deep);
+      --fg1:var(--ink);--fg2:var(--ink-soft);--fg3:var(--ink-mute);
+      --accent:var(--ochre-500);--accent-soft:var(--ochre-50);
+      --highlight:var(--sun-500);--highlight-soft:var(--sun-50);
+      --link:var(--sky-500);--rule:#E2D8C5;
+      --font-display:"Bricolage Grotesque","Arial Black",Arial,sans-serif;
+      --font-body:"Patrick Hand","Trebuchet MS",Verdana,sans-serif;
+      --font-script:"Caveat","Kalam","Bradley Hand",cursive;
+      --font-ui:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+      --font-mono:ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+      --fs-display:clamp(42px,5.2vw,68px);--fs-h1:clamp(40px,5vw,64px);
+      --fs-h2:clamp(30px,3.8vw,48px);--fs-h3:20px;--fs-lead:18px;
+      --fs-body:18px;--fs-card:15px;--fs-small:14px;--fs-caption:13px;
+      --fs-label:11px;--fs-micro:10px;
+      --lh-tight:1.05;--lh-snug:1.18;--lh-body:1.7;--lh-loose:1.6;
+      --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;
+      --space-5:24px;--space-6:32px;--space-7:48px;--space-8:72px;--space-9:112px;
+      --r-1:4px;--r-2:8px;--r-3:18px;--r-4:22px;--r-pill:999px;
+      --border-ink:2px solid var(--ink);--border-rule:1px solid var(--rule);--border-thick:3px solid var(--ink);
+      --shadow-1:0 1px 0 rgba(27,27,27,.06),0 2px 6px rgba(27,27,27,.06);
+      --shadow-2:0 2px 0 rgba(27,27,27,.10),0 10px 24px -8px rgba(27,27,27,.18);
+      --shadow-3:0 3px 0 rgba(27,27,27,.14),0 22px 40px -12px rgba(27,27,27,.22);
+      --shadow-stamp:5px 5px 0 var(--ink);--shadow-stamp-ochre:5px 5px 0 var(--ochre-500);--shadow-stamp-sun:5px 5px 0 var(--sun-500);
+      --ease-pen:cubic-bezier(.6,.04,.32,1);--ease-bounce:cubic-bezier(.34,1.56,.64,1);
+      --dur-fast:140ms;--dur:220ms;--dur-slow:420ms;
+    }
 html { scroll-behavior: smooth; }
 body {
   background: var(--paper);
