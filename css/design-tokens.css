@@ -1,0 +1,289 @@
+/* ============================================================
+   THE SAN SCRIBE — Canonical Design Tokens
+   Source of truth: SAN_SCRIBE_DESIGN_SYSTEM_v1.md
+   Custodian: Bones (Chief of Human Experience)
+   Version: 1.1
+   Date: 2026-05-18
+   Approved by: Captain Deon Hanns
+
+   DO NOT MODIFY THIS FILE DIRECTLY.
+   Any changes to the design system must be made in
+   SAN_SCRIBE_DESIGN_SYSTEM_v1.md first, then this file
+   is regenerated from that doctrine.
+
+   All San Scribe repos import this file.
+   ============================================================ */
+
+/* ── Google Fonts Load String ──
+   Bricolage Grotesque — display headings (H1, H2)
+   Caveat — accent/script (pull quotes, badges, max 2-3 per page)
+   Patrick Hand — body copy
+   Space Grotesk — UI chrome (nav, labels, buttons, fine print)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Caveat:wght@400;600;700&family=Patrick+Hand&family=Space+Grotesk:wght@400;500;600&display=swap");
+
+:root {
+  /* ================================================================
+     1. BRAND CORE — Primary Palette
+     ================================================================ */
+  --paper:        #F8F3EC;   /* Page background. Warm cream. Full-bleed on light pages. */
+  --paper-warm:   #F5EFE0;   /* Cards on paper. Slightly warmer. Card backgrounds. */
+  --paper-deep:   #ECE3D0;   /* Divider tone / muted card backgrounds. */
+  --ink:          #1B1B1B;   /* Primary text, borders, shadows. Never pure black. */
+  --ink-soft:     #2B2724;   /* Secondary text. */
+  --ink-mute:     #6B6258;   /* Tertiary text, captions, disabled. */
+
+  /* SUN — joy yellow, the lightworker frequency. From the logo halo. */
+  --sun-50:       #FFF6D9;
+  --sun-100:      #FBE7A0;
+  --sun-300:      #F4D262;
+  --sun-500:      #F2C43A;   /* Primary brand yellow. Field colour. */
+  --sun-700:      #C7902A;   /* Deep amber. */
+
+  /* OCHRE — red ochre, San rock-art, fired earth. The single emphasis colour. */
+  --ochre-50:     #FBE4DC;
+  --ochre-300:    #E08054;
+  --ochre-500:    #C8512A;   /* Primary brand red-ochre. ONE word per headline. */
+  --ochre-700:    #8E3416;
+
+  /* EARTH — ground tones */
+  --clay-500:     #B47148;   /* Warm clay. */
+  --sand-500:     #D9B27A;   /* Baked sand. */
+  --grass-500:    #8A8534;   /* Dry grass / olive. */
+
+  /* SKY — modern + tech edge */
+  --sky-50:       #DCEFF1;
+  --sky-300:      #7FCBCB;
+  --sky-500:      #2EA8A8;   /* Signal teal — links, focus rings, ghost CTAs. */
+  --sky-700:      #1A6F70;
+
+  /* ================================================================
+     2. DERIVED / WASH COLOURS
+     ================================================================ */
+
+  /* Icon wash variants — soft fill only, no border */
+  --wash-ochre:    rgba(200, 81, 42, 0.12);
+  --wash-yellow:   rgba(242, 196, 58, 0.22);
+  --wash-teal:     rgba(46, 168, 168, 0.14);
+  --wash-ink:      rgba(27, 27, 27, 0.07);
+
+  /* Dark section wash variants (on #1B1B1B background) */
+  --wash-yellow-dark: rgba(242, 196, 58, 0.18);
+  --wash-ochre-dark:  rgba(200, 81, 42, 0.20);
+  --wash-teal-dark:   rgba(46, 168, 168, 0.20);
+
+  /* Dark section surface tokens */
+  --surface-dark:     rgba(248, 243, 236, 0.06);
+  --border-dark:      rgba(248, 243, 236, 0.10);
+  --body-dark:        rgba(248, 243, 236, 0.55);
+  --label-dark:       rgba(248, 243, 236, 0.35);
+
+  /* ================================================================
+     3. SEMANTIC TOKENS
+     ================================================================ */
+  --bg:           var(--paper);
+  --bg-alt:       var(--paper-warm);
+  --bg-deep:      var(--paper-deep);
+  --fg1:          var(--ink);
+  --fg2:          var(--ink-soft);
+  --fg3:          var(--ink-mute);
+  --accent:       var(--ochre-500);
+  --accent-soft:  var(--ochre-50);
+  --highlight:    var(--sun-500);
+  --highlight-soft: var(--sun-50);
+  --link:         var(--sky-500);
+  --rule:         #E2D8C5;   /* Hairline borders */
+
+  /* ================================================================
+     4. TYPOGRAPHY — Font Families
+     ================================================================ */
+
+  /* Display — Bricolage Grotesque for all H1 and H2 */
+  --font-display: "Bricolage Grotesque", "Arial Black", Arial, sans-serif;
+
+  /* Body — Patrick Hand for all body copy */
+  --font-body:    "Patrick Hand", "Trebuchet MS", Verdana, sans-serif;
+
+  /* Accent/Script — Caveat for pull quotes, badges, labels (max 2-3 per page) */
+  --font-script:  "Caveat", "Kalam", "Bradley Hand", cursive;
+
+  /* UI — Space Grotesk for all chrome (nav, labels, buttons, fine print) */
+  --font-ui:      "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  /* Mono — code, data display */
+  --font-mono:    ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* ================================================================
+     5. TYPE SCALE
+     ================================================================ */
+  --fs-display: clamp(42px, 5.2vw, 68px);  /* Hero H1 */
+  --fs-h1:      clamp(40px, 5vw, 64px);     /* Page titles */
+  --fs-h2:      clamp(30px, 3.8vw, 48px);   /* Section headers */
+  --fs-h3:      20px;                        /* Card titles */
+  --fs-lead:    18px;                        /* Lead paragraphs */
+  --fs-body:    18px;                        /* Page body copy */
+  --fs-card:    15px;                        /* Card body copy */
+  --fs-small:   14px;                        /* Small text */
+  --fs-caption: 13px;                        /* Captions, meta */
+  --fs-label:   11px;                        /* UI labels */
+  --fs-micro:   10px;                        /* Fine print */
+
+  --lh-tight:   1.05;
+  --lh-snug:    1.18;
+  --lh-body:    1.7;
+  --lh-loose:   1.6;
+
+  /* ================================================================
+     6. SPACING SYSTEM
+     ================================================================ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+  --space-9: 112px;
+
+  /* ================================================================
+     7. BORDER RADII
+     ================================================================ */
+  --r-1:      4px;      /* Inputs, tags */
+  --r-2:      8px;      /* Small elements */
+  --r-3:      18px;     /* Default card radius */
+  --r-4:      22px;     /* Hero panels */
+  --r-pill:   999px;    /* Pills, avatars */
+
+  /* ================================================================
+     8. BORDERS
+     ================================================================ */
+  --border-ink:   2px solid var(--ink);
+  --border-rule:  1px solid var(--rule);
+  --border-thick: 3px solid var(--ink);
+
+  /* ================================================================
+     9. SHADOWS
+     ================================================================ */
+  --shadow-1: 0 1px 0 rgba(27,27,27,.06), 0 2px 6px rgba(27,27,27,.06);
+  --shadow-2: 0 2px 0 rgba(27,27,27,.10), 0 10px 24px -8px rgba(27,27,27,.18);
+  --shadow-3: 0 3px 0 rgba(27,27,27,.14), 0 22px 40px -12px rgba(27,27,27,.22);
+
+  /* Stamp shadows — comic offset for cards and CTAs */
+  --shadow-stamp:      5px 5px 0 var(--ink);
+  --shadow-stamp-ochre: 5px 5px 0 var(--ochre-500);
+  --shadow-stamp-sun:   5px 5px 0 var(--sun-500);
+
+  /* ================================================================
+     10. MOTION
+     ================================================================ */
+  --ease-pen:    cubic-bezier(.6, .04, .32, 1);  /* "Pen stroke" — all hover transitions */
+  --ease-bounce: cubic-bezier(.34, 1.56, .64, 1); /* Playful moments */
+  --dur-fast:    140ms;   /* Instant feedback — button press */
+  --dur:         220ms;   /* Standard hover state */
+  --dur-slow:    420ms;   /* Deliberate/cinematic moments */
+}
+
+/* ================================================================
+   11. BASE ELEMENTS
+   ================================================================ */
+html, body {
+  background: var(--bg);
+  color: var(--fg1);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================================================
+   12. UTILITY CLASSES
+   ================================================================ */
+
+/* Squiggle underline — applied to the ochre emphasis word in hero headlines */
+.squiggle {
+  position: relative;
+  display: inline-block;
+}
+.squiggle::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; left: 0; right: 0; height: 5px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='6'%3E%3Cpath d='M0 4 Q15 1 30 4 Q45 7 60 4' stroke='%23F2C43A' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+  background-size: auto 100%;
+}
+
+/* Ochre squiggle variant */
+.squiggle--ochre::after {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='6'%3E%3Cpath d='M0 4 Q15 1 30 4 Q45 7 60 4' stroke='%23C8512A' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+  background-size: auto 100%;
+}
+
+/* Highlight word treatment */
+.mark-ochre  { color: var(--ochre-500); }
+.mark-yellow { background: linear-gradient(transparent 55%, var(--sun-100) 55%); padding: 0 .12em; }
+
+/* Watercolour splotch — hero size */
+.splotch-hero {
+  background: radial-gradient(ellipse at 44% 44%,
+    rgba(242,196,58,0.24) 0%,
+    rgba(232,168,32,0.13) 40%,
+    rgba(200,81,42,0.06) 68%,
+    transparent 82%);
+  pointer-events: none;
+}
+
+/* Watercolour splotch — section size */
+.splotch-section {
+  background: radial-gradient(ellipse,
+    rgba(242,196,58,0.09), transparent 70%);
+  pointer-events: none;
+}
+
+/* Dark background logo filter */
+.logo-on-dark {
+  filter: brightness(0) invert(1);
+}
+
+/* ================================================================
+   13. REPO-SPECIFIC TOKEN EXTENSIONS
+   Tokens needed by specific repos that extend the canonical palette.
+   All additions must be documented here with the repo that uses them.
+   ================================================================ */
+
+/* NNM Navigator — Phase colours (mapped to canonical tokens) */
+/* Repo: nnm-navigator-app */
+/* These aliases preserve existing code while pointing to canonical values */
+[data-brand="nnm"] {
+  --exploration:  var(--sky-500);
+  --mining:       var(--ochre-500);
+  --symbol:       var(--sun-500);
+  --convergence:  var(--clay-500);
+}
+
+/* NNM Navigator — Harvest Module seed colours */
+/* Repo: nnm-navigator-app */
+[data-brand="nnm"] {
+  --seed:      #4A7C59;
+  --seed-500:  #4A7C59;
+  --seed-100:  #E8F5E9;
+}
+
+/* San Systems Proposals — sub-brand palette */
+/* Repo: san-systems-proposals */
+/* PENDING CAPTAIN DECISION: unify or maintain distinct sub-brand */
+/* Current sub-brand tokens (for reference during decision): */
+/*
+  --earth: #1a1408; --soil: #2d2416; --ochre: #c47c2b;
+  --ochre-light: #e8a84a; --sand: #f2ead8; --bone: #faf6ee;
+  Fonts: Cormorant Garamond, Inter, DM Mono
+*/
+
+/* ================================================================
+   DEPRECATED TOKENS — do not use in new builds
+   These exist only for backward compatibility during migration.
+   ================================================================ */
+
+/* Retired fonts — do not use in new code */
+/* Caveat Brush — replaced by Bricolage Grotesque */
+/* Permanent Marker — replaced by Bricolage Grotesque */
