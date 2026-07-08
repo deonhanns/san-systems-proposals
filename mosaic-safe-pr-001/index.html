@@ -2,26 +2,17 @@
 <html lang="en">
 <head>
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://proposals.thesanscribe.com/mosaic-safe-pr-001" />
+  <meta property="og:url" content="https://proposal.thesanscribe.com/mosaic-safe-pr-001" />
   <meta property="og:title" content="San Systems — MOSAIC SAFE-PR Proposal" />
   <meta property="og:description" content="A confidential proposal prepared for MOSAIC Training Service and Healing Centre. Prepared by San Systems, a private division of The San Scribe." />
-  <meta property="og:image" content="https://proposals.thesanscribe.com/og-sansystems.png" />
+  <meta property="og:image" content="https://proposal.thesanscribe.com/og-sansystems.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="San Systems · The San Scribe" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="San Systems — MOSAIC SAFE-PR Proposal" />
   <meta name="twitter:description" content="Confidential proposal prepared by San Systems for MOSAIC." />
-  <meta name="twitter:image" content="https://proposals.thesanscribe.com/og-sansystems.png" />
-  <script>
-    (function() {
-      var PROPOSAL_ID = 'mosaic-safe-pr-001';
-      var WEBHOOK_URL = 'https://N8N_WEBHOOK_URL/proposal-opened'; // replace with your n8n webhook
-      fetch(WEBHOOK_URL + '?id=' + PROPOSAL_ID + '&t=' + Date.now(), { mode: 'no-cors' }).catch(function(){});
-      localStorage.setItem('ss_open_' + PROPOSAL_ID, new Date().toISOString());
-    })();
-  </script>
-
+  <meta name="twitter:image" content="https://proposal.thesanscribe.com/og-sansystems.png" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MOSAIC SAFE-PR Proposal — San Systems</title>
@@ -267,7 +258,6 @@ function checkGate(){
     var gate = document.getElementById('ss-gate');
     gate.classList.add('unlocking');
     setTimeout(function(){ gate.style.display='none'; }, 600);
-    fetch('https://N8N_WEBHOOK_URL/proposal-unlocked?id=mosaic-safe-pr-001&t=' + Date.now(), { mode:'no-cors' }).catch(function(){});
   } else {
     input.classList.add('shake');
     document.getElementById('gate-error').textContent = 'Incorrect. Try again.';
@@ -634,8 +624,8 @@ function checkGate(){
     <div class="terms-cell"><div class="terms-cell-label">POPIA &amp; data protection</div><p>Data protection design happens in Phase 0, before any pilot goes live — not retrofitted after the fact.</p></div>
     <div class="terms-cell"><div class="terms-cell-label">Track B governance gate</div><p>No feature that shapes or touches an actual affidavit proceeds without a legal/DOJCD-input checkpoint. This is a hard gate, not a formality.</p></div>
     <div class="terms-cell"><div class="terms-cell-label">Confidentiality</div><p>Survivor and referral data are treated as confidential by default, in line with the SAFE Code of Conduct's own standards.</p></div>
-    <div class="terms-cell"><div class="terms-cell-label">Payment structure</div><p>[Insert milestone / deposit terms — e.g. 50% on Phase 0 sign-off, 50% on delivery.]</p></div>
-    <div class="terms-cell"><div class="terms-cell-label">Maintenance &amp; handover</div><p>[Insert ongoing support terms — e.g. monthly retainer, or handover documentation for MOSAIC's own team.]</p></div>
+    <div class="terms-cell"><div class="terms-cell-label">Payment structure</div><p>50% upfront on Phase 0 sign-off, 50% on completion. Each phase invoiced and delivered independently.</p></div>
+    <div class="terms-cell"><div class="terms-cell-label">Maintenance &amp; handover</div><p>R2,500/month retainer for ongoing maintenance, support, and minor enhancements. Full handover documentation provided if MOSAIC ever chooses to self-manage.</p></div>
   </div>
 </div>
 </div>
