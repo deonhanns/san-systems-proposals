@@ -1,1 +1,696 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://proposals.thesanscribe.com/mosaic-safe-pr-001" />
+  <meta property="og:title" content="San Systems — MOSAIC SAFE-PR Proposal" />
+  <meta property="og:description" content="A confidential proposal prepared for MOSAIC Training Service and Healing Centre. Prepared by San Systems, a private division of The San Scribe." />
+  <meta property="og:image" content="https://proposals.thesanscribe.com/og-sansystems.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="San Systems · The San Scribe" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="San Systems — MOSAIC SAFE-PR Proposal" />
+  <meta name="twitter:description" content="Confidential proposal prepared by San Systems for MOSAIC." />
+  <meta name="twitter:image" content="https://proposals.thesanscribe.com/og-sansystems.png" />
+  <script>
+    (function() {
+      var PROPOSAL_ID = 'mosaic-safe-pr-001';
+      var WEBHOOK_URL = 'https://N8N_WEBHOOK_URL/proposal-opened'; // replace with your n8n webhook
+      fetch(WEBHOOK_URL + '?id=' + PROPOSAL_ID + '&t=' + Date.now(), { mode: 'no-cors' }).catch(function(){});
+      localStorage.setItem('ss_open_' + PROPOSAL_ID, new Date().toISOString());
+    })();
+  </script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOSAIC SAFE-PR Proposal — San Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #1a1408;
+  --soil: #2d2416;
+  --ochre: #c47c2b;
+  --ochre-light: #e8a84a;
+  --sand: #f2ead8;
+  --bone: #faf6ee;
+  --ash: #e8e0cc;
+  --muted: #7a7060;
+  --rule: #d8ceb8;
+  --white: #ffffff;
+  --green: #2a5c3a;
+  --rust: #8b3a1a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bone);
+  color: var(--earth);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+}
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:999;
+}
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 220px;
+  background: var(--earth); display: flex; flex-direction: column;
+  padding: 40px 0 32px; z-index: 100; overflow-y: auto;
+}
+.sidebar-brand { padding: 0 28px 32px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+.sidebar-brand .ss-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.22em; text-transform:uppercase; color:var(--ochre); margin-bottom:6px; }
+.sidebar-brand .ss-name { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--bone); line-height:1.2; }
+.sidebar-brand .ss-sub { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:4px; }
+.nav-section { font-family:'DM Mono',monospace; font-size:7px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,0.2); padding:0 28px; margin-bottom:8px; margin-top:16px; }
+.nav-link { display:block; padding:9px 28px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); text-decoration:none; transition:all .2s; border-left:2px solid transparent; cursor:pointer; }
+.nav-link:hover,.nav-link.active { color:var(--ochre-light); border-left-color:var(--ochre); background:rgba(196,124,43,0.06); }
+.sidebar-footer { margin-top:auto; padding:24px 28px 0; border-top:1px solid rgba(255,255,255,0.08); font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.1em; color:rgba(255,255,255,0.2); line-height:1.8; }
+.main { margin-left:220px; min-height:100vh; }
+.section{display:none;}
+.section.active{display:block;animation:fadeIn .5s ease both;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.cover{min-height:100vh;background:var(--earth);display:flex;flex-direction:column;padding:0;position:relative;overflow:hidden;}
+.cover-texture{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 80% 40%,rgba(196,124,43,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 20% 80%,rgba(196,124,43,0.06) 0%,transparent 50%);}
+.cover-top{padding:48px 64px 0;display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:2;}
+.cover-logo{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);line-height:1.8;}
+.cover-meta{text-align:right;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);line-height:1.8;}
+.cover-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:64px 64px 40px;position:relative;z-index:2;}
+.cover-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--ochre);margin-bottom:28px;display:flex;align-items:center;gap:16px;}
+.cover-eyebrow::after{content:'';width:48px;height:1px;background:var(--ochre);opacity:.4;}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);font-weight:700;color:var(--bone);line-height:1.08;letter-spacing:-.02em;margin-bottom:32px;}
+.cover h1 em{font-style:italic;color:var(--ochre-light);}
+.cover-desc{font-size:15px;color:rgba(255,255,255,0.5);max-width:560px;line-height:1.8;margin-bottom:56px;}
+.cover-stats{display:flex;gap:48px;padding-top:48px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap;}
+.cover-stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--ochre-light);line-height:1;margin-bottom:4px;}
+.cover-stat-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);line-height:1.6;}
+.cover-bottom{padding:32px 64px;display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:2;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:16px;}
+.cover-client{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.2);line-height:1.8;}
+.cover-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ochre);border:1px solid rgba(196,124,43,0.3);padding:12px 24px;cursor:pointer;background:none;transition:all .2s;}
+.cover-btn:hover{background:rgba(196,124,43,0.1);border-color:var(--ochre);}
+.content-page{padding:64px;max-width:860px;}
+.content-page.full{max-width:100%;padding:64px;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);margin-bottom:14px;display:flex;align-items:center;gap:14px;}
+.section-eyebrow::after{content:'';flex:1;max-width:40px;height:1px;background:var(--ochre);opacity:.35;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.2vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px;}
+.section-title em{font-style:italic;color:var(--ochre);}
+.section-intro{font-size:14px;color:var(--muted);max-width:600px;line-height:1.85;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--rule);}
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px;}
+.what-cell{background:var(--white);padding:28px 30px;}
+.what-cell.dark{background:var(--earth);}
+.what-cell-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;}
+.what-cell:not(.dark) .what-cell-label{color:var(--ochre);}
+.what-cell.dark .what-cell-label{color:rgba(196,124,43,0.6);}
+.what-cell h3{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;margin-bottom:12px;line-height:1.25;}
+.what-cell:not(.dark) h3{color:var(--earth);}
+.what-cell.dark h3{color:var(--bone);}
+.what-cell p, .what-cell li{font-size:13px;line-height:1.75;}
+.what-cell:not(.dark) p, .what-cell:not(.dark) li{color:var(--muted);}
+.what-cell.dark p, .what-cell.dark li{color:rgba(255,255,255,0.5);}
+.what-cell ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.what-cell ul li::before{content:'\2192';margin-right:8px;color:var(--ochre);}
+.day-timeline{position:relative;padding-left:32px;}
+.day-timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:var(--rule);}
+.day-event{position:relative;margin-bottom:32px;}
+.day-event::before{content:'';position:absolute;left:-28px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--bone);border:2px solid var(--ochre);}
+.day-event.ai-moment::before{background:var(--ochre);}
+.day-event.roland-moment::before{background:var(--green);border-color:var(--green);}
+.day-time{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--ochre);margin-bottom:4px;}
+.day-event.roland-moment .day-time{color:var(--green);}
+.day-event-card{background:var(--white);padding:20px 24px;border-left:3px solid transparent;}
+.day-event.ai-moment .day-event-card{border-left-color:var(--ochre);}
+.day-event.roland-moment .day-event-card{border-left-color:var(--green);}
+.day-event h4{font-size:14px;font-weight:500;margin-bottom:5px;}
+.day-event p{font-size:12px;color:var(--muted);line-height:1.65;}
+.day-event .ai-tag{display:inline-block;margin-top:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;}
+.ai-moment .ai-tag{background:rgba(196,124,43,0.1);color:var(--ochre);}
+.roland-moment .ai-tag{background:rgba(42,92,58,0.1);color:var(--green);}
+.scope-wrapper{overflow-x:auto;}
+.scope-table{width:100%;border-collapse:collapse;background:var(--white);}
+.scope-table th{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding:14px 20px;text-align:left;border-bottom:2px solid var(--earth);background:var(--sand);white-space:nowrap;}
+.scope-table td{padding:14px 20px;font-size:12px;border-bottom:1px solid var(--ash);vertical-align:top;line-height:1.6;}
+.scope-table tr:last-child td{border-bottom:none;}
+.scope-table tr:hover td{background:#faf7f0;}
+.phase-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap;}
+.ph1{background:rgba(196,124,43,0.1);color:var(--ochre);}
+.ph2{background:rgba(42,92,58,0.1);color:var(--green);}
+.ph3{background:rgba(26,20,8,0.07);color:var(--muted);}
+.phg{background:rgba(139,58,26,0.1);color:var(--rust);}
+.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;}
+.dot-build{background:var(--ochre);}
+.dot-ready{background:var(--green);}
+.dot-later{background:var(--rule);}
+.dot-gate{background:var(--rust);}
+.tiers-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;background:var(--earth);border:2px solid var(--earth);margin-bottom:3px;}
+.tier-card{background:var(--bone);padding:32px 26px 36px;display:flex;flex-direction:column;position:relative;}
+.tier-card.featured{background:var(--earth);}
+.tier-ribbon{position:absolute;top:0;right:0;background:var(--ochre);color:white;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;}
+.tier-name{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;}
+.tier-card:not(.featured) .tier-name{color:var(--muted);}
+.tier-card.featured .tier-name{color:var(--ochre);}
+.tier-price{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:1.15;margin-bottom:4px;}
+.tier-card:not(.featured) .tier-price{color:var(--earth);}
+.tier-card.featured .tier-price{color:var(--bone);}
+.tier-period{font-size:11px;margin-bottom:8px;}
+.tier-card:not(.featured) .tier-period{color:var(--muted);}
+.tier-card.featured .tier-period{color:rgba(255,255,255,0.4);}
+.tier-anchor{font-size:11px;padding-bottom:20px;margin-bottom:20px;}
+.tier-card:not(.featured) .tier-anchor{color:var(--muted);border-bottom:1px solid var(--rule);}
+.tier-card.featured .tier-anchor{color:rgba(255,255,255,0.3);border-bottom:1px solid rgba(255,255,255,0.08);}
+.tier-features{list-style:none;flex:1;display:flex;flex-direction:column;gap:9px;}
+.tier-features li{font-size:12px;padding-left:16px;position:relative;line-height:1.55;}
+.tier-card:not(.featured) .tier-features li{color:var(--earth);}
+.tier-card.featured .tier-features li{color:rgba(255,255,255,0.6);}
+.tier-features li::before{content:'\2713';position:absolute;left:0;font-family:'DM Mono',monospace;font-size:9px;}
+.tier-card:not(.featured) .tier-features li::before{color:var(--green);}
+.tier-card.featured .tier-features li::before{color:var(--ochre);}
+.tier-setup{margin-top:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;padding:10px 0 0;}
+.tier-card:not(.featured) .tier-setup{color:var(--muted);border-top:1px solid var(--rule);}
+.tier-card.featured .tier-setup{color:rgba(255,255,255,0.3);border-top:1px solid rgba(255,255,255,0.08);}
+.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:32px;}
+.terms-cell{background:var(--white);padding:22px 26px;}
+.terms-cell-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);margin-bottom:8px;}
+.terms-cell p{font-size:13px;color:var(--muted);line-height:1.75;}
+.terms-cell strong{color:var(--earth);font-weight:500;}
+.acceptance-box{background:var(--earth);padding:44px;margin-bottom:3px;position:relative;overflow:hidden;}
+.acceptance-box::before{content:'\25C8';position:absolute;right:44px;top:50%;transform:translateY(-50%);font-size:130px;color:white;opacity:.02;}
+.acceptance-box .acc-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);margin-bottom:18px;}
+.acceptance-box h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:var(--bone);margin-bottom:16px;}
+.acceptance-box p{font-size:13px;color:rgba(255,255,255,0.4);max-width:540px;line-height:1.8;margin-bottom:28px;}
+.acceptance-box ol{color:rgba(255,255,255,0.5);padding-left:18px;max-width:520px;margin-bottom:28px;}
+.acceptance-box li{margin-bottom:8px;font-size:13px;}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;}
+.sig-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:36px;}
+.sig-line{border-top:1px solid rgba(255,255,255,0.15);padding-top:12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,0.25);line-height:1.8;}
+.divider{height:1px;background:var(--rule);margin:44px 0;}
+.pull-quote{background:var(--sand);border-left:3px solid var(--ochre);padding:24px 28px;margin:28px 0;}
+.pull-quote blockquote{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--earth);line-height:1.55;}
+.pull-quote cite{display:block;margin-top:10px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-style:normal;}
+.info-box{background:var(--white);border:1px solid var(--rule);padding:22px 26px;margin:22px 0;}
+.info-box-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);margin-bottom:10px;}
+.info-box p{font-size:13px;color:var(--muted);line-height:1.75;}
+.info-box ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+.info-box ul li{font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;}
+.info-box ul li::before{content:'\2192';position:absolute;left:0;color:var(--ochre);font-size:11px;}
+.map-figure{background:var(--white);border:1px solid var(--rule);padding:20px;margin:24px 0;}
+.map-figure svg{width:100%;height:auto;display:block;}
+.map-caption{font-size:12px;color:var(--muted);margin-top:10px;}
+@media(max-width:768px){
+  .sidebar{display:none;} .main{margin-left:0;}
+  .content-page{padding:32px 24px 80px;}
+  .cover-body{padding:40px 32px;} .cover-top,.cover-bottom{padding:32px;}
+  .cover-stats{flex-wrap:wrap;gap:24px;}
+  .what-grid,.tiers-wrap,.terms-grid,.sig-grid{grid-template-columns:1fr;}
+  .tiers-wrap{background:var(--bone);border:none;gap:16px;}
+  .day-timeline{padding-left:24px;}
+}
+.mobile-nav{display:none;position:sticky;top:0;z-index:50;background:var(--earth);overflow-x:auto;scrollbar-width:none;}
+@media(max-width:768px){.mobile-nav{display:flex;}}
+.mobile-nav-btn{flex-shrink:0;padding:14px 18px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;white-space:nowrap;}
+.mobile-nav-btn.active{color:var(--ochre);border-bottom-color:var(--ochre);}
+.download-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--bone);background:var(--ochre);border:none;padding:12px 24px;cursor:pointer;transition:opacity .2s;}
+.download-btn:hover{opacity:.85;}
+@media print{
+  #ss-gate,.sidebar,.mobile-nav,.cover-btn,.download-btn{display:none!important;}
+  .main{margin-left:0!important;}
+  .section{display:block!important;animation:none!important;page-break-after:always;}
+  .cover{min-height:auto;}
+  body::after{display:none;}
+}
+#ss-gate{position:fixed;inset:0;z-index:9999;background:#1a1408;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;}
+#ss-gate::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 60%,rgba(196,124,43,0.1) 0%,transparent 60%);pointer-events:none;}
+.gate-logo{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(196,124,43,0.6);margin-bottom:48px;text-align:center;position:relative;}
+.gate-symbol{font-size:36px;margin-bottom:8px;opacity:.4;}
+.gate-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:700;color:#f2ead8;text-align:center;line-height:1.2;margin-bottom:12px;position:relative;}
+.gate-title em{font-style:italic;color:#e8a84a;}
+.gate-sub{font-size:13px;color:rgba(255,255,255,0.3);text-align:center;margin-bottom:40px;font-family:'DM Mono',monospace;letter-spacing:.05em;position:relative;}
+.gate-input-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;max-width:320px;position:relative;}
+.gate-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(196,124,43,0.5);align-self:flex-start;}
+.gate-input{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(196,124,43,0.2);color:#f2ead8;font-family:'DM Mono',monospace;font-size:16px;letter-spacing:.3em;padding:16px 20px;text-align:center;outline:none;transition:border-color .2s;}
+.gate-input:focus{border-color:rgba(196,124,43,0.6);}
+.gate-input.shake{animation:shake .4s ease;border-color:#8b3a1a;}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.gate-btn{width:100%;padding:14px 24px;background:none;border:1px solid rgba(196,124,43,0.4);color:#e8a84a;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.gate-btn:hover{background:rgba(196,124,43,0.08);border-color:#c47c2b;}
+.gate-error{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;color:#8b3a1a;text-transform:uppercase;min-height:16px;}
+.gate-footer{position:absolute;bottom:28px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.12);}
+#ss-gate.unlocking{animation:fadeOut .6s ease forwards;}
+@keyframes fadeOut{to{opacity:0;pointer-events:none;}}
+</style>
+</head>
+<body>
+
+<div id="ss-gate">
+  <div class="gate-logo"><div class="gate-symbol">&#x25C8;</div>San Systems · The San Scribe</div>
+  <div class="gate-title">This proposal is<br><em>confidential.</em></div>
+  <div class="gate-sub">Enter your access code to continue</div>
+  <div class="gate-input-wrap">
+    <div class="gate-label">Access code</div>
+    <input class="gate-input" id="gate-input" type="password" placeholder="&middot; &middot; &middot; &middot; &middot; &middot; &middot; &middot;" autocomplete="off" maxlength="20" />
+    <button class="gate-btn" onclick="checkGate()">Unlock Proposal &rarr;</button>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+  <div class="gate-footer">Proposal MOSAIC-SAFE-PR-001 · San Systems · Confidential</div>
+</div>
+
+<script>
+document.getElementById('gate-input').addEventListener('keydown', function(e){ if(e.key==='Enter') checkGate(); });
+function checkGate(){
+  var input = document.getElementById('gate-input');
+  var val = input.value.trim().toLowerCase().replace(/\s/g,'');
+  if (val === 'sawubona') { // ACCESS PASSWORD — change per proposal before sending
+    var gate = document.getElementById('ss-gate');
+    gate.classList.add('unlocking');
+    setTimeout(function(){ gate.style.display='none'; }, 600);
+    fetch('https://N8N_WEBHOOK_URL/proposal-unlocked?id=mosaic-safe-pr-001&t=' + Date.now(), { mode:'no-cors' }).catch(function(){});
+  } else {
+    input.classList.add('shake');
+    document.getElementById('gate-error').textContent = 'Incorrect. Try again.';
+    setTimeout(function(){ input.classList.remove('shake'); }, 500);
+    input.value = '';
+  }
+}
+</script>
+
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <div class="ss-label">San Systems</div>
+    <div class="ss-name">The San<br>Scribe</div>
+    <div class="ss-sub">Private Division</div>
+  </div>
+  <div class="nav-section">Proposal</div>
+  <a class="nav-link active" onclick="show('cover')">Cover</a>
+  <a class="nav-link" onclick="show('context')">Context &amp; Insight</a>
+  <a class="nav-link" onclick="show('problem')">The Problem</a>
+  <a class="nav-link" onclick="show('tracks')">Two Tracks, One Platform</a>
+  <div class="nav-section">Scope</div>
+  <a class="nav-link" onclick="show('path')">The Phased Path</a>
+  <a class="nav-link" onclick="show('scope')">Deliverables</a>
+  <a class="nav-link" onclick="show('investment')">Investment</a>
+  <div class="nav-section">Agreement</div>
+  <a class="nav-link" onclick="show('terms')">Terms &amp; Governance</a>
+  <a class="nav-link" onclick="show('acceptance')">Acceptance</a>
+  <div class="sidebar-footer">
+    Proposal Ref: MOSAIC-SAFE-PR-001<br>
+    Prepared: 8 July 2026<br>
+    Confidential
+  </div>
+</nav>
+
+<nav class="mobile-nav">
+  <button class="mobile-nav-btn active" onclick="show('cover')">Cover</button>
+  <button class="mobile-nav-btn" onclick="show('context')">Context</button>
+  <button class="mobile-nav-btn" onclick="show('problem')">Problem</button>
+  <button class="mobile-nav-btn" onclick="show('tracks')">Tracks</button>
+  <button class="mobile-nav-btn" onclick="show('path')">Path</button>
+  <button class="mobile-nav-btn" onclick="show('scope')">Scope</button>
+  <button class="mobile-nav-btn" onclick="show('investment')">Investment</button>
+  <button class="mobile-nav-btn" onclick="show('terms')">Terms</button>
+  <button class="mobile-nav-btn" onclick="show('acceptance')">Sign</button>
+</nav>
+
+<main class="main">
+
+<!-- COVER -->
+<div class="section active" id="cover">
+  <div class="cover">
+    <div class="cover-texture"></div>
+    <div class="cover-top">
+      <div class="cover-logo">San Systems<br><span style="color:rgba(255,255,255,0.2);font-size:7px;">A Private Division of The San Scribe Pty Ltd</span></div>
+      <div class="cover-meta">Proposal No. MOSAIC-SAFE-PR-001<br>8 July 2026 — Confidential<br>Prepared for MOSAIC Training Service and Healing Centre</div>
+    </div>
+    <div class="cover-body">
+      <div class="cover-eyebrow">MOSAIC · SAFE-PR</div>
+      <h1>A digital backbone for<br><em>SAFE-PR.</em></h1>
+      <p class="cover-desc">Two tracks, incrementally scoped: a shared&#8209;measurement backbone for MOSAIC's coordination team, and a survivor&#8209;facing tool that helps someone acquire a Protection Order without her account getting lost in translation along the way.</p>
+      <div class="cover-stats">
+        <div><div class="cover-stat-num">157</div><div class="cover-stat-label">Members, 7 platforms</div></div>
+        <div><div class="cover-stat-num">271</div><div class="cover-stat-label">Logged activities</div></div>
+        <div><div class="cover-stat-num">1</div><div class="cover-stat-label">Court/DOJ member, platform&#8209;wide</div></div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-client">Prepared by San Systems · Deon Hanns<br>hello@thesanscribe.com</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="cover-btn" onclick="show('context')">Read the Proposal &rarr;</button>
+        <button class="download-btn" onclick="downloadProposal()">Download PDF</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTEXT -->
+<div class="section" id="context">
+<div class="content-page">
+  <div class="section-eyebrow">01 — Context &amp; Insight</div>
+  <h1 class="section-title">What the numbers already tell us<br><em>and what they don't yet.</em></h1>
+  <p class="section-intro">Grounded in the SAFE-PR Practitioner Booklet (2025), the live SAFE-PR reporting dashboard, and independent UCT/GWU research into Protection Order implementation (Backe, Waldman &amp; Moult).</p>
+
+  <div class="what-grid">
+    <div class="what-cell">
+      <div class="what-cell-label">From the live SAFE-PR report</div>
+      <h3>157 members, 271 activities — and one striking gap</h3>
+      <ul>
+        <li>Soshanguve carries the most members (49) but middling activity (39) — Albertinia has the fewest members (12) yet the most logged activity (63). Membership size and platform activity don't move together.</li>
+        <li>"Department of Justice / Court" appears exactly once across all 157 members. SAPS presence is fragmented across six separate station entries, roughly 7–8 officers platform-wide.</li>
+        <li>MOSAIC's own organisation is entered three different ways in the same dataset — the cleanest evidence yet that shared measurement has no common backbone.</li>
+      </ul>
+    </div>
+    <div class="what-cell dark">
+      <div class="what-cell-label">From the research</div>
+      <h3>The disparities are already documented</h3>
+      <ul>
+        <li>Protection order outcomes vary by paperwork, by process, and by which magistrate is on the bench — not by the severity of what a survivor experienced.</li>
+        <li>As one police officer put it, the institutions meant to work together simply "don't talk to one another."</li>
+        <li>Affidavits scribed by clerks or NGO staff can drift toward generic stock phrases, stripping out the specificity a magistrate needs to see.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"Access to justice should not be determined by geography or location."</blockquote>
+    <cite>Research reflection, SAFE-PR conference presentation</cite>
+  </div>
+
+  <div class="map-figure">
+    <svg viewBox="0 0 680 590" xmlns="http://www.w3.org/2000/svg">
+      <rect x="140" y="40" width="400" height="36" rx="6" fill="#f2ead8" stroke="#d8ceb8" stroke-width="1"/>
+      <text x="340" y="63" text-anchor="middle" font-family="Inter" font-size="13" fill="#1a1408">Domestic Violence Act framework</text>
+      <line x1="340" y1="76" x2="340" y2="106" stroke="#7a7060" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="50" y="108" width="580" height="192" rx="14" fill="#faf6ee" stroke="#c47c2b" stroke-width="1"/>
+      <text x="340" y="134" text-anchor="middle" font-family="Cormorant Garamond" font-size="16" fill="#1a1408">SAFE-PR collective impact model</text>
+      <text x="340" y="152" text-anchor="middle" font-family="Inter" font-size="12" fill="#7a7060">Five conditions of collective impact</text>
+      <rect x="80" y="188" width="250" height="70" rx="10" fill="#eaf1ec" stroke="#2a5c3a" stroke-width="1"/>
+      <text x="205" y="216" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="#1f3f29">MOSAIC (backbone)</text>
+      <text x="205" y="238" text-anchor="middle" font-family="Inter" font-size="12" fill="#3e6b4d">Coordinates &amp; convenes</text>
+      <rect x="350" y="188" width="250" height="70" rx="10" fill="#f6ecdd" stroke="#c47c2b" stroke-width="1"/>
+      <text x="475" y="216" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="#7a4a1a">7 local SAFE platforms</text>
+      <text x="475" y="238" text-anchor="middle" font-family="Inter" font-size="12" fill="#8a6a3a">157 members, 271 activities</text>
+      <line x1="330" y1="223" x2="350" y2="223" stroke="#7a7060" stroke-width="1.5" marker-end="url(#a1)"/>
+      <line x1="340" y1="300" x2="340" y2="322" stroke="#7a7060" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="50" y="325" width="580" height="225" rx="14" fill="#f2ead8" stroke="#d8ceb8" stroke-width="1"/>
+      <text x="340" y="351" text-anchor="middle" font-family="Cormorant Garamond" font-size="16" fill="#1a1408">Current coordination tools (as-is)</text>
+      <text x="340" y="368" text-anchor="middle" font-family="Inter" font-size="12" fill="#7a7060">Manual, fragmented, offline-first</text>
+      <rect x="80" y="390" width="250" height="60" rx="10" fill="#f7e9e2" stroke="#8b3a1a" stroke-width="1"/>
+      <text x="205" y="410" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="#5c2712">Spreadsheet field tracker</text>
+      <text x="205" y="430" text-anchor="middle" font-family="Inter" font-size="12" fill="#8b3a1a">Manual entry, no sync</text>
+      <rect x="350" y="390" width="250" height="60" rx="10" fill="#f7e9e2" stroke="#8b3a1a" stroke-width="1"/>
+      <text x="475" y="410" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="#5c2712">Paper referral forms</text>
+      <text x="475" y="430" text-anchor="middle" font-family="Inter" font-size="12" fill="#8b3a1a">No digital record</text>
+      <rect x="80" y="468" width="250" height="60" rx="10" fill="#f7e9e2" stroke="#8b3a1a" stroke-width="1"/>
+      <text x="205" y="488" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="#5c2712">WhatsApp coordination</text>
+      <text x="205" y="508" text-anchor="middle" font-family="Inter" font-size="12" fill="#8b3a1a">Ad hoc, unsearchable</text>
+      <rect x="350" y="468" width="250" height="60" rx="10" fill="#f7e9e2" stroke="#8b3a1a" stroke-width="1"/>
+      <text x="475" y="488" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="#5c2712">Five-column status log</text>
+      <text x="475" y="508" text-anchor="middle" font-family="Inter" font-size="12" fill="#8b3a1a">"Stuck," no escalation</text>
+      <defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#7a7060" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+    </svg>
+    <p class="map-caption">The relational model (top two tiers) is mature and well-documented in the SAFE Book. The tooling layer beneath it has never been resourced beyond spreadsheets and messaging apps.</p>
+  </div>
+</div>
+</div>
+
+<!-- PROBLEM -->
+<div class="section" id="problem">
+<div class="content-page">
+  <div class="section-eyebrow">02 — The Problem</div>
+  <h1 class="section-title">Two problems,<br><em>not one.</em></h1>
+  <p class="section-intro">Distilled from the booklet, the research, and the live data above. Kept separate on purpose — they have different owners, different risk profiles, and different urgency.</p>
+
+  <div class="what-grid">
+    <div class="what-cell">
+      <div class="what-cell-label">Track A — shared measurement</div>
+      <h3>MOSAIC can't see its own platform in real time</h3>
+      <ul>
+        <li><strong>Who:</strong> MOSAIC's backbone team and SAFE Platform coordinators across 7 sites.</li>
+        <li><strong>Undesired effect:</strong> Shared measurement — one of five non-negotiable conditions of the model — is manual, retrospective, and site-siloed.</li>
+        <li><strong>Why now:</strong> the booklet just launched; the current spreadsheet has visibly reached its ceiling.</li>
+      </ul>
+    </div>
+    <div class="what-cell dark">
+      <div class="what-cell-label">Track B — the Protection Order journey</div>
+      <h3>A survivor's own words rarely survive the process</h3>
+      <ul>
+        <li><strong>Who:</strong> Walk-in clients at any SAFE-affiliated centre, at the point of first disclosure.</li>
+        <li><strong>Undesired effect:</strong> her account is scribed into stock legal phrases, then judged against a magistrate's unwritten preferences — and can be thrown out on a technicality with no memory of what worked last time.</li>
+        <li><strong>Why now:</strong> almost no court or SAPS presence exists inside the SAFE Platforms themselves (per the live data) — so nothing upstream is fixing this without deliberate design.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- TRACKS -->
+<div class="section" id="tracks">
+<div class="content-page">
+  <div class="section-eyebrow">03 — What We're Proposing</div>
+  <h1 class="section-title">Two tracks,<br><em>one platform.</em></h1>
+  <p class="section-intro">Built to reinforce MOSAIC's role as backbone — not to centralise power away from the partner organisations who do the frontline work.</p>
+
+  <div class="info-box">
+    <div class="info-box-label">The technology — plain English</div>
+    <ul>
+      <li><strong>WhatsApp</strong> — the interface practitioners and clients already use daily, no new app to learn.</li>
+      <li><strong>Vercel</strong> — hosts the dashboard, fast and reliable with no server to manage.</li>
+      <li><strong>A managed database</strong> — one secure, backed-up home for referral and stakeholder data.</li>
+      <li><strong>Resend</strong> — reliable email digests to coordinators and funders, no manual compiling.</li>
+      <li><strong>GitHub</strong> — every change tracked and reviewable, the same discipline SAFE-PR asks of referrals.</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="what-grid">
+    <div class="what-cell">
+      <div class="what-cell-label">Track A — MOSAIC backbone</div>
+      <h3>Replaces the spreadsheet with a live view</h3>
+      <p>A single source of truth for referrals, stakeholders and activity across all 7 platforms — the shared-measurement condition, finally running on real infrastructure instead of a manually reconciled sheet.</p>
+    </div>
+    <div class="what-cell">
+      <div class="what-cell-label">Track B — survivor disclosure &amp; PO support</div>
+      <h3>Captures her account before a clerk's stock phrases do</h3>
+      <p>A guided, multilingual disclosure tool offered at any walk-in centre — structuring what a magistrate needs to see without stripping out the specificity that keeps a survivor's story her own.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- PATH -->
+<div class="section" id="path">
+<div class="content-page">
+  <div class="section-eyebrow">04 — The Phased Path</div>
+  <h1 class="section-title">Scoped incrementally,<br><em>on purpose.</em></h1>
+  <p class="section-intro">Each phase stands on its own and earns the next. Track B runs on a slower, governance-gated clock alongside Track A — it never blocks it, and it's never blocked by it.</p>
+
+  <div class="day-timeline">
+    <div class="day-event ai-moment">
+      <div class="day-time">Weeks 1–4</div>
+      <div class="day-event-card">
+        <h4>Phase 0 — Foundation</h4>
+        <p>Replace the spreadsheet with a secure database and a live backbone dashboard, for MOSAIC's team only. Data protection &amp; POPIA policy signed off before anything else moves.</p>
+        <span class="ai-tag">Track A</span>
+      </div>
+    </div>
+    <div class="day-event roland-moment">
+      <div class="day-time">Weeks 1–6 (parallel)</div>
+      <div class="day-event-card">
+        <h4>Track B discovery &amp; governance gate</h4>
+        <p>Map the walk-in disclosure experience in detail across 2–3 centres. Open the conversation on whether DOJCD or legal input is needed before anything touches an actual affidavit.</p>
+        <span class="ai-tag">Track B</span>
+      </div>
+    </div>
+    <div class="day-event ai-moment">
+      <div class="day-time">Weeks 5–12</div>
+      <div class="day-event-card">
+        <h4>Phase 1 — MVP referral pathway</h4>
+        <p>Digitise the SAFE Referral Form for 1–2 pilot platforms. WhatsApp-based intake, follow-through tracking, Resend digests for coordinators.</p>
+        <span class="ai-tag">Track A</span>
+      </div>
+    </div>
+    <div class="day-event roland-moment">
+      <div class="day-time">Months 3–5 (if governance clears)</div>
+      <div class="day-event-card">
+        <h4>Track B pilot — disclosure capture tool</h4>
+        <p>A guided, multilingual intake offered at one walk-in centre, in the survivor's own words, structured for magistrate legibility without narrative homogenisation.</p>
+        <span class="ai-tag">Track B</span>
+      </div>
+    </div>
+    <div class="day-event ai-moment">
+      <div class="day-time">Months 4–8</div>
+      <div class="day-event-card">
+        <h4>Phase 2 — Practitioner rollout</h4>
+        <p>Extend to the remaining platforms, site by site. Live stakeholder network map, shared calendar, offline-friendly capture for low-connectivity sites.</p>
+        <span class="ai-tag">Track A</span>
+      </div>
+    </div>
+    <div class="day-event ai-moment">
+      <div class="day-time">Months 9+</div>
+      <div class="day-event-card">
+        <h4>Phase 3 — Shared measurement at scale</h4>
+        <p>Real-time funder-facing dashboards; cross-site disparity analysis; a foundation other MOSAIC collectives could reuse.</p>
+        <span class="ai-tag">Track A</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SCOPE -->
+<div class="section" id="scope">
+<div class="content-page full">
+  <div class="section-eyebrow">05 — Deliverables &amp; Scope</div>
+  <h1 class="section-title">Exactly what gets <em>built.</em></h1>
+  <p class="section-intro">Every row below is scoped to a single phase — nothing here assumes approval of a later one.</p>
+  <div class="scope-wrapper">
+  <table class="scope-table">
+    <thead><tr><th style="width:30px">#</th><th>Deliverable</th><th>What it does for MOSAIC</th><th style="width:90px">Phase</th><th style="width:110px">Timeline</th><th style="width:90px">Status</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Secure referral &amp; stakeholder database</td><td>Single source of truth, replacing the spreadsheet</td><td><span class="phase-tag ph1">Phase 0</span></td><td>Weeks 1–4</td><td><span class="status-dot dot-build"></span>To build</td></tr>
+      <tr><td>2</td><td>MOSAIC backbone dashboard</td><td>Live view of referrals and activity across 7 platforms</td><td><span class="phase-tag ph1">Phase 0</span></td><td>Weeks 1–4</td><td><span class="status-dot dot-build"></span>To build</td></tr>
+      <tr><td>3</td><td>POPIA / data protection policy</td><td>Sign-off before any referral data is digitised</td><td><span class="phase-tag ph1">Phase 0</span></td><td>Weeks 1–4</td><td><span class="status-dot dot-build"></span>To build</td></tr>
+      <tr><td>4</td><td>Walk-in disclosure journey mapping</td><td>Detailed picture of what "indifference" looks like moment to moment</td><td><span class="phase-tag phg">Track B</span></td><td>Weeks 1–6</td><td><span class="status-dot dot-gate"></span>Governance gate</td></tr>
+      <tr><td>5</td><td>WhatsApp referral intake + status nudges</td><td>Replaces paper SAFE Referral Form for pilot sites</td><td><span class="phase-tag ph1">Phase 1</span></td><td>Weeks 5–12</td><td><span class="status-dot dot-later"></span>Planned</td></tr>
+      <tr><td>6</td><td>Resend coordinator digests</td><td>No more manually compiled monthly reports</td><td><span class="phase-tag ph1">Phase 1</span></td><td>Weeks 5–12</td><td><span class="status-dot dot-later"></span>Planned</td></tr>
+      <tr><td>7</td><td>Guided multilingual disclosure capture</td><td>Captures a survivor's own words before scribing occurs</td><td><span class="phase-tag phg">Track B</span></td><td>Months 3–5</td><td><span class="status-dot dot-gate"></span>Governance gate</td></tr>
+      <tr><td>8</td><td>Live stakeholder network map</td><td>Digitises Section 9 of the SAFE Book</td><td><span class="phase-tag ph2">Phase 2</span></td><td>Months 4–8</td><td><span class="status-dot dot-later"></span>Planned</td></tr>
+      <tr><td>9</td><td>Shared calendar</td><td>Replaces the static annual calendar</td><td><span class="phase-tag ph2">Phase 2</span></td><td>Months 4–8</td><td><span class="status-dot dot-later"></span>Planned</td></tr>
+      <tr><td>10</td><td>Funder-facing impact dashboards</td><td>Real-time evidence base instead of retrospective reports</td><td><span class="phase-tag ph3">Phase 3</span></td><td>Months 9+</td><td><span class="status-dot dot-later"></span>Later</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+
+<!-- INVESTMENT -->
+<div class="section" id="investment">
+<div class="content-page">
+  <div class="section-eyebrow">06 — Investment</div>
+  <h1 class="section-title">Start where it <em>proves itself.</em><br>Scale as it earns trust.</h1>
+  <p class="section-intro">Each phase is priced from real hours at a fixed rate, not from what the budget might bear — this is the floor, and scope flexes to fit MOSAIC's budget rather than the rate moving. Each phase is a standalone commitment; nothing obligates MOSAIC to the next.</p>
+  <!-- INTERNAL PRICING NOTE — DELETE BEFORE SENDING TO MOSAIC
+       Floor rate: R450/hr blended (Deon + Cohlan), based on OfferZen 2026 SA developer
+       salary data (Cape Town entry-level ~2yr: R35,657/mo; intermediate 4-6yr: R52,463/mo),
+       converted to freelance-equivalent via (annual salary / 2000 hrs) x 1.5-2x multiplier.
+       Phase 0: 50 hrs x R450 = R22,500 + R3,000 hard costs, x1.15 buffer = R29,325 -> R29,000
+       Phase 1: 100 hrs x R450 = R45,000 + R3,000 hard costs, x1.15 buffer = R55,200 -> R55,000
+       Track B: 40 hrs x R450 = R18,000 + R1,500 hard costs, x1.15 buffer = R22,425 -> R22,500
+       Do not discount below these without deciding so on purpose. -->
+  <div class="tiers-wrap">
+    <div class="tier-card">
+      <div class="tier-name">Phase 0 — Foundation</div>
+      <div class="tier-price">R29,000</div>
+      <div class="tier-period">once-off — 4 weeks</div>
+      <div class="tier-anchor">Replaces the spreadsheet for MOSAIC's own team</div>
+      <ul class="tier-features">
+        <li>Secure database + backbone dashboard</li>
+        <li>POPIA / data protection sign-off</li>
+        <li>One coordinator onboarded</li>
+      </ul>
+      <div class="tier-setup">No dependency on Phase 1 approval</div>
+    </div>
+    <div class="tier-card featured">
+      <div class="tier-ribbon">Recommended next</div>
+      <div class="tier-name">Phase 1 — MVP (Track A)</div>
+      <div class="tier-price">R55,000</div>
+      <div class="tier-period">once-off — 8 weeks</div>
+      <div class="tier-anchor">Digital referral pathway, 1–2 pilot platforms</div>
+      <ul class="tier-features">
+        <li>WhatsApp referral intake</li>
+        <li>Follow-through tracking</li>
+        <li>Resend coordinator digests</li>
+      </ul>
+      <div class="tier-setup">Begins once Phase 0 is live</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-name">Track B — Discovery &amp; design</div>
+      <div class="tier-price">R22,500</div>
+      <div class="tier-period">once-off — 6 weeks</div>
+      <div class="tier-anchor">Journey mapping + governance conversation, no build yet</div>
+      <ul class="tier-features">
+        <li>Walk-in disclosure journey mapping, 2–3 centres</li>
+        <li>Governance &amp; legal-input scoping</li>
+        <li class="off">Affidavit-facing build (later, gated)</li>
+      </ul>
+      <div class="tier-setup">Runs in parallel, blocks nothing</div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:16px;">If MOSAIC's available budget sits below these figures, we'd rather descope what Phase 0 covers than discount the rate — talk to us before the meeting and we'll scope a version that fits.</p>
+</div>
+</div>
+
+<!-- TERMS -->
+<div class="section" id="terms">
+<div class="content-page">
+  <div class="section-eyebrow">07 — Terms &amp; Governance</div>
+  <h1 class="section-title">How we work <em>together.</em></h1>
+  <p class="section-intro">A credible proposal names its own risks and ownership terms before a donor does.</p>
+  <div class="terms-grid">
+    <div class="terms-cell"><div class="terms-cell-label">Data &amp; platform ownership</div><p>MOSAIC owns all referral, stakeholder, and survivor data, and the platform itself. San Systems builds and maintains under an agreed support arrangement — nothing is locked to a vendor.</p></div>
+    <div class="terms-cell"><div class="terms-cell-label">POPIA &amp; data protection</div><p>Data protection design happens in Phase 0, before any pilot goes live — not retrofitted after the fact.</p></div>
+    <div class="terms-cell"><div class="terms-cell-label">Track B governance gate</div><p>No feature that shapes or touches an actual affidavit proceeds without a legal/DOJCD-input checkpoint. This is a hard gate, not a formality.</p></div>
+    <div class="terms-cell"><div class="terms-cell-label">Confidentiality</div><p>Survivor and referral data are treated as confidential by default, in line with the SAFE Code of Conduct's own standards.</p></div>
+    <div class="terms-cell"><div class="terms-cell-label">Payment structure</div><p>[Insert milestone / deposit terms — e.g. 50% on Phase 0 sign-off, 50% on delivery.]</p></div>
+    <div class="terms-cell"><div class="terms-cell-label">Maintenance &amp; handover</div><p>[Insert ongoing support terms — e.g. monthly retainer, or handover documentation for MOSAIC's own team.]</p></div>
+  </div>
+</div>
+</div>
+
+<!-- ACCEPTANCE -->
+<div class="section" id="acceptance">
+<div class="content-page">
+  <div class="section-eyebrow">08 — Acceptance</div>
+  <h1 class="section-title">When you're ready,<br><em>this is how we begin.</em></h1>
+  <p class="section-intro" style="margin-bottom:32px;">This proposal is valid for 30 days from the date of issue.</p>
+  <div class="acceptance-box">
+    <div class="acc-label">What MOSAIC needs to have in place</div>
+    <h3>Three things unlock Phase 0</h3>
+    <ol>
+      <li>One pilot site identified, with a named coordinator as champion</li>
+      <li>Sign-off on the data protection approach before any referral data is digitised</li>
+      <li>A short working session to map the current referral pathway, site by site</li>
+    </ol>
+    <p>By signing below, both parties agree to the phased scope outlined in this proposal. Each phase is invoiced and delivered independently.</p>
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="sig-label">For MOSAIC — Authorised Signature</div>
+        <div class="sig-line">Name: ____________________<br>Title: ____________________<br>Date: ____________________</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-label">For San Systems — Authorised Signature</div>
+        <div class="sig-line">Deon Hanns<br>The San Scribe Pty Ltd<br>Date: ____________________</div>
+      </div>
+    </div>
+  </div>
+  <div class="info-box" style="margin-top:3px;">
+    <div class="info-box-label">Questions? Let's talk.</div>
+    <p>This proposal covers the scope but can't cover everything. Reach out directly with anything unclear.</p>
+    <ul>
+      <li>Email: deon@thesanscribe.com</li>
+      <li>Website: thesanscribe.com</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+</main>
+
+<script>
+function downloadProposal() {
+  window.print();
+}
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-link, .mobile-nav-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick')?.includes(`'${id}'`));
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
