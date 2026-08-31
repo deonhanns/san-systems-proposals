@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melted Workx - Event Operations Platform Proposal</title>
+<meta name="description" content="A proposal from San Systems for Melted Workx: one data core, role-scoped views, automated guest notifications, and time-bound crew access.">
+<meta property="og:title" content="Melted Workx - Event Operations Platform Proposal">
+<meta property="og:description" content="A proposal from San Systems for Melted Workx.">
+<meta property="og:image" content="/og-sansystems.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&family=Alex+Brush&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #15161B;
+    --ink-2: #1D1F26;
+    --ink-3: #262933;
+    --paper: #EDEAE2;
+    --paper-dim: #A8A59C;
+    --line: #35383F;
+    --brass: #B98A2E;
+    --brass-dim: #8A692A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',-apple-system,sans-serif;
+    font-size:17px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Newsreader',Georgia,serif;
+    font-weight:500;
+    line-height:1.2;
+    margin:0 0 0.5em;
+    color:var(--paper);
+  }
+  a{color:var(--brass);}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;}
+
+  /* Hero */
+  .hero{padding:120px 0 80px;border-bottom:1px solid var(--line);}
+  .hero .eyebrow{color:var(--paper-dim);font-size:15px;margin-bottom:24px;}
+  .hero h1{font-size:44px;font-style:italic;font-weight:400;max-width:11ch;}
+  .hero p{font-size:19px;color:var(--paper-dim);max-width:52ch;margin-top:20px;}
+  .hero .meta{margin-top:40px;font-size:14px;color:var(--paper-dim);display:flex;gap:24px;flex-wrap:wrap;}
+  .hero .meta span{border-left:1px solid var(--line);padding-left:24px;}
+  .hero .meta span:first-child{border-left:none;padding-left:0;}
+
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{font-size:28px;font-style:italic;}
+  h3{font-size:19px;font-weight:600;font-family:'Inter',sans-serif;font-style:normal;margin-top:1.6em;}
+  p{margin:0 0 1.1em;max-width:64ch;}
+  ul,ol{margin:0 0 1.2em;padding-left:1.3em;max-width:64ch;}
+  li{margin-bottom:0.5em;}
+  strong{color:var(--paper);font-weight:600;}
+
+  .callout{
+    background:var(--ink-2);
+    border-left:2px solid var(--brass);
+    padding:20px 24px;
+    margin:24px 0;
+    font-size:15.5px;
+    color:var(--paper-dim);
+  }
+  .callout strong{color:var(--paper);}
+
+  /* Architecture diagram (structural, static) */
+  .arch{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin:32px 0;
+  }
+  .arch-core{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:20px 24px;
+  }
+  .arch-core .label{font-size:13px;color:var(--paper-dim);letter-spacing:0.02em;}
+  .arch-core .name{font-family:'Newsreader',serif;font-size:20px;font-style:italic;margin-top:4px;}
+  .arch-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:10px;
+  }
+  .arch-view{
+    background:var(--ink-3);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:14px 16px;
+    font-size:14px;
+  }
+  .arch-view .t{font-weight:600;display:block;margin-bottom:2px;}
+  .arch-view .s{color:var(--paper-dim);font-size:13px;}
+
+  /* Phase timeline - content is genuinely sequential, so a marker is warranted */
+  .phase{
+    display:flex;
+    gap:20px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .phase:first-child{border-top:none;}
+  .phase .num{
+    font-family:'Newsreader',serif;
+    font-style:italic;
+    font-size:26px;
+    color:var(--brass);
+    min-width:2ch;
+  }
+  .phase .body h3{margin-top:0;}
+
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px;}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);}
+  th{color:var(--paper-dim);font-weight:500;font-size:13px;}
+
+  /* Response form */
+  .respond{background:var(--ink-2);border-radius:8px;padding:36px;}
+  .respond h2{margin-top:0;}
+  .respond label{display:block;font-size:14px;color:var(--paper-dim);margin-bottom:6px;}
+  .respond textarea, .respond select{
+    width:100%;
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:5px;
+    color:var(--paper);
+    font-family:inherit;
+    font-size:15px;
+    padding:12px;
+    margin-bottom:20px;
+  }
+  .respond textarea{min-height:90px;resize:vertical;}
+  .respond button{
+    background:var(--brass);
+    color:var(--ink);
+    border:none;
+    border-radius:5px;
+    padding:13px 26px;
+    font-size:15px;
+    font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+  }
+  .respond button:hover{background:var(--brass-dim);}
+  .respond .status{margin-top:14px;font-size:14px;color:var(--paper-dim);}
+
+  /* Melted Workx client design system - distinct token set, scoped to .mw- */
+  .tokens{display:flex;flex-wrap:wrap;gap:20px;margin:28px 0 8px;}
+  .token-swatch{width:128px;}
+  .token-swatch .chip{height:60px;border-radius:8px;margin-bottom:8px;border:1px solid var(--line);}
+  .token-swatch .name{font-size:13px;color:var(--paper);}
+  .token-swatch .hex{font-size:12px;color:var(--paper-dim);font-family:monospace;}
+  .type-sample{margin:24px 0;padding:20px 0;border-top:1px solid var(--line);}
+  .type-sample .label{font-size:13px;color:var(--paper-dim);margin-bottom:8px;}
+
+  .mw-preview{background:#F7EBEC;border-radius:12px;padding:36px 28px;margin:28px 0;}
+  .mw-frames{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;align-items:flex-start;}
+  .mw-frame{background:#FFFFFF;border:5px solid #2A2827;border-radius:20px;width:210px;overflow:hidden;flex-shrink:0;}
+  .mw-frame.tablet{width:290px;border-radius:12px;}
+  .mw-caption{text-align:center;font-size:12px;color:#7A7472;margin-top:10px;font-family:'Poppins',sans-serif;}
+  .mw-screen{font-family:'Poppins',sans-serif;color:#2E2B29;}
+  .mw-bar{background:#2A2827;color:#FFFFFF;font-size:11px;padding:10px 14px;font-weight:500;}
+  .mw-body{padding:14px;font-size:12px;}
+  .mw-field{border:1px solid #E9C6C8;border-radius:6px;padding:10px;font-size:11px;color:#A69B99;margin-bottom:10px;}
+  .mw-btn{background:#C7A06B;color:#2A2827;text-align:center;border-radius:6px;padding:10px;font-size:12px;font-weight:600;}
+  .mw-dots{display:flex;gap:5px;margin-bottom:14px;}
+  .mw-dots span{width:6px;height:6px;border-radius:50%;background:#E9C6C8;}
+  .mw-dots span.on{background:#C7A06B;}
+  .mw-stat-row{display:flex;gap:8px;margin-bottom:12px;}
+  .mw-stat{flex:1;background:#F7EBEC;border-radius:6px;padding:10px;}
+  .mw-stat .n{font-size:16px;font-weight:600;}
+  .mw-stat .l{font-size:10px;color:#8A817E;}
+  .mw-exception{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid #F3E4E5;font-size:11px;}
+  .mw-tag{background:#F3E1CB;color:#7A5A2E;border-radius:4px;padding:2px 6px;font-size:10px;}
+  .mw-tag.ok{background:#F7EBEC;color:#8A3E45;}
+  .mw-bubble{background:#F7EBEC;border-radius:10px;padding:12px;font-size:11.5px;margin-top:10px;line-height:1.5;}
+  .mw-sender{font-size:10px;color:#8A817E;margin-bottom:4px;}
+  .mw-scan{background:#2A2827;border-radius:8px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+  .mw-scan .corner{width:64%;height:64%;border:2px solid #C7A06B;border-radius:6px;}
+  .mw-confirm{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:#8A3E45;}
+  .mw-confirm .dot{width:8px;height:8px;border-radius:50%;background:#8A3E45;}
+
+  /* Password gate */
+  #gate{position:fixed;inset:0;background:var(--ink);z-index:999;display:flex;align-items:center;justify-content:center;}
+  #gate .box{max-width:320px;width:100%;padding:0 24px;text-align:center;}
+  #gate p{color:var(--paper-dim);font-size:14px;margin-bottom:18px;}
+  #gate input{width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:5px;color:var(--paper);padding:12px;font-size:15px;margin-bottom:12px;font-family:inherit;}
+  #gate button{width:100%;background:var(--brass);color:var(--ink);border:none;border-radius:5px;padding:12px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;}
+  #gate button:hover{background:var(--brass-dim);}
+  #gate .err{color:#E24B4A;font-size:13px;margin-top:10px;min-height:16px;}
+  #content{display:none;}
+
+  footer{padding:48px 0 80px;color:var(--paper-dim);font-size:14px;}
+
+  @media (max-width:600px){
+    .hero{padding:80px 0 56px;}
+    .hero h1{font-size:32px;}
+    section{padding:48px 0;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <p>This proposal is private</p>
+    <input type="password" id="gate-pw" placeholder="Password" autocomplete="off">
+    <button id="gate-submit">View proposal</button>
+    <div class="err" id="gate-err"></div>
+  </div>
+</div>
+
+<div id="content">
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">San Systems - proposal for Melted Workx</div>
+    <h1>One record. Every role. Nothing manual twice.</h1>
+    <p>An event operations platform that gives your team back the time currently lost to spreadsheets, so it can go toward the brand and client work Melted Workx is built to deliver.</p>
+    <div class="meta">
+      <span>Draft v0.1</span>
+      <span>Prepared for Naidene Cary</span>
+      <span>31 August 2026</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The problem</h2>
+    <p>Right now, one spreadsheet is doing the work of six systems: guest intake, ops tracking, accreditation, session logistics, shuttle coordination, and guest communication, for delegates across multiple countries and languages, with no single source of truth.</p>
+    <div class="callout">
+      <strong>What we found in the current data:</strong> duplicate delegate records with conflicting details already exist in the live conference sheet. Passport images sit as unmanaged Drive links. Accessibility and dietary needs live in unstructured free text across three languages. WhatsApp numbers are collected for a day-before logistics message that today has no automated path.
+    </div>
+    <p>Every downstream need, the dashboard, the accreditation list, the shuttle manifest, is hand-derived from the same raw sheet, every time, by a person. That person's time is the scarce resource that should be going to brand and client relationships instead.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The architecture</h2>
+    <p>One data core, exposed as role-scoped views. No duplicate entry, no re-keying between spreadsheets, and adding a new role later means a new view, not a new system.</p>
+    <div class="arch">
+      <div class="arch-core">
+        <div class="label">Shared data core</div>
+        <div class="name">Delegate &amp; crew records</div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-view"><span class="t">Ops dashboard</span><span class="s">Push-based, exceptions only</span></div>
+        <div class="arch-view"><span class="t">Accreditation</span><span class="s">Self-scan + staff exceptions</span></div>
+        <div class="arch-view"><span class="t">Sessions</span><span class="s">Breakaway RSVP counts</span></div>
+        <div class="arch-view"><span class="t">Shuttle</span><span class="s">Manifest + SMS</span></div>
+      </div>
+    </div>
+    <p>Naidene's dashboard doesn't need to be checked, it pushes only when something needs attention: a conflicting record, an incomplete profile, an unfilled shuttle seat. Everything else, it stays quiet.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Notifications</h2>
+    <p>Change-triggered, not manually sent, split by purpose rather than preference:</p>
+    <ul>
+      <li><strong>SMS</strong>, the default for time-critical logistics (shuttle pickup, gate changes, check-in reminders). Works without an app, data connectivity, or opt-in friction, which matters given the delegate base spans Mozambique, Zimbabwe, Ethiopia, Botswana and beyond.</li>
+      <li><strong>WhatsApp</strong>, rich content: QR codes, agenda links, documents.</li>
+      <li><strong>Escalation by time-to-event</strong>, channel selection shifts to SMS automatically as an event approaches.</li>
+      <li><strong>Correction loop</strong>, a guest reply ("wrong flight") auto-flags their record for review, using the same channel that sent the reminder.</li>
+    </ul>
+    <div class="callout">
+      <strong>Worth sizing before we quote a number:</strong> cross-border SMS pricing varies significantly by country, and some African markets require pre-registered sender IDs ahead of the next event. We'll pull the real country-code distribution from your data to size this line item.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Consent &amp; data handling</h2>
+    <p>Passport images and health or accessibility data are collected across multiple jurisdictions. The intake wizard carries explicit consent language for automated messaging, rather than treating consent as implied by a submitted WhatsApp number.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Crew management</h2>
+    <p>Naidene assembles a different team per event, that gets the same treatment as delegate data, not a bolted-on afterthought.</p>
+    <ul>
+      <li>Crew records mirror the delegate architecture: one core, role-scoped views, applied to a second population.</li>
+      <li><strong>Time-bound access</strong>, a crew member's permissions activate on assignment and auto-expire when the event closes. No manual revocation step, no standing access risk from past freelance staff.</li>
+      <li><strong>Same device, one more job</strong>, the accreditation tablet already scanning guests also handles crew check-in on event day.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>A design system for Melted Workx</h2>
+    <p>These tokens are read directly off your live site, the blush pink frame, the charcoal overlay, the gold "Solutions" highlight, the rounded sans headline, the brush-script wordmark. Not a proposed direction this time, your existing identity, carried into the product.</p>
+
+    <div class="tokens">
+      <div class="token-swatch">
+        <div class="chip" style="background:#E9C6C8;"></div>
+        <div class="name">Blush</div>
+        <div class="hex">#E9C6C8</div>
+      </div>
+      <div class="token-swatch">
+        <div class="chip" style="background:#2A2827;"></div>
+        <div class="name">Charcoal</div>
+        <div class="hex">#2A2827</div>
+      </div>
+      <div class="token-swatch">
+        <div class="chip" style="background:#C7A06B;"></div>
+        <div class="name">Gold accent</div>
+        <div class="hex">#C7A06B</div>
+      </div>
+      <div class="token-swatch">
+        <div class="chip" style="background:#FFFFFF;border-color:var(--line);"></div>
+        <div class="name">Paper</div>
+        <div class="hex">#FFFFFF</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--paper-dim);">Gold marks the same thing it marks on your site, the highlighted, active choice: a menu item in focus, a primary action. Charcoal carries structure and text. Blush stays the warm frame around the content, used sparingly inside the product for calm or resolved states rather than as a background.</p>
+
+    <div class="type-sample">
+      <div class="label">Typography</div>
+      <p style="font-family:'Alex Brush',cursive;font-size:32px;margin-bottom:6px;color:var(--paper);">Melted Workx</p>
+      <p style="font-family:'Poppins',sans-serif;font-size:15px;color:var(--paper-dim);">The script is your logo mark only, never body or UI text. Everything a coordinator actually reads, headings, forms, dashboards, uses the same rounded sans your site already uses for "Where creativity meets precision" and its menu.</p>
+    </div>
+    <div class="callout" style="margin-top:20px;">
+      <strong>Read from screenshots, not a brand file:</strong> these hex values are close visual estimates, not sampled from source assets. If you have a Wix style export or brand guide, send it over and we'll swap these for the exact values before build.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What it could look like</h2>
+    <p>Three screens from the Phase 1 scope, styled in the direction above: a guest's intake step, Naidene's exception-only dashboard, and the shuttle SMS a delegate actually receives.</p>
+
+    <div class="mw-preview">
+      <div class="mw-frames">
+
+        <div>
+          <div class="mw-frame">
+            <div class="mw-screen">
+              <div class="mw-bar">Melted Workx · Intake</div>
+              <div class="mw-body">
+                <div class="mw-dots"><span class="on"></span><span></span><span></span><span></span></div>
+                <div style="font-weight:600;margin-bottom:10px;">Full name and passport</div>
+                <div class="mw-field">Full name, as on passport</div>
+                <div class="mw-field">Upload passport photo</div>
+                <div class="mw-field">Preferred language</div>
+                <div class="mw-btn">Continue</div>
+              </div>
+            </div>
+          </div>
+          <div class="mw-caption">Guest intake wizard</div>
+        </div>
+
+        <div>
+          <div class="mw-frame tablet">
+            <div class="mw-screen">
+              <div class="mw-bar">Overview · today</div>
+              <div class="mw-body">
+                <div class="mw-stat-row">
+                  <div class="mw-stat"><div class="n">214/300</div><div class="l">Checked in</div></div>
+                  <div class="mw-stat"><div class="n">4</div><div class="l">Unfilled shuttle seats</div></div>
+                </div>
+                <div style="font-weight:600;font-size:11px;margin-bottom:2px;">Needs attention</div>
+                <div class="mw-exception"><span>M. Manana, duplicate record</span><span class="mw-tag">review</span></div>
+                <div class="mw-exception"><span>Shuttle 14:30, 2 seats open</span><span class="mw-tag">review</span></div>
+                <div class="mw-exception"><span>Session B at capacity</span><span class="mw-tag ok">resolved</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="mw-caption">Naidene's dashboard, exceptions only</div>
+        </div>
+
+        <div>
+          <div class="mw-frame">
+            <div class="mw-screen">
+              <div class="mw-bar">Messages</div>
+              <div class="mw-body">
+                <div class="mw-sender">Melted Workx</div>
+                <div class="mw-bubble">Your shuttle picks you up at 14:30 outside Lobby A. Reply if this time doesn't work.</div>
+              </div>
+            </div>
+          </div>
+          <div class="mw-caption">Shuttle SMS, sent automatically</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Phasing</h2>
+
+    <div class="phase">
+      <div class="num">1</div>
+      <div class="body">
+        <h3>Core build</h3>
+        <p>Delegate + crew data core with role-scoped views · guest intake wizard · ops dashboard (push/exception-based) · accreditation · sessions/breakaway RSVP · shuttle manifest · notification engine (SMS + WhatsApp, trigger-based) · lean read-only agenda · crew management with time-bound access · consent capture.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="num">2</div>
+      <div class="body">
+        <h3>Proof-driven add-ons</h3>
+        <p>Priced once Phase 1 data exists: post-event reporting (support-ticket reduction, no-show rate, admin hours saved) · richer engagement features · broader channel support if usage justifies it.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Open items pending Grant's input</h2>
+    <table>
+      <tr><th>Item</th><th>Why it matters</th></tr>
+      <tr><td>VIP / National Assembly / media segmentation</td><td>Confirm this is a filtered dashboard view, not a separate approval workflow</td></tr>
+      <tr><td>Country-code distribution</td><td>Needed to size the SMS cost line accurately</td></tr>
+      <tr><td>Existing vendor/hotel integrations</td><td>Any expectations not yet surfaced</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap respond">
+    <h2>Your response</h2>
+    <p>Let us know where this stands, no need to write a full email back.</p>
+    <form id="respond-form">
+      <label for="decision">Decision</label>
+      <select id="decision" name="decision" required>
+        <option value="">Choose one</option>
+        <option value="approve">Approve, let's move to Phase 1</option>
+        <option value="revise">Needs revision</option>
+        <option value="discuss">Let's discuss first</option>
+      </select>
+      <label for="notes">Notes (optional)</label>
+      <textarea id="notes" name="notes" placeholder="Anything you want us to know before we talk"></textarea>
+      <button type="submit">Send response</button>
+      <div class="status" id="form-status"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    San Systems · proposal ref meltedworkx-001
+  </div>
+</footer>
+</div>
+
+<script>
+  // Password gate. No plaintext password in source, checked against a SHA-256 hash.
+  // Placeholder password is "meltedworkx2026" - change PASSWORD_HASH before sharing this link.
+  // To generate a new hash: crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourpassword'))
+  var PASSWORD_HASH = '0fa8b9141f3c93055e54397d8c40677b4110ae4247fed01e3854020dbf165323';
+
+  function hashHex(text) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
+      return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+    });
+  }
+
+  function unlock() {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+    // View tracking (Beacon API, anonymous, no PII) is wired to n8n once that
+    // webhook exists. Left out for now rather than pointing at a placeholder.
+  }
+
+  if (sessionStorage.getItem('mw-unlocked') === '1') {
+    unlock();
+  }
+
+  document.getElementById('gate-submit').addEventListener('click', function () {
+    var pw = document.getElementById('gate-pw').value;
+    hashHex(pw).then(function (hex) {
+      if (hex === PASSWORD_HASH) {
+        sessionStorage.setItem('mw-unlocked', '1');
+        unlock();
+      } else {
+        document.getElementById('gate-err').textContent = 'Incorrect password';
+      }
+    });
+  });
+
+  document.getElementById('gate-pw').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') document.getElementById('gate-submit').click();
+  });
+
+  document.getElementById('respond-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var decision = document.getElementById('decision').value;
+    var notes = document.getElementById('notes').value;
+    var subject = 'Melted Workx proposal response: ' + decision;
+    var body = 'Decision: ' + decision + '\n\nNotes:\n' + notes;
+    window.location.href = 'mailto:hello@thesanscribe.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('form-status').textContent = 'Opening your email client to send this.';
+  });
+</script>
+
+</body>
+</html>
