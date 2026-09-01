@@ -10,6 +10,7 @@
   :root{
     --blush:#E9C6C8; --charcoal:#2A2827; --gold:#C7A06B; --paper:#FFFFFF;
     --ink:#2E2B29; --muted:#8A817E; --line:#EFE2E3; --resolved:#8A3E45;
+    --wa-header:#075E54; --wa-bg:#ECE5DD; --wa-out:#DCF8C6; --wa-check:#34B7F1;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:var(--blush);color:var(--ink);font-family:'Poppins',sans-serif;font-weight:400;min-height:100vh;}
@@ -23,17 +24,21 @@
   header.top{padding:36px 20px 8px;text-align:center;}
   .wordmark{font-family:'Alex Brush',cursive;font-size:40px;color:var(--charcoal);}
   .sub{font-size:13px;color:var(--charcoal);opacity:0.6;margin-top:2px;}
+  .own{
+    max-width:420px;margin:14px auto 0;background:#fff;border:1px solid var(--blush);border-radius:10px;
+    padding:12px 16px;font-size:12.5px;color:var(--charcoal);opacity:0.85;text-align:left;
+  }
+  .own strong{color:var(--resolved);}
 
   nav.tabs{
-    display:flex;justify-content:center;gap:8px;padding:20px 16px 8px;flex-wrap:wrap;
+    display:flex;justify-content:center;gap:6px;padding:20px 16px 8px;flex-wrap:wrap;
   }
   nav.tabs button{
-    font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;
+    font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:500;
     background:var(--paper);color:var(--charcoal);border:1px solid rgba(0,0,0,0.08);
-    border-radius:20px;padding:9px 18px;cursor:pointer;transition:all .15s;
+    border-radius:20px;padding:8px 14px;cursor:pointer;transition:all .15s;
   }
   nav.tabs button.active{background:var(--charcoal);color:#fff;}
-  nav.tabs button .done{color:var(--gold);margin-right:4px;}
 
   main{max-width:420px;margin:0 auto;padding:24px 20px 60px;}
   .panel{display:none;}
@@ -56,6 +61,8 @@
     width:100%;border:1px solid var(--blush);border-radius:8px;padding:11px 12px;
     font-family:'Poppins',sans-serif;font-size:14px;color:var(--ink);background:#fff;
   }
+  .row2{display:flex;gap:10px;}
+  .row2 > div{flex:1;}
   .upload{
     border:1px dashed var(--blush);border-radius:8px;padding:16px;text-align:center;
     font-size:12.5px;color:var(--muted);cursor:pointer;
@@ -89,9 +96,25 @@
   .exception.gone{opacity:0.4;}
   .exception.gone .label{text-decoration:line-through;}
 
-  .thread{min-height:140px;}
-  .msg{background:var(--blush);border-radius:14px;border-top-left-radius:4px;padding:12px 14px;font-size:13.5px;line-height:1.5;margin-bottom:10px;max-width:88%;}
-  .msg .meta{font-size:10px;color:var(--muted);margin-bottom:3px;font-family:'DM Mono',monospace;}
+  /* WhatsApp-style thread */
+  .wa-bar{background:var(--wa-header) !important;display:flex;align-items:center;gap:10px;padding:10px 14px !important;}
+  .wa-avatar{width:30px;height:30px;border-radius:50%;background:var(--charcoal);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Alex Brush',cursive;font-size:18px;flex-shrink:0;}
+  .wa-who{line-height:1.3;}
+  .wa-who .name{font-size:13px;font-weight:500;}
+  .wa-who .status{font-size:10.5px;color:rgba(255,255,255,0.7);}
+  .wa-thread{background:var(--wa-bg);padding:14px 12px;min-height:220px;display:flex;flex-direction:column;gap:8px;}
+  .wa-msg{max-width:82%;padding:8px 10px 6px;border-radius:8px;font-size:13px;line-height:1.4;position:relative;}
+  .wa-in{background:#fff;align-self:flex-start;border-top-left-radius:2px;}
+  .wa-out{background:var(--wa-out);align-self:flex-end;border-top-right-radius:2px;}
+  .wa-meta{display:flex;justify-content:flex-end;gap:4px;font-size:10px;color:#8a8a8a;margin-top:2px;}
+  .wa-meta .check{color:var(--wa-check);font-weight:700;}
+  .wa-chip{display:inline-block;background:var(--blush);color:var(--charcoal);border-radius:6px;padding:6px 9px;font-size:11.5px;margin-top:6px;}
+  .wa-compose{display:flex;gap:8px;padding:10px 12px;background:var(--wa-bg);border-top:1px solid rgba(0,0,0,0.06);}
+  .wa-compose input{flex:1;border-radius:20px;border:none;padding:9px 14px;font-size:13px;font-family:'Poppins',sans-serif;}
+  .wa-compose button{
+    background:var(--wa-header);color:#fff;border:none;border-radius:50%;width:36px;height:36px;
+    font-size:15px;cursor:pointer;flex-shrink:0;
+  }
 
   .caption{text-align:center;font-size:12px;color:var(--charcoal);opacity:0.6;margin-top:12px;}
 
@@ -108,21 +131,57 @@
 
 <header class="top">
   <div class="wordmark">Melted Workx</div>
-  <div class="sub">A quick look at the three screens from Phase 1</div>
+  <div class="sub">A quick look at four screens from Phase 1</div>
+  <div class="own">No dependency on San Systems here: creating the event, running intake, watching the dashboard, sending messages, all of it happens inside your own system. This demo shows what you'd actually be doing yourself, not something we do for you.</div>
 </header>
 
 <nav class="tabs">
-  <button class="active" data-tab="intake" onclick="showTab('intake')">1. Intake</button>
-  <button data-tab="dashboard" onclick="showTab('dashboard')">2. Dashboard</button>
-  <button data-tab="messages" onclick="showTab('messages')">3. Messages</button>
+  <button class="active" data-tab="event" onclick="showTab('event')">1. New event</button>
+  <button data-tab="intake" onclick="showTab('intake')">2. Intake</button>
+  <button data-tab="dashboard" onclick="showTab('dashboard')">3. Dashboard</button>
+  <button data-tab="messages" onclick="showTab('messages')">4. WhatsApp</button>
 </nav>
 
 <main>
 
-  <!-- INTAKE -->
-  <div class="panel active" id="panel-intake">
+  <!-- 1. CREATE EVENT -->
+  <div class="panel active" id="panel-event">
     <div class="frame">
-      <div class="bar">Melted Workx · Guest Intake</div>
+      <div class="bar">Melted Workx · New event</div>
+      <div class="body" id="event-body">
+        <div style="font-weight:600;margin-bottom:4px;">Set up your event</div>
+        <div style="font-size:12.5px;color:var(--muted);margin-bottom:14px;">You or Grant do this, no one else needed.</div>
+
+        <label>Event name</label>
+        <input type="text" id="event-name" placeholder="e.g. OSF Cape Town">
+
+        <div class="row2">
+          <div>
+            <label>Start date</label>
+            <input type="text" id="event-start" placeholder="14 Nov 2026">
+          </div>
+          <div>
+            <label>End date</label>
+            <input type="text" id="event-end" placeholder="16 Nov 2026">
+          </div>
+        </div>
+
+        <label>Venue</label>
+        <input type="text" id="event-venue" placeholder="e.g. Cape Town International Convention Centre">
+
+        <label>Expected headcount</label>
+        <input type="text" id="event-headcount" placeholder="e.g. 300">
+
+        <button class="btn" onclick="createEvent()">Create event</button>
+      </div>
+    </div>
+    <div class="caption">Try it: fill in a name and tap Create event.</div>
+  </div>
+
+  <!-- 2. INTAKE -->
+  <div class="panel" id="panel-intake">
+    <div class="frame">
+      <div class="bar" id="intake-bar">Melted Workx · Guest Intake</div>
       <div class="body" id="intake-body">
         <div class="dots"><span class="on"></span><span></span><span></span><span></span></div>
         <div style="font-weight:600;margin-bottom:4px;">Full name and passport</div>
@@ -144,13 +203,13 @@
         <button class="btn" onclick="submitIntake()">Continue</button>
       </div>
     </div>
-    <div class="caption">Try it: type a name, tap the upload box, then continue.</div>
+    <div class="caption">This link was generated automatically the moment the event was created.</div>
   </div>
 
-  <!-- DASHBOARD -->
+  <!-- 3. DASHBOARD -->
   <div class="panel" id="panel-dashboard">
     <div class="frame">
-      <div class="bar">Overview &middot; today</div>
+      <div class="bar" id="dash-bar">Overview &middot; today</div>
       <div class="body">
         <div class="stat-row">
           <div class="stat"><div class="n" id="stat-checkedin">214/300</div><div class="l">Checked in</div></div>
@@ -177,24 +236,33 @@
         </div>
       </div>
     </div>
-    <div class="caption">Tap "review" to resolve an exception, watch it clear itself.</div>
+    <div class="caption">Scoped to this event only, nothing from a past event ever shows here.</div>
   </div>
 
-  <!-- MESSAGES -->
+  <!-- 4. WHATSAPP -->
   <div class="panel" id="panel-messages">
     <div class="frame">
-      <div class="bar">Messages</div>
-      <div class="body">
-        <div class="thread" id="thread">
-          <div class="msg">
-            <div class="meta">Melted Workx</div>
-            Hi Jane, thanks for registering. We'll send your shuttle details closer to the date.
-          </div>
+      <div class="bar wa-bar">
+        <div class="wa-avatar">M</div>
+        <div class="wa-who">
+          <div class="name">Melted Workx</div>
+          <div class="status">Business account</div>
         </div>
-        <button class="btn secondary" onclick="sendReminder()">Simulate shuttle reminder</button>
+      </div>
+      <div class="wa-thread" id="wa-thread">
+        <div class="wa-msg wa-in">Hi Jane! Your shuttle picks you up at <strong>14:30</strong> outside Lobby A 🚐
+          <div class="wa-chip">📍 Lobby A pickup point</div>
+        </div>
+        <div class="wa-msg wa-out">Perfect, thank you!
+          <div class="wa-meta">14:02 <span class="check">✓✓</span></div>
+        </div>
+      </div>
+      <div class="wa-compose">
+        <input type="text" value="Can I get picked up 15 mins earlier?" readonly>
+        <button onclick="sendQuestion()">➤</button>
       </div>
     </div>
-    <div class="caption">This is the message a delegate actually receives, sent automatically.</div>
+    <div class="caption">Tap send: a delegate's reply automatically flags their record for review, no one has to read every message to catch it.</div>
   </div>
 
 </main>
@@ -203,6 +271,7 @@
 
 <script>
   var checkedIn = 214;
+  var eventName = 'your event';
 
   function showTab(name) {
     document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
@@ -210,6 +279,20 @@
     document.querySelectorAll('nav.tabs button').forEach(function (b) {
       b.classList.toggle('active', b.dataset.tab === name);
     });
+  }
+
+  function createEvent() {
+    var name = document.getElementById('event-name').value.trim() || 'OSF Cape Town';
+    eventName = name;
+    document.getElementById('event-body').innerHTML =
+      '<div style="text-align:center;padding:20px 0;">' +
+      '<div style="font-size:15px;font-weight:600;margin-bottom:10px;">' + name + ' is live</div>' +
+      '<div style="font-size:12.5px;color:var(--muted);margin-bottom:14px;">Your intake link is ready to share:</div>' +
+      '<div style="background:var(--blush);border-radius:8px;padding:10px;font-size:12px;font-family:\'DM Mono\',monospace;word-break:break-all;">meltedworkx.app/e/' + name.toLowerCase().replace(/[^a-z0-9]+/g,'-') + '/intake</div>' +
+      '</div>';
+    document.getElementById('intake-bar').textContent = 'Melted Workx · Intake · ' + name;
+    document.getElementById('dash-bar').textContent = name + ' · today';
+    setTimeout(function () { showTab('intake'); }, 1100);
   }
 
   function fakeUpload() {
@@ -240,12 +323,30 @@
     row.classList.add('gone');
   }
 
-  function sendReminder() {
-    var thread = document.getElementById('thread');
-    var msg = document.createElement('div');
-    msg.className = 'msg';
-    msg.innerHTML = '<div class="meta">Melted Workx</div>Your shuttle picks you up at 14:30 outside Lobby A. Reply if this time doesn\'t work.';
-    thread.appendChild(msg);
+  function sendQuestion() {
+    var thread = document.getElementById('wa-thread');
+    var out = document.createElement('div');
+    out.className = 'wa-msg wa-out';
+    out.innerHTML = 'Can I get picked up 15 mins earlier?<div class="wa-meta">14:05 <span class="check">✓✓</span></div>';
+    thread.appendChild(out);
+    document.querySelector('.wa-compose input').value = '';
+    document.querySelector('.wa-compose button').disabled = true;
+
+    setTimeout(function () {
+      var reply = document.createElement('div');
+      reply.className = 'wa-msg wa-in';
+      reply.innerHTML = 'Noted! We\'ve flagged this for review, someone from the team will confirm shortly.<div class="wa-chip">🚩 Auto-flagged in dashboard</div>';
+      thread.appendChild(reply);
+      thread.scrollTop = thread.scrollHeight;
+
+      var row = document.getElementById('new-guest-row');
+      row.querySelector('.label').textContent = 'Jane Delegate \u00b7 requested earlier pickup';
+      row.style.display = 'flex';
+      row.querySelector('.tag').className = 'tag';
+      row.querySelector('.tag').textContent = 'review';
+      row.querySelector('.tag').setAttribute('onclick', 'resolveException(this)');
+      row.classList.remove('gone');
+    }, 1000);
   }
 
   function resetDemo() { location.reload(); }
