@@ -121,10 +121,12 @@
 
   /* Rollout timeline */
   .rollout{display:flex;flex-direction:column;gap:2px;background:var(--rule);margin:28px 0;}
-  .rollout-step{background:var(--bone);padding:20px 24px;display:grid;grid-template-columns:120px 1fr;gap:16px;}
-  .rollout-step .when{font-family:'DM Mono',monospace;font-size:11px;color:var(--ochre);letter-spacing:0.05em;text-transform:uppercase;padding-top:2px;}
-  .rollout-step .what strong{display:block;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;margin-bottom:4px;}
-  .rollout-step .what p{margin-bottom:0;font-size:14.5px;color:var(--muted);}
+  .rollout-step{background:var(--bone);padding:22px 24px;}
+  .rollout-step .step-head{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;}
+  .rollout-step .step-head strong{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;}
+  .rollout-step .step-head span{font-family:'DM Mono',monospace;font-size:11px;color:var(--ochre);letter-spacing:0.05em;text-transform:uppercase;}
+  .rollout-step .def{font-size:14px;color:var(--muted);font-style:italic;margin-bottom:10px;}
+  .rollout-step p{margin-bottom:0;font-size:14.5px;color:var(--muted);}
 
   /* Password gate */
   #gate{position:fixed;inset:0;background:var(--earth);z-index:999;display:flex;align-items:center;justify-content:center;}
@@ -145,7 +147,6 @@
     .wrap{padding:0 24px;}
     section{padding:44px 0;}
     .doc-footer{padding:24px;flex-direction:column;gap:8px;text-align:center;}
-    .rollout-step{grid-template-columns:1fr;gap:4px;}
   }
 </style>
 </head>
@@ -409,43 +410,37 @@
   <div class="wrap">
     <div class="section-label">Rollout &amp; training</div>
     <h2>From build to <em>trusted at a real event</em></h2>
-    <p>Naidene doesn't need to learn a system, she needs to trust one before it's holding her event together. That's a different goal from "the build is done," so rollout is treated as its own stage, not the last day of the build.</p>
+    <p>A system isn't useful the day it's finished being built, it's useful once Naidene trusts it enough to run an event through it. So rollout happens in three stages, each with its own purpose. Here's what each one actually means:</p>
 
     <div class="rollout">
       <div class="rollout-step">
-        <div class="when">Weeks 1&ndash;6&ndash;11</div>
-        <div class="what">
-          <strong>Build</strong>
-          <p>Data core first, since everything else depends on it, then the intake wizard, dashboard, accreditation, and notification engine in parallel. Timeline depends on how much of San Systems' capacity this gets against Aspiral and Mosaic Safe, roughly 5&ndash;6 weeks at near-full focus, 9&ndash;11 weeks running alongside the other two.</p>
-        </div>
+        <div class="step-head"><strong>1. Build</strong> <span>Weeks 1&ndash;5 to 11</span></div>
+        <div class="def">The stage where we actually construct the system, before you see it running at a real event.</div>
+        <p>The data core comes first, since every other part depends on it, then the guest intake wizard, dashboard, accreditation, and notification engine are built in parallel. A realistic range for this stage is 5 to 11 weeks. This build gets our full attention from the day it starts, the same standard we hold for every project we take on.</p>
       </div>
       <div class="rollout-step">
-        <div class="when">Shadow event</div>
-        <div class="what">
-          <strong>Runs alongside the spreadsheet, not instead of it</strong>
-          <p>The system operates at a real event while the existing process stays live as a safety net. This is also where training actually happens, in context, on real delegate data, not as a separate step to sit through beforehand.</p>
-        </div>
+        <div class="step-head"><strong>2. Shadow run</strong></div>
+        <div class="def">A real event where the new system runs at the same time as your current spreadsheet process, side by side, not as a replacement yet.</div>
+        <p>Nothing is left to chance: if anything about the system doesn't work the way it should, your usual process is still there, live, as the backup. This is also where you and your team actually learn to use it, on real delegate data at a real event, not in a classroom demo beforehand.</p>
       </div>
       <div class="rollout-step">
-        <div class="when">Next event</div>
-        <div class="what">
-          <strong>Solo</strong>
-          <p>Spreadsheet retired. The system runs on its own, with us on call.</p>
-        </div>
+        <div class="step-head"><strong>3. Solo</strong></div>
+        <div class="def">The point where the spreadsheet is retired for good and the system runs your event operations on its own.</div>
+        <p>We stay on call for this first fully independent event, but the spreadsheet is no longer part of the process at all.</p>
       </div>
     </div>
 
     <div class="callout">
-      <strong>Targeting the OSF Cape Town event in November:</strong> on the faster build pace, that leaves real margin, enough to comfortably use OSF as the shadow event with the spreadsheet still backing it up. On the slower, multi-client pace, it's tight, likely little to no buffer. We'd need the exact November date and a clearer read on how much priority this build gets over the next few weeks before treating OSF as a committed target rather than a stretch goal.
+      <strong>Targeting the OSF Cape Town event in November:</strong> from today, that's roughly 11 weeks away, enough runway to complete the build and use that event as the shadow run, with the spreadsheet still backing it up. To turn that from a direction into a firm commitment, we need the exact event date and the outstanding items below (VIP/media segmentation, delegate country breakdown) confirmed as early as possible, the sooner those land, the sooner the clock properly starts.
     </div>
 
     <h3>What training actually looks like</h3>
-    <p>Two architectural choices already in this proposal do most of the work here, worth saying to Naidene directly rather than just reassuring her about it:</p>
+    <p>Two decisions already built into this proposal do most of the work here, worth explaining to Naidene directly rather than just reassuring her about it:</p>
     <ul>
-      <li><strong>One screen, not the whole system.</strong> The role-scoped architecture means Naidene only ever sees her own dashboard. Guests use the intake wizard, staff use accreditation, delegates get SMS, she was never going to be trained on all of it.</li>
-      <li><strong>Her screen is designed to show almost nothing.</strong> It's exception-based, quiet when nothing needs attention. There's no dense admin panel to master.</li>
+      <li><strong>One screen, not the whole system.</strong> Because each role only sees its own view, Naidene only ever sees her own dashboard. Guests use the intake wizard, staff use accreditation, delegates get SMS, she was never going to be trained on all of it, just her own corner.</li>
+      <li><strong>Her screen is designed to show almost nothing.</strong> It only speaks up when something needs attention. There's no dense admin panel to master, most of the time, there's simply nothing to look at.</li>
     </ul>
-    <p>Training itself: a 30&ndash;45 minute walkthrough using her real upcoming event's data, not a generic demo, timed to land right before the shadow event so it's used immediately rather than half-remembered weeks later. No manual, no course, one thing to recognise: when something's amber, tap it.</p>
+    <p>Training itself: a 30&ndash;45 minute walkthrough using her real upcoming event's data, not a generic demo, timed to land right before the shadow run so it's used immediately rather than half-remembered weeks later. No manual, no course, one thing to recognise: when something's amber, tap it.</p>
   </div>
 </section>
 
@@ -492,7 +487,7 @@
       <tr><td>VIP / National Assembly / media segmentation</td><td>Confirm this is a filtered dashboard view, not a separate approval workflow</td></tr>
       <tr><td>Country-code distribution</td><td>Needed to size the SMS cost line accurately</td></tr>
       <tr><td>Existing vendor/hotel integrations</td><td>Any expectations not yet surfaced</td></tr>
-      <tr><td>Exact OSF Cape Town event date</td><td>Needed to confirm whether it's realistic as the shadow-period event</td></tr>
+      <tr><td>Exact OSF Cape Town event date</td><td>Needed to confirm the rollout timeline against it</td></tr>
     </table>
   </div>
 </section>
