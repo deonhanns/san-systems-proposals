@@ -60,6 +60,12 @@
   .arch-view .t{font-weight:600;display:block;margin-bottom:2px;}
   .arch-view .s{color:var(--muted);font-size:12.5px;}
 
+  .setup-steps{display:flex;flex-direction:column;gap:2px;background:var(--rule);margin:28px 0;}
+  .setup-step{background:var(--bone);padding:16px 20px;display:flex;gap:14px;align-items:flex-start;}
+  .setup-step .n{font-family:'Cormorant Garamond',serif;font-weight:700;font-style:italic;color:var(--ochre);font-size:20px;min-width:1.2ch;}
+  .setup-step .t{font-size:14.5px;}
+  .setup-step .t strong{display:block;font-size:14.5px;margin-bottom:2px;}
+
   .phase{display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--rule);}
   .phase:first-child{border-top:none;}
   .phase .num{font-family:'Cormorant Garamond',serif;font-weight:700;font-style:italic;font-size:30px;color:var(--ochre);min-width:1.5ch;}
@@ -215,6 +221,37 @@
 
 <section>
   <div class="wrap">
+    <div class="section-label">Creating an event</div>
+    <h2>Yours to start, <em>every time</em></h2>
+    <p>You or Grant create every event yourselves, directly in the system. No call to us, no waiting on anyone. Enter the name, dates, and venue, submit, and the rest builds itself:</p>
+
+    <div class="setup-steps">
+      <div class="setup-step">
+        <div class="n">1</div>
+        <div class="t"><strong>Enter the basics</strong>Event name, dates, venue, and a rough expected headcount, enough to start, nothing more.</div>
+      </div>
+      <div class="setup-step">
+        <div class="n">2</div>
+        <div class="t"><strong>A fresh intake link is generated</strong>Ready to share with guests immediately, replacing the manual Google Form duplication you do today.</div>
+      </div>
+      <div class="setup-step">
+        <div class="n">3</div>
+        <div class="t"><strong>A dashboard scoped to just this event</strong>Last event's data never mixes in. Every new event starts clean.</div>
+      </div>
+      <div class="setup-step">
+        <div class="n">4</div>
+        <div class="t"><strong>A fresh notification float for this event</strong>Spend on one event is never confused with spend on another.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>No dependency, this is yours:</strong> creating an event is something you do, not something you wait on us for. Once this is built, running your next event, whether that's next month or next year, doesn't require contacting San Systems at all. The data, the intake link, the dashboard: you create it, you control it, you own it.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <div class="section-label">Notifications</div>
     <h2>Sent by the <em>system</em>, not the coordinator</h2>
     <p>Change-triggered, not manually sent, split by purpose rather than preference:</p>
@@ -323,10 +360,26 @@
   <div class="wrap">
     <div class="section-label">Mockups</div>
     <h2>What it could <em>look like</em></h2>
-    <p>Three screens from the Phase 1 scope, styled in the direction above: a guest's intake step, your exception-only dashboard, and the shuttle SMS a delegate actually receives.</p>
+    <p>Four screens from the Phase 1 scope, styled in the direction above: creating a new event, a guest's intake step, your exception-only dashboard, and the shuttle message a delegate actually receives.</p>
 
     <div class="mw-preview">
       <div class="mw-frames">
+
+        <div>
+          <div class="mw-frame">
+            <div class="mw-screen">
+              <div class="mw-bar">New event</div>
+              <div class="mw-body">
+                <div style="font-weight:600;margin-bottom:10px;">Set up your event</div>
+                <div class="mw-field">Event name</div>
+                <div class="mw-field">Dates</div>
+                <div class="mw-field">Venue</div>
+                <div class="mw-btn">Create event</div>
+              </div>
+            </div>
+          </div>
+          <div class="mw-caption">Creating an event, self-service</div>
+        </div>
 
         <div>
           <div class="mw-frame">
@@ -374,11 +427,12 @@
               </div>
             </div>
           </div>
-          <div class="mw-caption">Shuttle SMS, sent automatically</div>
+          <div class="mw-caption">Shuttle message, sent automatically</div>
         </div>
 
       </div>
     </div>
+    <p style="font-size:14px;color:var(--muted);text-align:center;">Want to click through this yourself? <a href="/meltedworkx-001/demo/">Try the interactive demo</a>, sample data, no sign-up.</p>
   </div>
 </section>
 
@@ -391,7 +445,7 @@
       <div class="num">1</div>
       <div class="body">
         <h3>Core build</h3>
-        <p>Delegate + crew data core with role-scoped views · guest intake wizard · ops dashboard (push/exception-based) · accreditation · sessions/breakaway RSVP · shuttle manifest · notification engine (SMS + WhatsApp, trigger-based) · lean read-only agenda · crew management with time-bound access · consent capture.</p>
+        <p>Self-service event creation · delegate + crew data core with role-scoped views · guest intake wizard · ops dashboard (push/exception-based) · accreditation · sessions/breakaway RSVP · shuttle manifest · notification engine (SMS + WhatsApp, trigger-based) · lean read-only agenda · crew management with time-bound access · consent capture.</p>
       </div>
     </div>
 
@@ -416,7 +470,7 @@
       <div class="rollout-step">
         <div class="step-head"><strong>1. Build</strong> <span>Weeks 1&ndash;5 to 11</span></div>
         <div class="def">The stage where we actually construct the system, before you see it running at a real event.</div>
-        <p>The data core comes first, since every other part depends on it, then the guest intake wizard, dashboard, accreditation, and notification engine are built in parallel. A realistic range for this stage is 5 to 11 weeks. This build gets our full attention from the day it starts, the same standard we hold for every project we take on.</p>
+        <p>The data core comes first, since every other part depends on it, then event creation, the guest intake wizard, dashboard, accreditation, and notification engine are built in parallel. A realistic range for this stage is 5 to 11 weeks. This build gets our full attention from the day it starts, the same standard we hold for every project we take on.</p>
       </div>
       <div class="rollout-step">
         <div class="step-head"><strong>2. Shadow run</strong></div>
@@ -452,7 +506,7 @@
 
     <table>
       <tr><th>Component</th><th class="num">Senior hrs</th><th class="num">Junior hrs</th><th class="num">Cost</th></tr>
-      <tr><td>Data core &amp; role/permission model</td><td class="num">4</td><td class="num">20</td><td class="num">R5,800</td></tr>
+      <tr><td>Data core, role/permission model &amp; event creation</td><td class="num">5</td><td class="num">22</td><td class="num">R6,590</td></tr>
       <tr><td>Guest intake wizard</td><td class="num">8</td><td class="num">16</td><td class="num">R6,320</td></tr>
       <tr><td>Ops dashboard (exception-based)</td><td class="num">10</td><td class="num">20</td><td class="num">R7,900</td></tr>
       <tr><td>Accreditation flow (scan + fallback)</td><td class="num">4</td><td class="num">14</td><td class="num">R4,480</td></tr>
@@ -462,10 +516,10 @@
       <tr><td>Design system applied across all screens</td><td class="num">10</td><td class="num">6</td><td class="num">R4,820</td></tr>
       <tr><td>Integration, QA, deployment</td><td class="num">6</td><td class="num">16</td><td class="num">R5,620</td></tr>
       <tfoot>
-        <tr><td>Subtotal</td><td class="num">55 hrs</td><td class="num">133 hrs</td><td class="num">R48,510</td></tr>
+        <tr><td>Subtotal</td><td class="num">56 hrs</td><td class="num">135 hrs</td><td class="num">R49,300</td></tr>
       </tfoot>
     </table>
-    <p style="font-size:14px;color:var(--muted);">Phase 1 investment: <strong style="color:var(--earth);">R48,500 to R58,000</strong>. The final number depends on two confirmations already flagged below, VIP/media segmentation and the delegate country breakdown, once those are locked, so is the price.</p>
+    <p style="font-size:14px;color:var(--muted);">Phase 1 investment: <strong style="color:var(--earth);">R49,000 to R58,500</strong>. The final number depends on two confirmations already flagged below, VIP/media segmentation and the delegate country breakdown, once those are locked, so is the price.</p>
 
     <h3>Ongoing retainer</h3>
     <p>Since you're open to one: three tiers, hosting and support only. The usage float above sits outside all three, billed separately at cost plus a stated margin.</p>
