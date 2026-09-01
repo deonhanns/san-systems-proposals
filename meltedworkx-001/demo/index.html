@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melted Workx — Demo</title>
+<meta name="description" content="An interactive demo of the Melted Workx event operations platform, using sample data.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Alex+Brush&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#E9C6C8; --charcoal:#2A2827; --gold:#C7A06B; --paper:#FFFFFF;
+    --ink:#2E2B29; --muted:#8A817E; --line:#EFE2E3; --resolved:#8A3E45;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--blush);color:var(--ink);font-family:'Poppins',sans-serif;font-weight:400;min-height:100vh;}
+
+  .banner{
+    background:var(--charcoal);color:#fff;text-align:center;padding:10px 16px;
+    font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+  }
+  .banner strong{color:var(--gold);}
+
+  header.top{padding:36px 20px 8px;text-align:center;}
+  .wordmark{font-family:'Alex Brush',cursive;font-size:40px;color:var(--charcoal);}
+  .sub{font-size:13px;color:var(--charcoal);opacity:0.6;margin-top:2px;}
+
+  nav.tabs{
+    display:flex;justify-content:center;gap:8px;padding:20px 16px 8px;flex-wrap:wrap;
+  }
+  nav.tabs button{
+    font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;
+    background:var(--paper);color:var(--charcoal);border:1px solid rgba(0,0,0,0.08);
+    border-radius:20px;padding:9px 18px;cursor:pointer;transition:all .15s;
+  }
+  nav.tabs button.active{background:var(--charcoal);color:#fff;}
+  nav.tabs button .done{color:var(--gold);margin-right:4px;}
+
+  main{max-width:420px;margin:0 auto;padding:24px 20px 60px;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+
+  .frame{
+    background:#fff;border:5px solid var(--charcoal);border-radius:22px;overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+  }
+  .frame .bar{background:var(--charcoal);color:#fff;font-size:12px;padding:12px 16px;font-weight:500;}
+  .frame .body{padding:18px;}
+
+  .dots{display:flex;gap:6px;margin-bottom:16px;}
+  .dots span{width:7px;height:7px;border-radius:50%;background:var(--blush);}
+  .dots span.on{background:var(--gold);}
+
+  label{display:block;font-size:11px;color:var(--muted);margin:12px 0 4px;text-transform:uppercase;letter-spacing:0.04em;}
+  label:first-of-type{margin-top:0;}
+  input[type=text], select{
+    width:100%;border:1px solid var(--blush);border-radius:8px;padding:11px 12px;
+    font-family:'Poppins',sans-serif;font-size:14px;color:var(--ink);background:#fff;
+  }
+  .upload{
+    border:1px dashed var(--blush);border-radius:8px;padding:16px;text-align:center;
+    font-size:12.5px;color:var(--muted);cursor:pointer;
+  }
+  .upload.filled{border-style:solid;border-color:var(--gold);color:var(--gold);font-weight:500;}
+
+  .btn{
+    display:block;width:100%;text-align:center;background:var(--gold);color:var(--charcoal);
+    border:none;border-radius:8px;padding:13px;font-family:'Poppins',sans-serif;font-weight:600;
+    font-size:14px;cursor:pointer;margin-top:20px;
+  }
+  .btn:hover{background:#b7905f;}
+  .btn.secondary{background:transparent;border:1px solid var(--charcoal);color:var(--charcoal);}
+
+  .stat-row{display:flex;gap:10px;margin-bottom:18px;}
+  .stat{flex:1;background:var(--blush);border-radius:10px;padding:12px;}
+  .stat .n{font-size:20px;font-weight:600;transition:all .2s;}
+  .stat .l{font-size:10.5px;color:var(--charcoal);opacity:0.65;}
+
+  .section-title{font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:600;margin-bottom:8px;}
+  .exception{
+    display:flex;justify-content:space-between;align-items:center;padding:11px 0;
+    border-top:1px solid var(--line);font-size:13.5px;
+  }
+  .exception:first-of-type{border-top:none;}
+  .exception .tag{
+    font-size:10.5px;padding:3px 10px;border-radius:12px;background:#F3E1CB;color:#7A5A2E;
+    cursor:pointer;font-family:'DM Mono',monospace;
+  }
+  .exception .tag.ok{background:#E9E1E2;color:var(--resolved);cursor:default;}
+  .exception.gone{opacity:0.4;}
+  .exception.gone .label{text-decoration:line-through;}
+
+  .thread{min-height:140px;}
+  .msg{background:var(--blush);border-radius:14px;border-top-left-radius:4px;padding:12px 14px;font-size:13.5px;line-height:1.5;margin-bottom:10px;max-width:88%;}
+  .msg .meta{font-size:10px;color:var(--muted);margin-bottom:3px;font-family:'DM Mono',monospace;}
+
+  .caption{text-align:center;font-size:12px;color:var(--charcoal);opacity:0.6;margin-top:12px;}
+
+  .foot{max-width:420px;margin:0 auto;padding:0 20px 40px;text-align:center;}
+  .foot button{
+    background:none;border:none;font-family:'DM Mono',monospace;font-size:11px;
+    color:var(--charcoal);opacity:0.55;text-decoration:underline;cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">Demo &middot; <strong>sample data only</strong> &middot; not connected to any real system</div>
+
+<header class="top">
+  <div class="wordmark">Melted Workx</div>
+  <div class="sub">A quick look at the three screens from Phase 1</div>
+</header>
+
+<nav class="tabs">
+  <button class="active" data-tab="intake" onclick="showTab('intake')">1. Intake</button>
+  <button data-tab="dashboard" onclick="showTab('dashboard')">2. Dashboard</button>
+  <button data-tab="messages" onclick="showTab('messages')">3. Messages</button>
+</nav>
+
+<main>
+
+  <!-- INTAKE -->
+  <div class="panel active" id="panel-intake">
+    <div class="frame">
+      <div class="bar">Melted Workx · Guest Intake</div>
+      <div class="body" id="intake-body">
+        <div class="dots"><span class="on"></span><span></span><span></span><span></span></div>
+        <div style="font-weight:600;margin-bottom:4px;">Full name and passport</div>
+        <div style="font-size:12.5px;color:var(--muted);margin-bottom:14px;">Step 1 of 4</div>
+
+        <label>Full name, as on passport</label>
+        <input type="text" id="guest-name" placeholder="e.g. Jane Delegate">
+
+        <label>Upload passport photo</label>
+        <div class="upload" id="upload-box" onclick="fakeUpload()">Tap to attach a file</div>
+
+        <label>Preferred language</label>
+        <select>
+          <option>English</option>
+          <option>French</option>
+          <option>Portuguese</option>
+        </select>
+
+        <button class="btn" onclick="submitIntake()">Continue</button>
+      </div>
+    </div>
+    <div class="caption">Try it: type a name, tap the upload box, then continue.</div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="panel" id="panel-dashboard">
+    <div class="frame">
+      <div class="bar">Overview &middot; today</div>
+      <div class="body">
+        <div class="stat-row">
+          <div class="stat"><div class="n" id="stat-checkedin">214/300</div><div class="l">Checked in</div></div>
+          <div class="stat"><div class="n">4</div><div class="l">Unfilled shuttle seats</div></div>
+        </div>
+        <div class="section-title">Needs attention</div>
+        <div id="exceptions">
+          <div class="exception" data-id="e1">
+            <span class="label">M. Manana &middot; duplicate record</span>
+            <span class="tag" onclick="resolveException(this)">review</span>
+          </div>
+          <div class="exception" data-id="e2">
+            <span class="label">Shuttle 14:30 &middot; 2 seats open</span>
+            <span class="tag" onclick="resolveException(this)">review</span>
+          </div>
+          <div class="exception" data-id="e3">
+            <span class="label">Session B at capacity</span>
+            <span class="tag ok">resolved</span>
+          </div>
+          <div class="exception" id="new-guest-row" style="display:none;">
+            <span class="label">Jane Delegate &middot; just submitted intake</span>
+            <span class="tag ok">resolved</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caption">Tap "review" to resolve an exception, watch it clear itself.</div>
+  </div>
+
+  <!-- MESSAGES -->
+  <div class="panel" id="panel-messages">
+    <div class="frame">
+      <div class="bar">Messages</div>
+      <div class="body">
+        <div class="thread" id="thread">
+          <div class="msg">
+            <div class="meta">Melted Workx</div>
+            Hi Jane, thanks for registering. We'll send your shuttle details closer to the date.
+          </div>
+        </div>
+        <button class="btn secondary" onclick="sendReminder()">Simulate shuttle reminder</button>
+      </div>
+    </div>
+    <div class="caption">This is the message a delegate actually receives, sent automatically.</div>
+  </div>
+
+</main>
+
+<div class="foot"><button onclick="resetDemo()">Reset demo</button></div>
+
+<script>
+  var checkedIn = 214;
+
+  function showTab(name) {
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+    document.getElementById('panel-' + name).classList.add('active');
+    document.querySelectorAll('nav.tabs button').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.tab === name);
+    });
+  }
+
+  function fakeUpload() {
+    var box = document.getElementById('upload-box');
+    box.textContent = 'passport-scan.jpg attached';
+    box.classList.add('filled');
+  }
+
+  function submitIntake() {
+    var name = document.getElementById('guest-name').value.trim() || 'Jane Delegate';
+    document.getElementById('intake-body').innerHTML =
+      '<div style="text-align:center;padding:30px 0;">' +
+      '<div style="font-size:15px;font-weight:600;margin-bottom:6px;">Thanks, ' + name.split(' ')[0] + '</div>' +
+      '<div style="font-size:13px;color:var(--muted);">Your details are in. We\'ll be in touch before the event.</div>' +
+      '</div>';
+    checkedIn += 1;
+    document.getElementById('stat-checkedin').textContent = checkedIn + '/300';
+    var row = document.getElementById('new-guest-row');
+    row.querySelector('.label').textContent = name + ' \u00b7 just submitted intake';
+    row.style.display = 'flex';
+    setTimeout(function () { showTab('dashboard'); }, 900);
+  }
+
+  function resolveException(tagEl) {
+    var row = tagEl.closest('.exception');
+    tagEl.textContent = 'resolved';
+    tagEl.classList.add('ok');
+    row.classList.add('gone');
+  }
+
+  function sendReminder() {
+    var thread = document.getElementById('thread');
+    var msg = document.createElement('div');
+    msg.className = 'msg';
+    msg.innerHTML = '<div class="meta">Melted Workx</div>Your shuttle picks you up at 14:30 outside Lobby A. Reply if this time doesn\'t work.';
+    thread.appendChild(msg);
+  }
+
+  function resetDemo() { location.reload(); }
+</script>
+
+</body>
+</html>
