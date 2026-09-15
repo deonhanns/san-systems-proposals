@@ -49,6 +49,10 @@
   }
   button:hover{background:#d68a37;}
   .status{margin-top:12px;font-size:13px;color:var(--muted);}
+  #fallback{display:none;margin-top:18px;}
+  #fallback textarea{min-height:160px;background:var(--sand);font-family:'DM Mono',monospace;font-size:12.5px;}
+  #fallback p{font-size:13px;color:var(--muted);margin-bottom:8px;}
+
 </style>
 </head>
 <body>
@@ -66,7 +70,7 @@
     <h2>Who needs what</h2>
     <p class="q"><strong>1.</strong> Do you, Grant, and Liz need identical access, or does Grant's day-to-day (on the ground, at registration) actually need something different from yours?</p>
     <p class="q"><strong>2.</strong> Any other people, even occasional help, who'd need their own login?</p>
-    <textarea placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
+    <textarea class="q-input" placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
   </section>
 
   <section>
@@ -76,7 +80,7 @@
     <p class="q"><strong>4.</strong> You mentioned batches of around 40 sometimes arrive from a client or their travel agent, what format do those usually come in, a spreadsheet, a PDF, something else?</p>
     <p class="q"><strong>5.</strong> Roughly how often does that batch case happen, compared to one delegate at a time?</p>
     <div class="flag"><strong>Why we're asking:</strong> this changes what we actually build, not just how we word it, one-at-a-time and batch itineraries need genuinely different handling.</div>
-    <textarea placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
+    <textarea class="q-input" placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
   </section>
 
   <section>
@@ -85,7 +89,7 @@
     <p class="q"><strong>6.</strong> What specifically makes visas difficult, document tracking, application status, something else entirely?</p>
     <p class="q"><strong>7.</strong> Where does that information currently live, and who touches it?</p>
     <div class="flag">The recording cut off right as this came up last time, so this one's a genuine blank for us, not a guess we're confirming.</div>
-    <textarea placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
+    <textarea class="q-input" placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
   </section>
 
   <section>
@@ -93,7 +97,7 @@
     <h2>Beyond Easy Shuttle</h2>
     <p class="q"><strong>8.</strong> Which other vendors do you deal with regularly?</p>
     <p class="q"><strong>9.</strong> When something goes wrong on the ground (late driver, missed flight), who do you actually call or message first?</p>
-    <textarea placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
+    <textarea class="q-input" placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
   </section>
 
   <section>
@@ -101,41 +105,45 @@
     <h2>What it's actually like at the door</h2>
     <p class="q"><strong>10.</strong> What device do you personally use at check-in, phone or tablet?</p>
     <p class="q"><strong>11.</strong> Any connectivity horror stories beyond Zambia worth knowing about?</p>
-    <textarea placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
+    <textarea class="q-input" placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
   </section>
 
   <section>
     <div class="section-label">Reports</div>
     <h2>What you actually pull</h2>
     <p class="q"><strong>12.</strong> Besides the name / arrived / date export we've already discussed, is there a report you generate that hasn't come up yet?</p>
-    <textarea placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
+    <textarea class="q-input" placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
   </section>
 
   <section>
     <div class="section-label">Email &amp; domain</div>
     <h2>The Afrihost question</h2>
     <p class="q"><strong>13.</strong> Do you know who actually has admin access to the Afrihost account? This is the one thing that could hold up the itinerary-capture address, worth knowing early.</p>
-    <textarea placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
+    <textarea class="q-input" placeholder="Notes or answers here, or leave blank and we'll cover it live"></textarea>
   </section>
 
   <section>
     <div class="section-label">Anything else</div>
     <h2>What we haven't thought to ask</h2>
     <p class="q">Anything on your mind that doesn't fit above, add it here. You know your own process better than any list of questions will.</p>
-    <textarea placeholder="Anything at all"></textarea>
+    <textarea class="q-input" placeholder="Anything at all"></textarea>
   </section>
 
   <div class="footer-note">
     <p>However's easiest for you, fill this in, reply on WhatsApp like usual, or just talk it through when we speak, whatever's quickest on your side.</p>
     <button onclick="sendAnswers()">Send what I've filled in</button>
     <div class="status" id="status"></div>
+    <div id="fallback">
+      <p>If your email app didn't open, copy the text below and send it to <strong>hello@thesanscribe.com</strong> yourself, nothing is lost either way.</p>
+      <textarea id="fallback-text" readonly onclick="this.select()"></textarea>
+    </div>
   </div>
 
 </div>
 
 <script>
   function sendAnswers() {
-    var textareas = document.querySelectorAll('textarea');
+    var textareas = document.querySelectorAll('.q-input'); // scoped, excludes the fallback box itself
     var body = '';
     var labels = [
       'Roles & access', 'Itineraries', 'Visas', 'Shuttles & vendors',
@@ -150,8 +158,17 @@
       body = '(No written answers, happy to cover this live instead.)';
     }
     var subject = 'Melted Workx mapping questions, my notes';
+
+    // mailto: links only work if a default email app is configured, that's
+    // not always true (desktop without Outlook/Mail set up, in-app browsers,
+    // etc.), and it fails completely silently when it doesn't. So this is
+    // always shown as a visible fallback, not a last resort, nothing should
+    // depend on mailto: actually firing.
+    document.getElementById('fallback-text').value = 'To: hello@thesanscribe.com\nSubject: ' + subject + '\n\n' + body;
+    document.getElementById('fallback').style.display = 'block';
+    document.getElementById('status').textContent = 'Trying to open your email app, and your answers are copyable below either way.';
+
     window.location.href = 'mailto:hello@thesanscribe.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    document.getElementById('status').textContent = 'Opening your email client to send this.';
   }
 </script>
 
