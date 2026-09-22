@@ -77,6 +77,12 @@
   td.num, th.num{text-align:right;}
   tfoot td{font-weight:600;border-top:2px solid var(--earth);border-bottom:none;}
   tr.discount-row td{color:var(--rust);font-weight:600;}
+  .menu-name{font-weight:600;display:block;margin-bottom:4px;}
+  .menu-desc{display:block;font-size:13.5px;color:var(--muted);line-height:1.5;max-width:52ch;}
+  .bundle-callout{background:var(--earth);color:var(--sand);border-radius:2px;padding:24px 26px;margin:24px 0;}
+  .bundle-callout strong{color:var(--ochre);}
+  .bundle-callout p{color:rgba(242,234,216,0.75);margin-bottom:0.6em;}
+  .bundle-callout .big{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:#fff;margin:8px 0;}
 
   .respond{background:var(--earth);color:var(--sand);border-radius:2px;padding:40px;}
   .respond h2{color:var(--sand);}
@@ -514,16 +520,76 @@
     <h3>The menu, include what matters most now, defer the rest</h3>
     <table>
       <tr><th>What it gives you</th><th class="num">Cost</th></tr>
-      <tr><td>Passport photo auto-fill</td><td class="num">R2,810</td></tr>
-      <tr><td>Forward a flight email instead of retyping it</td><td class="num">R6,940</td></tr>
-      <tr><td>Nationality, media &amp; session attendance reports</td><td class="num">R5,270</td></tr>
-      <tr><td>Vendor messaging + Easy Shuttle export</td><td class="num">R3,250</td></tr>
-      <tr><td>Day-by-day excursions</td><td class="num">R2,020</td></tr>
-      <tr><td>One-tap contact + bulk "update your details" link</td><td class="num">R2,020</td></tr>
-      <tr><td>Arrivals &amp; departures screen <em>(our recommendation, if only one item stays in)</em></td><td class="num">R5,270</td></tr>
-      <tr><td>Excursion editing, cancellation &amp; departure reminders</td><td class="num">R3,250</td></tr>
-      <tr><td>Live headcount view</td><td class="num">R1,230</td></tr>
-      <tr><td>Optional guest self-check-in, tested properly before relying on it</td><td class="num">R2,810</td></tr>
+      <tr>
+        <td>
+          <span class="menu-name">Passport photo auto-fill</span>
+          <span class="menu-desc">A guest photographs their passport, the system reads their name, passport number, and nationality automatically. They confirm it's correct before anything is saved, nothing is ever assumed right without a human checking it.</span>
+        </td>
+        <td class="num">R2,810</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">Forward a flight email instead of retyping it</span>
+          <span class="menu-desc">Right now every flight confirmation gets manually retyped into a spreadsheet. Forward the email to a dedicated address instead, and the system reads out the details and works out the hotel check-in date using the exact rule you already use today.</span>
+        </td>
+        <td class="num">R6,940</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">Nationality, media &amp; session attendance reports</span>
+          <span class="menu-desc">Ready-made breakdowns by country, by media/VIP category, and by which breakaway sessions people actually attended, the kind of report you already hand to clients today, generated automatically instead of built by hand.</span>
+        </td>
+        <td class="num">R5,270</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">Vendor messaging + Easy Shuttle export</span>
+          <span class="menu-desc">Message Easy Shuttle, a hotel's own transport desk, or any other vendor directly from the system, and hand Easy Shuttle a ready-formatted list instead of building one by hand. This doesn't book shuttles automatically, that stays your judgement call, it just removes the manual list-building.</span>
+        </td>
+        <td class="num">R3,250</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">Day-by-day excursions</span>
+          <span class="menu-desc">Table Mountain on Monday, Robben Island on Tuesday, each treated as its own scheduled option so guests select the right day automatically, rather than the system only understanding same-day sessions.</span>
+        </td>
+        <td class="num">R2,020</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">One-tap contact + bulk "update your details" link</span>
+          <span class="menu-desc">One tap on any guest's record to call or WhatsApp them directly. Plus a link you can send to everyone at once asking them to confirm their details are still correct, instead of chasing updates individually.</span>
+        </td>
+        <td class="num">R2,020</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">Arrivals &amp; departures screen <em>(our recommendation, if only one item stays in)</em></span>
+          <span class="menu-desc">One screen showing exactly who's landing today, in what order, and their current status, and the same for departure day. This is the direct fix for what you've called your worst headache, the day guests miss flights, change plans, or won't get on the bus on time.</span>
+        </td>
+        <td class="num">R5,270</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">Excursion editing, cancellation &amp; departure reminders</span>
+          <span class="menu-desc">Change a departure time or cancel an excursion, and everyone who'd RSVP'd is told automatically. A reminder also goes out shortly before a bus leaves.</span>
+        </td>
+        <td class="num">R3,250</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">Live headcount view</span>
+          <span class="menu-desc">See, in real time, exactly how many people are confirmed in each breakaway room or on each excursion, without radioing around or counting heads.</span>
+        </td>
+        <td class="num">R1,230</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="menu-name">Optional guest self-check-in</span>
+          <span class="menu-desc">An additional, optional way for guests to confirm their own arrival or departure status themselves, alongside the crew-led method, which stays exactly as it is either way. Built specifically to test whether guests actually want to do this themselves, not assumed upfront.</span>
+        </td>
+        <td class="num">R2,810</td>
+      </tr>
       <tfoot>
         <tr><td>Full menu, if everything's included</td><td class="num">R34,870</td></tr>
       </tfoot>
@@ -531,6 +597,13 @@
 
     <div class="callout">
       <strong>Total, foundation plus the full menu: R80,970.</strong> Defer any menu item and the total comes down by exactly that item's price, nothing else changes. This isn't a negotiating position, it's a real menu, choose what serves you now.
+    </div>
+
+    <div class="bundle-callout">
+      <strong>Take the full menu, save an extra 10%</strong>
+      <p>Not a discount on any single item, every price above stays exactly as listed. This is a separate reward specifically for committing to the whole roadmap at once, rather than a reason to distrust the individual prices.</p>
+      <div class="big">R80,970 &rarr; R72,873</div>
+      <p style="margin-bottom:0;">Defer even one item and this incentive doesn't apply, you'd keep the founding-client discount above, but the menu prices stand as listed.</p>
     </div>
 
     <h3>Ongoing retainer</h3>
