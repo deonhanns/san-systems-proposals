@@ -76,6 +76,7 @@
   th{font-family:'DM Mono',monospace;color:var(--muted);font-weight:500;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;}
   td.num, th.num{text-align:right;}
   tfoot td{font-weight:600;border-top:2px solid var(--earth);border-bottom:none;}
+  tr.discount-row td{color:var(--rust);font-weight:600;}
 
   .respond{background:var(--earth);color:var(--sand);border-radius:2px;padding:40px;}
   .respond h2{color:var(--sand);}
@@ -172,7 +173,7 @@
 <div class="cover">
   <div class="cover-top">
     <div class="cover-label">Proposal · 03</div>
-    <div class="cover-date">Draft v0.1 · 31 August 2026</div>
+    <div class="cover-date">Draft v0.2 · 22 September 2026</div>
   </div>
   <div>
     <div class="cover-eyebrow">San Systems · a division of The San Scribe Pty Ltd</div>
@@ -260,9 +261,10 @@
       <li><strong>WhatsApp</strong>, rich content: QR codes, agenda links, documents.</li>
       <li><strong>Escalation by time-to-event</strong>, channel selection shifts to SMS automatically as an event approaches.</li>
       <li><strong>Correction loop</strong>, a guest reply ("wrong flight") auto-flags their record for review, using the same channel that sent the reminder.</li>
+      <li><strong>One-tap contact</strong>, call or WhatsApp any delegate directly from their record, no searching for a number mid-crisis.</li>
     </ul>
     <div class="callout">
-      <strong>Worth sizing before we quote a number:</strong> cross-border SMS pricing varies significantly by country, and some African markets require pre-registered sender IDs ahead of the next event. We'll pull the real country-code distribution from your data to size this line item.
+      <strong>Worth sizing before we quote a number:</strong> cross-border SMS pricing varies significantly by country, and some African markets require pre-registered sender IDs ahead of the next event. We'll refine this as real events run through the system rather than asking you to estimate it upfront.
     </div>
   </div>
 </section>
@@ -282,20 +284,6 @@
 
 <section>
   <div class="wrap">
-    <div class="section-label">What we need from you</div>
-    <h2>To size the float <em>properly</em></h2>
-    <p>Guessing this number is exactly how spend becomes hard to defend. To quote it honestly rather than roughly, we need:</p>
-    <ul>
-      <li><strong>Delegates per event</strong>, roughly how many guests a typical event carries.</li>
-      <li><strong>Events per year</strong>, how often this runs, since that's what turns a per-event cost into an annual one.</li>
-      <li><strong>Delegate countries</strong>, which countries your guests typically travel from. We can start from the Southern Africa Human Rights Conference data as a baseline, but confirm if that's representative or unusually broad.</li>
-      <li><strong>A starting float amount</strong> you're comfortable piloting with, R500 to R1,000 is our suggestion, but it's your call.</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
     <div class="section-label">Consent &amp; data handling</div>
     <h2>Consent, <em>not assumption</em></h2>
     <p>Passport images and health or accessibility data are collected across multiple jurisdictions. The intake wizard carries explicit consent language for automated messaging, rather than treating consent as implied by a submitted WhatsApp number.</p>
@@ -310,6 +298,7 @@
     <ul>
       <li>Crew records mirror the delegate architecture: one core, role-scoped views, applied to a second population.</li>
       <li><strong>Time-bound access</strong>, a crew member's permissions activate on assignment and auto-expire when the event closes. No manual revocation step, no standing access risk from past freelance staff.</li>
+      <li><strong>Scales with the event</strong>, whether it's three of you on identical access, or ten registration staff at a 300-person event, the model supports both without being rebuilt.</li>
       <li><strong>Same device, one more job</strong>, the accreditation tablet already scanning guests also handles crew check-in on event day.</li>
     </ul>
   </div>
@@ -351,7 +340,7 @@
       <p style="font-family:'Poppins',sans-serif;font-size:15px;color:var(--muted);">The script is your logo mark only, never body or UI text. Everything a coordinator actually reads, headings, forms, dashboards, uses the same rounded sans your site already uses for "Where creativity meets precision" and its menu.</p>
     </div>
     <div class="callout" style="margin-top:20px;">
-      <strong>Read from screenshots, not a brand file:</strong> these hex values are close visual estimates, not sampled from source assets. If you have a Wix style export or brand guide, send it over and we'll swap these for the exact values before build.
+      <strong>Still needed from you:</strong> these hex values are close visual estimates, read from screenshots, not sampled from source assets. If you have a Wix style export or brand guide, send it over and we'll swap these for the exact values before build.
     </div>
   </div>
 </section>
@@ -432,28 +421,36 @@
 
       </div>
     </div>
-    <p style="font-size:14px;color:var(--muted);text-align:center;">Want to click through this yourself? <a href="/meltedworkx-001/demo/">Try the interactive demo</a>, sample data, no sign-up.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="section-label">Phasing</div>
-    <h2>How this <em>rolls out</em></h2>
+    <h2>What's in, <em>what's deferred, what's out</em></h2>
+    <p>Two mapping sessions since the first estimate, with you and with Grant, surfaced real needs a single conversation couldn't have. Rather than one large number, the outcome is a foundation everything depends on, plus a menu you have real control over.</p>
 
     <div class="phase">
       <div class="num">1</div>
       <div class="body">
-        <h3>Core build</h3>
-        <p>Self-service event creation · delegate + crew data core with role-scoped views · guest intake wizard · ops dashboard (push/exception-based) · accreditation · sessions/breakaway RSVP · shuttle manifest · notification engine (SMS + WhatsApp, trigger-based) · lean read-only agenda · crew management with time-bound access · consent capture.</p>
+        <h3>Core, always included</h3>
+        <p>Self-service event creation · delegate + crew data core with role-scoped views, scaling to double-digit crew at larger events · guest intake wizard · ops dashboard (push/exception-based) · per-day accreditation, no rented hardware · notification engine (SMS + WhatsApp, escalation, reactive correction loop) · session &amp; breakaway RSVP · shuttle manifest · crew management with time-bound access · consent capture · attendee and no-show reporting.</p>
       </div>
     </div>
 
     <div class="phase">
       <div class="num">2</div>
       <div class="body">
-        <h3>Proof-driven add-ons</h3>
-        <p>Priced once Phase 1 data exists: post-event reporting (support-ticket reduction, no-show rate, admin hours saved) · richer engagement features · broader channel support if usage justifies it.</p>
+        <h3>The menu, your call on what's included now</h3>
+        <p>Ten independent pieces, passport auto-fill, automated itinerary capture, extended reporting, vendor messaging and shuttle exports, day-scoped excursions, one-tap contact, an arrivals &amp; departures screen, excursion editing and reminders, a live headcount view, and an optional guest self-check-in feature. Full detail and pricing below, include what matters most now, defer the rest to a later phase at no loss.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="num">3</div>
+      <div class="body">
+        <h3>Explicitly not in this phase</h3>
+        <p>Visa facilitation or tracking of any kind · live booking integration with Easy Shuttle or any vendor · flight or hotel booking APIs · general business email hosting · batch itinerary capture (many travellers from one email) · live flight-tracking · a defensible "admin hours saved" figure, no baseline exists yet to measure it against.</p>
       </div>
     </div>
 
@@ -468,9 +465,9 @@
 
     <div class="rollout">
       <div class="rollout-step">
-        <div class="step-head"><strong>1. Build</strong> <span>Weeks 1&ndash;5 to 11</span></div>
+        <div class="step-head"><strong>1. Build</strong></div>
         <div class="def">The stage where we actually construct the system, before you see it running at a real event.</div>
-        <p>The data core comes first, since every other part depends on it, then event creation, the guest intake wizard, dashboard, accreditation, and notification engine are built in parallel. A realistic range for this stage is 5 to 11 weeks. This build gets our full attention from the day it starts, the same standard we hold for every project we take on.</p>
+        <p>The data core comes first, since every other part depends on it, then event creation, the guest intake wizard, dashboard, accreditation, and notification engine are built in parallel. This build gets our full attention from the day it starts, the same standard we hold for every project we take on.</p>
       </div>
       <div class="rollout-step">
         <div class="step-head"><strong>2. Shadow run</strong></div>
@@ -485,7 +482,7 @@
     </div>
 
     <div class="callout">
-      <strong>Targeting the OSF Cape Town event in November:</strong> from today, that's roughly 11 weeks away, enough runway to complete the build and use that event as the shadow run, with the spreadsheet still backing it up. To turn that from a direction into a firm commitment, we need the exact event date and the outstanding items below (VIP/media segmentation, delegate country breakdown) confirmed as early as possible, the sooner those land, the sooner the clock properly starts.
+      <strong>Targeting January or February:</strong> an event in that window is the natural shadow run, close enough to plan around, far enough to build properly rather than rush. An exact date isn't locked yet, once it is, the build timeline is confirmed against it directly.
     </div>
 
     <h3>What training actually looks like</h3>
@@ -502,24 +499,39 @@
   <div class="wrap">
     <div class="section-label">Investment</div>
     <h2>What this <em>costs</em></h2>
-    <p>A first estimate, built bottom-up from the Phase 1 scope above, not a final quote. Rates reflect current Cape Town freelance market bands for this level of work.</p>
+    <p>Structured deliberately as a foundation plus a menu, not one fixed number. Every price below is real, nothing is discounted to make a smaller module look more attractive, you're seeing the actual cost either way.</p>
 
+    <h3>The foundation</h3>
     <table>
-      <tr><th>Component</th><th class="num">Senior hrs</th><th class="num">Junior hrs</th><th class="num">Cost</th></tr>
-      <tr><td>Data core, role/permission model &amp; event creation</td><td class="num">5</td><td class="num">22</td><td class="num">R6,590</td></tr>
-      <tr><td>Guest intake wizard</td><td class="num">8</td><td class="num">16</td><td class="num">R6,320</td></tr>
-      <tr><td>Ops dashboard (exception-based)</td><td class="num">10</td><td class="num">20</td><td class="num">R7,900</td></tr>
-      <tr><td>Accreditation flow (scan + fallback)</td><td class="num">4</td><td class="num">14</td><td class="num">R4,480</td></tr>
-      <tr><td>Notification engine (SMS + WhatsApp, escalation, correction loop)</td><td class="num">6</td><td class="num">24</td><td class="num">R7,380</td></tr>
-      <tr><td>Crew management (time-bound access)</td><td class="num">4</td><td class="num">14</td><td class="num">R4,480</td></tr>
-      <tr><td>Consent capture + POPIA copy</td><td class="num">3</td><td class="num">3</td><td class="num">R1,710</td></tr>
-      <tr><td>Design system applied across all screens</td><td class="num">10</td><td class="num">6</td><td class="num">R4,820</td></tr>
-      <tr><td>Integration, QA, deployment</td><td class="num">6</td><td class="num">16</td><td class="num">R5,620</td></tr>
+      <tr><th>What it gives you</th><th class="num">Cost</th></tr>
+      <tr><td>Everything under Core above, the complete, working system</td><td class="num">R51,100</td></tr>
+      <tr class="discount-row"><td>Founding-client contribution, our thank-you for being our first partner at this scale, a one-time gesture, not a standing discount</td><td class="num">&minus;R5,000</td></tr>
       <tfoot>
-        <tr><td>Subtotal</td><td class="num">56 hrs</td><td class="num">135 hrs</td><td class="num">R49,300</td></tr>
+        <tr><td>Foundation, final</td><td class="num">R46,100</td></tr>
       </tfoot>
     </table>
-    <p style="font-size:14px;color:var(--muted);">Phase 1 investment: <strong style="color:var(--earth);">R49,000 to R58,500</strong>. The final number depends on two confirmations already flagged below, VIP/media segmentation and the delegate country breakdown, once those are locked, so is the price.</p>
+
+    <h3>The menu, include what matters most now, defer the rest</h3>
+    <table>
+      <tr><th>What it gives you</th><th class="num">Cost</th></tr>
+      <tr><td>Passport photo auto-fill</td><td class="num">R2,810</td></tr>
+      <tr><td>Forward a flight email instead of retyping it</td><td class="num">R6,940</td></tr>
+      <tr><td>Nationality, media &amp; session attendance reports</td><td class="num">R5,270</td></tr>
+      <tr><td>Vendor messaging + Easy Shuttle export</td><td class="num">R3,250</td></tr>
+      <tr><td>Day-by-day excursions</td><td class="num">R2,020</td></tr>
+      <tr><td>One-tap contact + bulk "update your details" link</td><td class="num">R2,020</td></tr>
+      <tr><td>Arrivals &amp; departures screen <em>(our recommendation, if only one item stays in)</em></td><td class="num">R5,270</td></tr>
+      <tr><td>Excursion editing, cancellation &amp; departure reminders</td><td class="num">R3,250</td></tr>
+      <tr><td>Live headcount view</td><td class="num">R1,230</td></tr>
+      <tr><td>Optional guest self-check-in, tested properly before relying on it</td><td class="num">R2,810</td></tr>
+      <tfoot>
+        <tr><td>Full menu, if everything's included</td><td class="num">R34,870</td></tr>
+      </tfoot>
+    </table>
+
+    <div class="callout">
+      <strong>Total, foundation plus the full menu: R80,970.</strong> Defer any menu item and the total comes down by exactly that item's price, nothing else changes. This isn't a negotiating position, it's a real menu, choose what serves you now.
+    </div>
 
     <h3>Ongoing retainer</h3>
     <p>Since you're open to one: three tiers, hosting and support only. The usage float above sits outside all three, billed separately at cost plus a stated margin.</p>
@@ -534,15 +546,13 @@
 
 <section>
   <div class="wrap">
-    <div class="section-label">Open items</div>
-    <h2>Pending <em>Grant's input</em></h2>
-    <table>
-      <tr><th>Item</th><th>Why it matters</th></tr>
-      <tr><td>VIP / National Assembly / media segmentation</td><td>Confirm this is a filtered dashboard view, not a separate approval workflow</td></tr>
-      <tr><td>Country-code distribution</td><td>Needed to size the SMS cost line accurately</td></tr>
-      <tr><td>Existing vendor/hotel integrations</td><td>Any expectations not yet surfaced</td></tr>
-      <tr><td>Exact OSF Cape Town event date</td><td>Needed to confirm the rollout timeline against it</td></tr>
-    </table>
+    <div class="section-label">What we need from you</div>
+    <h2>Two things, <em>that's all</em></h2>
+    <p>Everything that was genuinely open has been resolved from what you and Grant have already told us. Two things remain, both simple:</p>
+    <ul>
+      <li><strong>Your brand assets</strong>, a Wix style export or brand guide if you have one, so the design system above moves from close estimates to exact values before build starts.</li>
+      <li><strong>Grant's report list</strong>, any reporting beyond what's already included above (attendance, no-shows, nationalities, media, session-by-session numbers), he mentioned he'd send examples, whatever he sends slots straight in.</li>
+    </ul>
   </div>
 </section>
 
