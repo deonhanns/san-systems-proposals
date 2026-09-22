@@ -660,9 +660,9 @@
 
 <script>
   // Password gate. No plaintext password in source, checked against a SHA-256 hash.
-  // Placeholder password is "meltedworkx2026" - change PASSWORD_HASH before sharing this link.
-  // To generate a new hash: crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourpassword'))
-  var PASSWORD_HASH = '0fa8b9141f3c93055e54397d8c40677b4110ae4247fed01e3854020dbf165323';
+  // Live password: MW-Phase1-2027 (set 22 September 2026). To change it, generate a new
+  // hash: crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourpassword'))
+  var PASSWORD_HASH = '760319ca3777e6def56ebb5881093a4a5540ef484fc4bb6a7e409ed44778bad6';
 
   function hashHex(text) {
     return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
