@@ -1,0 +1,28 @@
+{
+  "project": "Melted Workx event platform",
+  "updated": "13 October 2026",
+  "summary": "The build has been approved and is getting started. First we are confirming the event dates and getting your WhatsApp messaging approved, because that approval takes time.",
+  "phases": [
+    {"id": "A", "name": "Guest registration", "description": "The foundation and the form guests use to register, with their consent.", "status": "not_started", "percent": 0, "target": "When registration opens (date to be confirmed)"},
+    {"id": "B", "name": "Operations dashboard and messaging", "description": "Your team's control view, plus SMS and WhatsApp messages to guests.", "status": "not_started", "percent": 0, "target": "About 3 weeks before the event"},
+    {"id": "C", "name": "Check-in on the day", "description": "Scanning guests in on your own phones, working even without signal.", "status": "not_started", "percent": 0, "target": "Dress rehearsal, about 1 week before the event"}
+  ],
+  "whats_next": [
+    "Confirm the December event dates and the date registration opens",
+    "Start the WhatsApp business approval (this has a waiting period outside our control)",
+    "Begin Phase A: the registration foundation"
+  ],
+  "needs_from_you": [
+    {"item": "The December event dates", "why": "So we can fix every delivery date and plan support for the event days", "needed_by": "As soon as possible"},
+    {"item": "The date registration should open, and whether guests have already started registering on the Google Form", "why": "Sets our first deadline, and tells us whether to bring existing registrations across", "needed_by": "As soon as possible"},
+    {"item": "Your logos and brand colours", "why": "So the registration page and messages look like Melted Workx", "needed_by": "Within two weeks"},
+    {"item": "Grant's list of the reports you need", "why": "So the reports match how you actually work", "needed_by": "Before Phase B"}
+  ],
+  "updates": [
+    {"date": "13 October 2026", "text": "Project approved. Planning complete and the build team is set up. Registration and event setup come first."}
+  ],
+  "questions": [],
+  "change_requests": [
+    {"title": "Team photos in guest messages", "status": "Noted for after the December event. In the meantime, messages will name the host (for example, \"Your host today is Thandi\")."}
+  ]
+}
