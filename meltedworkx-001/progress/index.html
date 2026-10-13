@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Melted Workx - Project Progress</title>
+<meta name="description" content="Project progress for the Melted Workx event platform, from San Systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15161B; --ink-2:#1D1F26; --ink-3:#262933;
+    --paper:#EDEAE2; --paper-dim:#A8A59C; --line:#35383F;
+    --brass:#B98A2E; --brass-dim:#8A692A;
+    --ok:#6FAF7F; --warn:#D9A441;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ink);color:var(--paper);font-family:'Inter',-apple-system,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  h1,h2{font-family:'Newsreader',Georgia,serif;font-weight:500;line-height:1.2;margin:0 0 .5em;}
+  h1{font-size:38px;font-style:italic;font-weight:400;}
+  h2{font-size:24px;font-style:italic;}
+  h3{font-size:17px;font-weight:600;margin:0 0 .25em;font-family:'Inter',sans-serif;}
+  a{color:var(--brass);}
+  p{margin:0 0 1em;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px;}
+  header{padding:64px 0 36px;border-bottom:1px solid var(--line);}
+  .eyebrow{color:var(--paper-dim);font-size:14px;margin-bottom:14px;}
+  .summary{font-size:18px;color:var(--paper-dim);max-width:52ch;}
+  .updated{font-size:13px;color:var(--paper-dim);margin-top:18px;}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .phase{background:var(--ink-2);border:1px solid var(--line);border-radius:8px;padding:18px 18px 16px;margin-bottom:14px;}
+  .phase .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap;}
+  .badge{font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--paper-dim);white-space:nowrap;}
+  .badge.in_progress{color:var(--warn);border-color:var(--warn);}
+  .badge.done{color:var(--ok);border-color:var(--ok);}
+  .phase p{color:var(--paper-dim);font-size:15px;margin:6px 0 12px;}
+  .bar{height:8px;background:var(--ink-3);border-radius:99px;overflow:hidden;}
+  .bar > i{display:block;height:100%;background:var(--brass);border-radius:99px;}
+  .target{font-size:13px;color:var(--paper-dim);margin-top:8px;}
+  ul.clean{list-style:none;padding:0;margin:0;}
+  ul.clean li{padding:12px 0;border-bottom:1px solid var(--line);}
+  ul.clean li:last-child{border-bottom:none;}
+  .need .why,.upd .date,.qa .who{font-size:14px;color:var(--paper-dim);}
+  .need .by{font-size:13px;color:var(--brass);}
+  .qa .a{margin-top:6px;}
+  .empty{color:var(--paper-dim);font-size:15px;}
+  form label{display:block;font-size:14px;color:var(--paper-dim);margin:14px 0 6px;}
+  form input,form textarea{width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;color:var(--paper);padding:12px;font-size:16px;font-family:inherit;}
+  form textarea{min-height:130px;resize:vertical;}
+  form input:focus,form textarea:focus{outline:2px solid var(--brass-dim);outline-offset:1px;}
+  button.primary{margin-top:16px;background:var(--brass);color:var(--ink);border:none;border-radius:6px;padding:12px 22px;font-size:16px;font-weight:600;font-family:inherit;cursor:pointer;}
+  button.primary:hover{background:var(--brass-dim);}
+  button.primary:disabled{opacity:.6;cursor:default;}
+  .msg{margin-top:14px;font-size:15px;min-height:20px;}
+  .msg.ok{color:var(--ok);} .msg.bad{color:#E24B4A;}
+  .hp{position:absolute;left:-9999px;height:0;width:0;overflow:hidden;}
+  footer{padding:34px 0 60px;font-size:13px;color:var(--paper-dim);}
+  #gate{position:fixed;inset:0;background:var(--ink);z-index:999;display:flex;align-items:center;justify-content:center;}
+  #gate .box{max-width:320px;width:100%;padding:0 24px;text-align:center;}
+  #gate p{color:var(--paper-dim);font-size:14px;margin-bottom:18px;}
+  #gate input{width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:5px;color:var(--paper);padding:12px;font-size:16px;margin-bottom:12px;font-family:inherit;}
+  #gate button{width:100%;background:var(--brass);color:var(--ink);border:none;border-radius:5px;padding:12px;font-size:16px;font-weight:600;font-family:inherit;cursor:pointer;}
+  #gate .err{color:#E24B4A;font-size:13px;margin-top:10px;min-height:16px;}
+  @media (max-width:520px){h1{font-size:32px;}header{padding-top:44px;}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <p>This page is private. Enter the password you were given.</p>
+    <input type="password" id="gate-pw" placeholder="Password" autocomplete="off" aria-label="Password">
+    <button id="gate-submit" type="button">View progress</button>
+    <div class="err" id="gate-err"></div>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">San Systems &middot; for Melted Workx</div>
+      <h1>Project progress</h1>
+      <p class="summary" id="summary"></p>
+      <div class="updated" id="updated"></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>Where we are</h2>
+      <div id="phases"></div>
+    </section>
+
+    <section>
+      <h2>What's next</h2>
+      <ul class="clean" id="next"></ul>
+    </section>
+
+    <section>
+      <h2>What we need from you</h2>
+      <ul class="clean" id="needs"></ul>
+    </section>
+
+    <section>
+      <h2>Recent updates</h2>
+      <ul class="clean" id="updates"></ul>
+    </section>
+
+    <section>
+      <h2>Your questions and our answers</h2>
+      <ul class="clean" id="qa"></ul>
+    </section>
+
+    <section>
+      <h2>Noted for later</h2>
+      <p class="empty">Things you've asked for that sit outside the agreed scope. We'll agree them with you separately, and nothing changes without your say-so.</p>
+      <ul class="clean" id="changes"></ul>
+    </section>
+
+    <section>
+      <h2>Ask a question or raise a concern</h2>
+      <p>Write to us here at any time. It goes straight to Deon, and we'll answer on this page and by email.</p>
+      <form id="qform" novalidate>
+        <label for="q-name">Your name</label>
+        <input id="q-name" name="name" type="text" autocomplete="name" required>
+        <label for="q-email">Your email (so we can reply)</label>
+        <input id="q-email" name="email" type="email" autocomplete="email" required>
+        <label for="q-msg">Your question or concern</label>
+        <textarea id="q-msg" name="message" required></textarea>
+        <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+        <button class="primary" id="q-send" type="submit">Send</button>
+        <div class="msg" id="q-msg-out" role="status"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer><div class="wrap">San Systems &middot; This page is private to the Melted Workx team.</div></footer>
+</div>
+
+<script>
+(function () {
+  // Password gate. No plaintext password in source; checked against a SHA-256 hash.
+  var PASSWORD_HASH = '6ddf588c919716323114588753c67d83baf3799996e8235cfbd4dd012d4f40d1';
+  var CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/deon@thesanscribe.com';
+
+  function hashHex(text) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+        return ('0' + b.toString(16)).slice(-2);
+      }).join('');
+    });
+  }
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+  function emptyNote(node, text) { var p = el('p', 'empty', text); node.appendChild(p); }
+
+  function statusLabel(s) {
+    return s === 'done' ? 'Done' : s === 'in_progress' ? 'In progress' : 'Not started';
+  }
+
+  function render(d) {
+    $('summary').textContent = d.summary || '';
+    $('updated').textContent = d.updated ? 'Last updated ' + d.updated : '';
+
+    var ph = $('phases'); clear(ph);
+    (d.phases || []).forEach(function (p) {
+      var card = el('div', 'phase');
+      var top = el('div', 'top');
+      top.appendChild(el('h3', null, 'Phase ' + p.id + ': ' + p.name));
+      top.appendChild(el('span', 'badge ' + p.status, statusLabel(p.status)));
+      card.appendChild(top);
+      card.appendChild(el('p', null, p.description || ''));
+      var bar = el('div', 'bar'); bar.setAttribute('role', 'progressbar');
+      bar.setAttribute('aria-valuemin', '0'); bar.setAttribute('aria-valuemax', '100');
+      var pct = Math.max(0, Math.min(100, Number(p.percent) || 0));
+      bar.setAttribute('aria-valuenow', String(pct));
+      var fill = document.createElement('i'); fill.style.width = pct + '%'; bar.appendChild(fill);
+      card.appendChild(bar);
+      card.appendChild(el('div', 'target', (pct + '% complete') + (p.target ? ' · Target: ' + p.target : '')));
+      ph.appendChild(card);
+    });
+
+    var nx = $('next'); clear(nx);
+    if ((d.whats_next || []).length) d.whats_next.forEach(function (t) { nx.appendChild(el('li', null, t)); });
+    else emptyNote(nx, 'Nothing new to report.');
+
+    var nd = $('needs'); clear(nd);
+    if ((d.needs_from_you || []).length) d.needs_from_you.forEach(function (n) {
+      var li = el('li', 'need');
+      li.appendChild(el('strong', null, n.item));
+      if (n.why) li.appendChild(el('div', 'why', n.why));
+      if (n.needed_by) li.appendChild(el('div', 'by', 'Needed by: ' + n.needed_by));
+      nd.appendChild(li);
+    });
+    else emptyNote(nd, 'Nothing needed from you right now. Thank you.');
+
+    var up = $('updates'); clear(up);
+    if ((d.updates || []).length) d.updates.forEach(function (u) {
+      var li = el('li', 'upd');
+      li.appendChild(el('div', 'date', u.date));
+      li.appendChild(el('div', null, u.text));
+      up.appendChild(li);
+    });
+    else emptyNote(up, 'Updates will appear here as work progresses.');
+
+    var qa = $('qa'); clear(qa);
+    if ((d.questions || []).length) d.questions.forEach(function (q) {
+      var li = el('li', 'qa');
+      li.appendChild(el('strong', null, q.question));
+      if (q.asked_by) li.appendChild(el('div', 'who', 'Asked by ' + q.asked_by + (q.date ? ' · ' + q.date : '')));
+      li.appendChild(el('div', 'a', q.answer || 'We are looking into this.'));
+      qa.appendChild(li);
+    });
+    else emptyNote(qa, 'No questions yet. Ask us anything below.');
+
+    var ch = $('changes'); clear(ch);
+    (d.change_requests || []).forEach(function (c) {
+      var li = el('li');
+      li.appendChild(el('strong', null, c.title));
+      li.appendChild(el('div', 'why', c.status));
+      ch.appendChild(li);
+    });
+  }
+
+  function loadStatus() {
+    fetch('status.json?ts=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('bad'); return r.json(); })
+      .then(render)
+      .catch(function () {
+        $('summary').textContent = 'We could not load the latest status just now. Please refresh in a moment, or send us a message below.';
+      });
+  }
+
+  function unlock() {
+    $('gate').style.display = 'none';
+    $('app').style.display = 'block';
+    loadStatus();
+  }
+
+  var unlocked = false;
+  try { unlocked = sessionStorage.getItem('mw-progress-unlocked') === '1'; } catch (e) {}
+  if (unlocked) unlock();
+
+  $('gate-submit').addEventListener('click', function () {
+    hashHex($('gate-pw').value).then(function (hex) {
+      if (hex === PASSWORD_HASH) {
+        try { sessionStorage.setItem('mw-progress-unlocked', '1'); } catch (e) {}
+        unlock();
+      } else {
+        $('gate-err').textContent = 'Incorrect password';
+      }
+    });
+  });
+  $('gate-pw').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') $('gate-submit').click();
+  });
+
+  // Questions form: posts to the form relay, which emails Deon.
+  $('qform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var out = $('q-msg-out'), btn = $('q-send');
+    var name = $('q-name').value.trim(), email = $('q-email').value.trim(), msg = $('q-msg').value.trim();
+    if (!name || !email || !msg || email.indexOf('@') < 1) {
+      out.className = 'msg bad'; out.textContent = 'Please fill in your name, a valid email and your message.'; return;
+    }
+    btn.disabled = true; out.className = 'msg'; out.textContent = 'Sending...';
+    fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name, email: email, message: msg,
+        _honey: document.querySelector('input[name=_honey]').value,
+        _subject: 'Melted Workx progress page: question from ' + name,
+        _replyto: email, _template: 'table', _captcha: 'false'
+      })
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok && String(res.j.success) !== 'false') {
+          out.className = 'msg ok'; out.textContent = 'Thank you. Your message has been sent and Deon will reply soon.';
+          $('qform').reset();
+        } else { throw new Error('failed'); }
+      })
+      .catch(function () {
+        out.className = 'msg bad';
+        out.textContent = 'That did not go through. Please email deon@thesanscribe.com directly and we will pick it up.';
+      })
+      .then(function () { btn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
