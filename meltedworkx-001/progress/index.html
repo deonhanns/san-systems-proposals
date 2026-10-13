@@ -64,6 +64,8 @@
   #gate input{width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:5px;color:var(--paper);padding:12px;font-size:16px;margin-bottom:12px;font-family:inherit;}
   #gate button{width:100%;background:var(--brass);color:var(--ink);border:none;border-radius:5px;padding:12px;font-size:16px;font-weight:600;font-family:inherit;cursor:pointer;}
   #gate .err{color:#E24B4A;font-size:13px;margin-top:10px;min-height:16px;}
+  .logo{display:block;width:230px;max-width:70%;height:auto;margin:0 0 22px;}
+  #gate .logo{margin:0 auto 22px;width:210px;}
   @media (max-width:520px){h1{font-size:32px;}header{padding-top:44px;}}
 </style>
 </head>
@@ -71,6 +73,7 @@
 
 <div id="gate">
   <div class="box">
+    <img class="logo" src="logo-light.webp" alt="Melted Workx Creative House" onerror="this.style.display='none'">
     <p>This page is private. Enter the password you were given.</p>
     <input type="password" id="gate-pw" placeholder="Password" autocomplete="off" aria-label="Password">
     <button id="gate-submit" type="button">View progress</button>
@@ -81,6 +84,7 @@
 <div id="app" style="display:none">
   <header>
     <div class="wrap">
+      <img class="logo" src="logo-light.webp" alt="Melted Workx Creative House" onerror="this.style.display='none'">
       <div class="eyebrow">San Systems &middot; for Melted Workx</div>
       <h1>Project progress</h1>
       <p class="summary" id="summary"></p>
