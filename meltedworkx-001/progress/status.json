@@ -1,23 +1,22 @@
 {
   "project": "Melted Workx event platform",
-  "updated": "14 October 2026",
-  "summary": "The build has been approved and is getting started. We have your Botswana event dates (30 November to 3 December), your Cape Town dates and your logos. Next we are confirming the plan for registration, and starting your WhatsApp approval, because it takes time.",
+  "updated": "16 October 2026",
+  "summary": "The build has been approved and is under way. We have your Botswana event dates (30 November to 3 December), your Cape Town dates, your logos, your company documents and your iPad details. Next we are confirming the plan for registration and getting your WhatsApp approval going, because it takes time.",
   "phases": [
-    {"id": "A", "name": "Guest registration", "description": "The foundation and the form guests use to register, with their consent.", "status": "not_started", "percent": 0, "target": "Being confirmed with you"},
+    {"id": "A", "name": "Guest registration", "description": "The foundation and the form guests use to register, with their consent.", "status": "in_progress", "percent": 10, "target": "Being confirmed with you"},
     {"id": "B", "name": "Operations dashboard and messaging", "description": "Your team's control view, plus SMS and WhatsApp messages to guests.", "status": "not_started", "percent": 0, "target": "Early November, about 3 weeks before the event"},
     {"id": "C", "name": "Check-in on the day", "description": "Scanning guests in, or finding them by name, on your own phones and iPad, working even without signal.", "status": "not_started", "percent": 0, "target": "Late November, at the dress rehearsal"}
   ],
   "whats_next": [
     "Confirm how guests will register for Botswana, so we put the right things first",
     "Start the WhatsApp business approval (this has a waiting period outside our control), using your shuttle message wording",
-    "Begin the build: the guest list foundation"
+    "Keep building the guest list foundation"
   ],
   "needs_from_you": [
-    {"item": "Your iPad's model and software version (Settings, General, About)", "why": "So we can confirm it will work for check-in, or plan for it to be used for look-ups", "needed_by": "This week"},
-    {"item": "Your company documents for the WhatsApp approval", "why": "WhatsApp needs to confirm Melted Workx is a registered business", "needed_by": "This week"},
     {"item": "Grant's list of the reports you need", "why": "So the reports match how you actually work", "needed_by": "Before Phase B"}
   ],
   "updates": [
+    {"date": "16 October 2026", "text": "Received your iPad details, your company documents for the WhatsApp approval, your Cape Town shuttle list and the headings of your registration sheet. Thank you, this helps a great deal. For practice we will use a scrambled copy of the Cape Town list, so no real guest details are shared."},
     {"date": "14 October 2026", "text": "Cape Town dates received (14 to 19 November). We will use them for a quiet practice run alongside your own process."},
     {"date": "13 October 2026", "text": "Event dates received: Botswana, 30 November to 3 December, with accreditation on 1, 2 and 3 December. Logos received. Manual check-in by name, without a scan, is planned for the day."},
     {"date": "13 October 2026", "text": "Project approved. Planning complete and the build team is set up. Registration and event setup come first."}
