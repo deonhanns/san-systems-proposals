@@ -184,13 +184,19 @@
       top.appendChild(el('span', 'badge ' + p.status, statusLabel(p.status)));
       card.appendChild(top);
       card.appendChild(el('p', null, p.description || ''));
-      var bar = el('div', 'bar'); bar.setAttribute('role', 'progressbar');
-      bar.setAttribute('aria-valuemin', '0'); bar.setAttribute('aria-valuemax', '100');
-      var pct = Math.max(0, Math.min(100, Number(p.percent) || 0));
-      bar.setAttribute('aria-valuenow', String(pct));
-      var fill = document.createElement('i'); fill.style.width = pct + '%'; bar.appendChild(fill);
-      card.appendChild(bar);
-      card.appendChild(el('div', 'target', (pct + '% complete') + (p.target ? ' · Target: ' + p.target : '')));
+      // Show the bar only when a percentage is given in status.json.
+      var hasPct = (p.percent !== undefined && p.percent !== null);
+      var pct = hasPct ? Math.max(0, Math.min(100, Number(p.percent) || 0)) : 0;
+      if (hasPct) {
+        var bar = el('div', 'bar'); bar.setAttribute('role', 'progressbar');
+        bar.setAttribute('aria-valuemin', '0'); bar.setAttribute('aria-valuemax', '100');
+        bar.setAttribute('aria-valuenow', String(pct));
+        var fill = document.createElement('i'); fill.style.width = pct + '%'; bar.appendChild(fill);
+        card.appendChild(bar);
+      }
+      var targetText = (hasPct ? pct + '% complete' : '') +
+        (p.target ? (hasPct ? ' · ' : '') + 'Target: ' + p.target : '');
+      if (targetText) card.appendChild(el('div', 'target', targetText));
       ph.appendChild(card);
     });
 
