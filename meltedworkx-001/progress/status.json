@@ -3,9 +3,9 @@
   "updated": "16 October 2026",
   "summary": "The build has been approved and is under way. We have your Botswana event dates (30 November to 3 December), your Cape Town dates, your logos, your company documents and your iPad details. Next we are confirming the plan for registration and getting your WhatsApp approval going, because it takes time.",
   "phases": [
-    {"id": "A", "name": "Guest registration", "description": "The foundation and the form guests use to register, with their consent.", "status": "in_progress", "percent": 10, "target": "Being confirmed with you"},
-    {"id": "B", "name": "Operations dashboard and messaging", "description": "Your team's control view, plus SMS and WhatsApp messages to guests.", "status": "not_started", "percent": 0, "target": "Early November, about 3 weeks before the event"},
-    {"id": "C", "name": "Check-in on the day", "description": "Scanning guests in, or finding them by name, on your own phones and iPad, working even without signal.", "status": "not_started", "percent": 0, "target": "Late November, at the dress rehearsal"}
+    {"id": "A", "name": "Guest registration", "description": "The foundation and the form guests use to register, with their consent.", "status": "in_progress", "target": "Being confirmed with you"},
+    {"id": "B", "name": "Operations dashboard and messaging", "description": "Your team's control view, plus SMS and WhatsApp messages to guests.", "status": "not_started", "target": "Early November, about 3 weeks before the event"},
+    {"id": "C", "name": "Check-in on the day", "description": "Scanning guests in, or finding them by name, on your own phones and iPad, working even without signal.", "status": "not_started", "target": "Late November, at the dress rehearsal"}
   ],
   "whats_next": [
     "Confirm how guests will register for Botswana, so we put the right things first",
