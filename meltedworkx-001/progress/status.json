@@ -1,19 +1,19 @@
 {
   "project": "Melted Workx event platform",
   "updated": "19 October 2026",
-  "summary": "The build is on track for Botswana (30 November to 3 December). Guests will register on your familiar Google Form, with one small addition so we can message them about their travel. We meet on Thursday for the Botswana brief.",
+  "summary": "The build is on track for Botswana (30 November to 3 December). Guests will register on your familiar Google Form, with one small addition so we can message them about their travel. Once you have your Botswana brief, we will prepare the form with you.",
   "phases": [
     {"id": "A", "name": "Guest registration", "description": "The foundation and the form guests use to register, with their consent.", "status": "in_progress", "target": "Set once the Botswana registration date is known"},
     {"id": "B", "name": "Operations dashboard and messaging", "description": "Your team's control view, plus SMS and WhatsApp messages to guests.", "status": "in_progress", "target": "Early November, about 3 weeks before the event"},
     {"id": "C", "name": "Check-in on the day", "description": "Scanning guests in, or finding them by name, on your own phones and iPad, working even without signal.", "status": "not_started", "target": "Late November, at the dress rehearsal"}
   ],
   "whats_next": [
-    "Thursday 22 October: the Botswana brief, and a look at the registration form together before the link goes out",
+    "After your Botswana briefing on Thursday: let Deon know the key dates, and we prepare the registration form with you before the link goes out",
     "Weekend of 24 to 25 October: the new WhatsApp number goes onto your phone at Vodacom (your own number stays as it is)",
     "Then we start the WhatsApp business approval"
   ],
   "needs_from_you": [
-    {"item": "On Thursday: a copy of last event's registration form, shared with Deon", "why": "So we can prepare the Botswana form for you", "needed_by": "Thursday 22 October"},
+    {"item": "The Botswana dates once you have your brief, and a copy of last event's registration form shared with Deon", "why": "So we can prepare the Botswana form for you", "needed_by": "After your briefing"},
     {"item": "Grant's list of the reports you need", "why": "So the reports match how you actually work", "needed_by": "Before Phase B"}
   ],
   "updates": [
