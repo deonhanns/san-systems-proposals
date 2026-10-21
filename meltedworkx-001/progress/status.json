@@ -1,23 +1,26 @@
 {
   "project": "Melted Workx event platform",
-  "updated": "19 October 2026",
-  "summary": "The build is on track for Botswana (30 November to 3 December). Guests will register on your familiar Google Form, with one small addition so we can message them about their travel. Once you have your Botswana brief, we will prepare the form with you.",
+  "updated": "21 October 2026",
+  "summary": "The build is on track for Botswana (30 November to 3 December). Your two Botswana registration forms are ready, with the tick box guests need for travel messages. We will walk you, Grant and Lez through the platform on 11 November.",
   "phases": [
-    {"id": "A", "name": "Guest registration", "description": "The foundation and the form guests use to register, with their consent.", "status": "in_progress", "target": "Set once the Botswana registration date is known"},
+    {"id": "A", "name": "Guest registration", "description": "Bringing your Google Form registrations into the platform, with each guest's consent.", "status": "in_progress", "target": "Ready before your Botswana links go out"},
     {"id": "B", "name": "Operations dashboard and messaging", "description": "Your team's control view, plus SMS and WhatsApp messages to guests.", "status": "in_progress", "target": "Early November, about 3 weeks before the event"},
-    {"id": "C", "name": "Check-in on the day", "description": "Scanning guests in, or finding them by name, on your own phones and iPad, working even without signal.", "status": "not_started", "target": "Late November, at the dress rehearsal"}
+    {"id": "C", "name": "Check-in on the day", "description": "Scanning guests in, or finding them by name, on your own phones and iPad, working even without signal.", "status": "in_progress", "target": "Late November, at the dress rehearsal"}
   ],
   "whats_next": [
-    "After your Botswana briefing on Thursday: let Deon know the key dates, and we prepare the registration form with you before the link goes out",
     "Weekend of 24 to 25 October: the new WhatsApp number goes onto your phone at Vodacom (your own number stays as it is)",
-    "Then we start the WhatsApp business approval"
+    "Then we start the WhatsApp business approval",
+    "Wednesday 11 November, 10:00 to 10:45: platform walkthrough on Google Meet with you, Grant and Lez (invite sent)",
+    "Week before Botswana: a short dress rehearsal for check-in on the day"
   ],
   "needs_from_you": [
-    {"item": "The Botswana dates once you have your brief, and a copy of last event's registration form shared with Deon", "why": "So we can prepare the Botswana form for you", "needed_by": "After your briefing"},
-    {"item": "Grant's list of the reports you need", "why": "So the reports match how you actually work", "needed_by": "Before Phase B"}
+    {"item": "The holding page on your website (Grant)", "why": "WhatsApp approval needs it", "needed_by": "As soon as possible"},
+    {"item": "Grant's list of the reports you need", "why": "So the reports match how you actually work", "needed_by": "Before 11 November"}
   ],
   "updates": [
-    {"date": "19 October 2026", "text": "Agreed: guests register for Botswana on your Google Form as usual, with one added tick box so they agree to receive WhatsApp and SMS messages about their travel. Deon will prepare the form for you. The new WhatsApp number goes onto your phone on the weekend of 24 to 25 October; nothing changes on your personal WhatsApp."},
+    {"date": "21 October 2026", "text": "Walkthrough booked for Wednesday 11 November at 10:00 on Google Meet. Grant is needed for the first 20 minutes only."},
+    {"date": "20 October 2026", "text": "Both Botswana registration forms are ready, approved by OSF, with the tick box for travel messages. Local guests will not be messaged, so their form stays as it is. SMS messages will go through Clickatell, a South African provider."},
+    {"date": "19 October 2026", "text": "Agreed: guests register for Botswana on your Google Form as usual, with one added tick box so they agree to receive WhatsApp and SMS messages about their travel. The new WhatsApp number goes onto your phone on the weekend of 24 to 25 October; nothing changes on your personal WhatsApp."},
     {"date": "16 October 2026", "text": "Received your iPad details, your company documents for the WhatsApp approval, your Cape Town shuttle list and the headings of your registration sheet. Thank you, this helps a great deal. For practice we will use a scrambled copy of the Cape Town list, so no real guest details are shared."},
     {"date": "14 October 2026", "text": "Cape Town dates received (14 to 19 November). We will use them for a quiet practice run alongside your own process."},
     {"date": "13 October 2026", "text": "Event dates received: Botswana, 30 November to 3 December, with accreditation on 1, 2 and 3 December. Logos received. Manual check-in by name, without a scan, is planned for the day."},
