@@ -1,26 +1,29 @@
 {
   "project": "Melted Workx event platform",
   "updated": "26 October 2026",
-  "summary": "The build is on track for Botswana (30 November to 3 December). Your WhatsApp business account has been set up on Meta, and your new number is ready on the borrowed phone. We will walk you, Grant and Lez through the platform on 11 November.",
+  "summary": "The build is on track for Botswana (30 November to 3 December). Your new WhatsApp number is now connected to your Melted Workx business account on Meta. We will walk you, Grant and Lez through the platform on 11 November.",
   "phases": [
     {"id": "A", "name": "Guest registration", "description": "Bringing your Google Form registrations into the platform, with each guest's consent.", "status": "in_progress", "target": "Ready before your Botswana links go out"},
     {"id": "B", "name": "Operations dashboard and messaging", "description": "Your team's control view, plus SMS and WhatsApp messages to guests, including the shuttle message the day before departure.", "status": "in_progress", "target": "Early November, about 3 weeks before the event"},
     {"id": "C", "name": "Check-in on the day", "description": "Scanning guests in, or finding them by name, on your own phones and iPad, working even without signal.", "status": "in_progress", "target": "Late November, at the dress rehearsal"}
   ],
   "whats_next": [
-    "A 5-minute call with you to connect your new WhatsApp number to Meta: they send a code to the borrowed phone and you read it to Deon",
+    "Meta checks the name \"Melted Workx\" on your WhatsApp number (usually 1 to 2 days, nothing needed from you)",
+    "We submit the guest message wording to Meta for approval",
     "Wednesday 11 November, 10:00 to 10:45: platform walkthrough on Google Meet with you, Grant and Lez (invite sent)",
     "Week before Botswana: a short dress rehearsal for check-in on the day"
   ],
   "needs_from_you": [
     {"item": "Accept the email invitation from Meta to \"Melted Workx\"", "why": "It is your company's WhatsApp account; Deon manages it for you", "needed_by": "When you have a moment"},
     {"item": "Sign and return the data agreement emailed today", "why": "So we can load real guest details safely", "needed_by": "Before 13 November"},
-    {"item": "Five minutes with the borrowed phone, and your company card for WhatsApp message charges", "why": "To connect your number and switch on sending", "needed_by": "This week, at a time that suits you"},
+    {"item": "Add your company card for WhatsApp message charges (Deon will show you where)", "why": "Meta needs it before any WhatsApp messages can go to guests", "needed_by": "Next week"},
+    {"item": "Please don't set up WhatsApp on the new number on the borrowed phone", "why": "The number now belongs to your Melted Workx system, and setting up the app would disconnect it", "needed_by": "Ongoing"},
     {"item": "The date the Botswana registration links will go out", "why": "So everything is ready before guests register", "needed_by": "As soon as you know"},
     {"item": "Grant's list of the reports you need, and your brand colours", "why": "So the reports and screens match how you work", "needed_by": "Friday 30 October"},
     {"item": "Check with OSF that Melted Workx may keep their delegates' contact details between events", "why": "Needed before we set up a returning-guest list", "needed_by": "After Botswana"}
   ],
   "updates": [
+    {"date": "26 October 2026", "text": "Your new WhatsApp number (+27 71 472 5395) is connected to your Melted Workx business account. Meta is now checking the display name \"Melted Workx\", which usually takes a day or two."},
     {"date": "26 October 2026", "text": "Your question about keeping guest details longer: yes, partly. With each guest's agreement, basic contact details (name, organisation, email, WhatsApp number and language) can be kept for future events. Passport copies and dietary and accessibility details are still deleted after each event. This is noted for after Botswana, and nothing changes for Botswana."},
     {"date": "26 October 2026", "text": "Your new WhatsApp number works on the borrowed phone, so no eSIM change is needed and your own phone stays as it is. Your Melted Workx business account is set up on Meta, with you invited as an admin. The data agreement has been emailed to you for signature. Shuttle messages will use a simple shuttle list that Lez uploads."},
     {"date": "23 October 2026", "text": "Your website is live with everything Meta needs. Thank you, Grant."},
