@@ -17,9 +17,11 @@
     {"item": "Sign and return the data agreement emailed today", "why": "So we can load real guest details safely", "needed_by": "Before 13 November"},
     {"item": "Five minutes with the borrowed phone, and your company card for WhatsApp message charges", "why": "To connect your number and switch on sending", "needed_by": "This week, at a time that suits you"},
     {"item": "The date the Botswana registration links will go out", "why": "So everything is ready before guests register", "needed_by": "As soon as you know"},
-    {"item": "Grant's list of the reports you need, and your brand colours", "why": "So the reports and screens match how you work", "needed_by": "Friday 30 October"}
+    {"item": "Grant's list of the reports you need, and your brand colours", "why": "So the reports and screens match how you work", "needed_by": "Friday 30 October"},
+    {"item": "Check with OSF that Melted Workx may keep their delegates' contact details between events", "why": "Needed before we set up a returning-guest list", "needed_by": "After Botswana"}
   ],
   "updates": [
+    {"date": "26 October 2026", "text": "Your question about keeping guest details longer: yes, partly. With each guest's agreement, basic contact details (name, organisation, email, WhatsApp number and language) can be kept for future events. Passport copies and dietary and accessibility details are still deleted after each event. This is noted for after Botswana, and nothing changes for Botswana."},
     {"date": "26 October 2026", "text": "Your new WhatsApp number works on the borrowed phone, so no eSIM change is needed and your own phone stays as it is. Your Melted Workx business account is set up on Meta, with you invited as an admin. The data agreement has been emailed to you for signature. Shuttle messages will use a simple shuttle list that Lez uploads."},
     {"date": "23 October 2026", "text": "Your website is live with everything Meta needs. Thank you, Grant."},
     {"date": "21 October 2026", "text": "Walkthrough booked for Wednesday 11 November at 10:00 on Google Meet. Grant is needed for the first 20 minutes only."},
@@ -30,10 +32,13 @@
     {"date": "13 October 2026", "text": "Event dates received: Botswana, 30 November to 3 December, with accreditation on 1, 2 and 3 December. Logos received. Manual check-in by name, without a scan, is planned for the day."},
     {"date": "13 October 2026", "text": "Project approved. Planning complete and the build team is set up. Registration and event setup come first."}
   ],
-  "questions": [],
+  "questions": [
+    {"q": "Can we keep guest data longer than one year, so returning OSF guests don't have to give their details again?", "a": "Yes, partly. With each guest's agreement, we can keep name, organisation, email, WhatsApp number and language for future events. Passport copies and dietary and accessibility details are still deleted after each event, because the law treats them as sensitive. Please check with OSF that they are happy for Melted Workx to keep their delegates' details. After Botswana, Deon will send a short proposal for a returning-guest list, with a small update to the data agreement."}
+  ],
   "change_requests": [
     {"title": "Team photos in guest messages", "status": "Noted for after the December event. In the meantime, messages will name the host (for example, \"Your host today is Thandi\")."},
     {"title": "Full shuttle manifest and a live arrivals and departures screen", "status": "Noted for after Botswana. For Botswana, Lez uploads a simple shuttle list so the day-before shuttle messages work."},
-    {"title": "Reading passport details automatically from the uploaded photo", "status": "Noted for later. For Botswana, guests upload their passport on your Google Form as usual."}
+    {"title": "Reading passport details automatically from the uploaded photo", "status": "Noted for later. For Botswana, guests upload their passport on your Google Form as usual."},
+    {"title": "Returning-guest list (keep basic contact details between events)", "status": "Noted for after Botswana. Needs each guest's agreement and OSF's go-ahead; passports and dietary or accessibility details are still deleted after each event."}
   ]
 }
