@@ -125,7 +125,7 @@ html,body{height:100%;margin:0}
 </head>
 <body>
 <div id="gate"><div class="box">
-  <img src="logo-light.webp" alt="Melted Workx Creative House" onerror="this.style.display='none'">
+  <img src="/meltedworkx-001/guide/logo-light.webp" alt="Melted Workx Creative House" onerror="this.style.display='none'">
   <p>This guide is private. Enter the password you use for the progress page.</p>
   <input type="password" id="gate-pw" placeholder="Password" autocomplete="off" aria-label="Password">
   <button id="gate-submit" type="button">Open the guide</button>
@@ -359,7 +359,7 @@ function draw(){drawNav();const l=LESSONS[cur],v=$("#view");v.innerHTML="";
   if(l.screens.length>1){const t=el("div",{class:"tabs",role:"tablist"});
     l.screens.forEach((s,i)=>{const b=el("button",{type:"button",role:"tab","aria-selected":i===scr?"true":"false"},s.label);b.onclick=()=>{scr=i;active=-1;draw()};t.appendChild(b)});v.appendChild(t)}
   const s=l.screens[scr];
-  if(s.img){const f=el("div",{class:"shot"});f.appendChild(el("img",{src:`img/${s.img}.webp`,alt:`Screenshot: ${s.label}`}));
+  if(s.img){const f=el("div",{class:"shot"});f.appendChild(el("img",{src:`/meltedworkx-001/guide/img/${s.img}.webp`,alt:`Screenshot: ${s.label}`}));
     s.pins.forEach((p,i)=>{const b=el("button",{type:"button",class:"pin","aria-pressed":"false","aria-label":`${i+1}: ${p.t}`,style:`left:${p.x}%;top:${p.y}%`},String(i+1));b.onclick=()=>pick(i);f.appendChild(b)});
     v.appendChild(f);v.appendChild(el("p",{class:"hint"},"Tap a numbered dot on the picture, or a line in the list below."));
   }else{const k=el("div",{class:"sketch"},`<span class="tag">Steps in order. Picture of this screen to follow</span>`+s.sketch.map((r,i)=>`<div class="row"><i>${i+1}</i><div><b>${r[0]}</b><span>${r[1]}</span></div></div>`).join(""));v.appendChild(k)}
