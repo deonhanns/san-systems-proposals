@@ -1,52 +1,181 @@
 {
   "project": "Melted Workx event platform",
-  "updated": "6 November 2026",
-  "summary": "The build is on track for Botswana (30 November to 3 December). Your WhatsApp number is connected and Meta has approved the name \"Melted Workx\". We will walk you, Grant and Lez through the platform on 11 November.",
+  "updated": "16 November 2026",
+  "summary": "The build is on track for Botswana (30 November to 3 December). The walkthrough on 11 November went well and the WhatsApp payment card is in place. Your step-by-step guide is ready, and we meet again on Wednesday 18 November.",
   "phases": [
-    {"id": "A", "name": "Guest registration", "description": "Bringing your Google Form registrations into the platform, with each guest's consent.", "status": "in_progress", "target": "Ready before your Botswana links go out"},
-    {"id": "B", "name": "Operations dashboard and messaging", "description": "Your team's control view, plus SMS and WhatsApp messages to guests, including the shuttle message the day before departure.", "status": "in_progress", "target": "Early November, about 3 weeks before the event"},
-    {"id": "C", "name": "Check-in on the day", "description": "Finding guests by name on your own phones and iPad, working even without signal.", "status": "in_progress", "target": "Late November, at the dress rehearsal"}
+    {
+      "id": "A",
+      "name": "Guest registration",
+      "description": "Bringing your Google Form registrations into the platform, with each guest's consent.",
+      "status": "in_progress",
+      "target": "Ready before your Botswana links go out"
+    },
+    {
+      "id": "B",
+      "name": "Operations dashboard and messaging",
+      "description": "Your team's control view, plus SMS and WhatsApp messages to guests, including the shuttle message the day before departure.",
+      "status": "in_progress",
+      "target": "Now: polishing after your walkthrough feedback"
+    },
+    {
+      "id": "C",
+      "name": "Check-in on the day",
+      "description": "Finding guests by name on your own phones and iPad, working even without signal.",
+      "status": "in_progress",
+      "target": "Late November, at the dress rehearsal"
+    }
   ],
   "whats_next": [
-    "Wednesday 11 November, 10:00 to 10:45: platform walkthrough on Google Meet with you, Grant and Lez, using practice data only",
-    "Straight after the walkthrough, Naidene stays on the same call for about 10 minutes to add the company card for WhatsApp message charges",
-    "Once the card is added, we submit the guest message wording to Meta for approval",
+    "Before Wednesday: your logins arrive privately, so you, Grant and Lez can try signing in on your own devices",
+    "Wednesday 18 November, 10:00 to 11:00: catch-up on Google Meet. We test sign-in on your devices (please bring the iPad) and check the app works on the network you will use in Gaborone",
+    "This week: we polish the look and wording of the screens, based on your feedback from the walkthrough",
+    "By Friday 20 November: your shuttle list, once RSVPs close, so the day-before shuttle messages can be set up",
+    "Excursion and gala: a one-question form with a QR code to give you the numbers for the shuttles",
+    "Once WhatsApp wording is approved by Meta and the privacy page link is in, we switch on real messages",
     "Afternoon of 30 November in Gaborone: Grant is available to test with us (your current plan)",
     "Week before Botswana: a short dress rehearsal for check-in on the day"
   ],
   "needs_from_you": [
-    {"item": "Grant: put the privacy policy page on your website, and send us the link. Please also tell us who the Information Officer is", "why": "Meta needs the link before WhatsApp can be switched on for real", "needed_by": "Wednesday 11 November (Friday 13 November at the latest)"},
-    {"item": "Naidene: have your company card ready on the call, with international online payments switched on", "why": "Meta bills the WhatsApp message charges to it. You type the card in yourself", "needed_by": "Wednesday 11 November, after the walkthrough"},
-    {"item": "Accept the email invitation from Meta to \"Melted Workx\"", "why": "It is your company's WhatsApp account; Deon manages it for you", "needed_by": "When you have a moment"},
-    {"item": "Please don't set up WhatsApp on the new number on the borrowed phone", "why": "The number now belongs to your Melted Workx system, and setting up the app would disconnect it", "needed_by": "Ongoing"},
-    {"item": "The date the Botswana registration links will go out", "why": "So everything is ready before guests register", "needed_by": "As soon as you know"},
-    {"item": "Grant's list of any other reports you need, and your brand colours", "why": "So the reports and screens match how you work", "needed_by": "Before the walkthrough if you can"},
-    {"item": "Check with OSF that Melted Workx may keep their delegates' contact details between events", "why": "Needed before we set up a returning-guest list", "needed_by": "After Botswana"}
+    {
+      "item": "Grant: put the privacy policy page on your website, and send us the link. Please also tell us who the Information Officer is",
+      "why": "Meta needs the link before WhatsApp can be switched on for real",
+      "needed_by": "As soon as you can"
+    },
+    {
+      "item": "Your shuttle list (a CSV file) and updated itineraries as they come in",
+      "why": "So guests get the right shuttle message the day before they travel",
+      "needed_by": "Friday 20 November"
+    },
+    {
+      "item": "Join Wednesday's catch-up on the iPad you will use at the event, as well as your laptop",
+      "why": "So we can test sign-in and check for firewall problems on the real devices",
+      "needed_by": "Wednesday 18 November"
+    },
+    {
+      "item": "Accept the email invitation from Meta to \"Melted Workx\"",
+      "why": "It is your company's WhatsApp account; Deon manages it for you",
+      "needed_by": "When you have a moment"
+    },
+    {
+      "item": "Please don't set up WhatsApp on the new number on the borrowed phone",
+      "why": "The number now belongs to your Melted Workx system, and setting up the app would disconnect it",
+      "needed_by": "Ongoing"
+    },
+    {
+      "item": "Grant's list of any other reports you need, and your brand colours",
+      "why": "So the reports and screens match how you work",
+      "needed_by": "When you can"
+    },
+    {
+      "item": "Check with OSF that Melted Workx may keep their delegates' contact details between events",
+      "why": "Needed before we set up a returning-guest list",
+      "needed_by": "After Botswana"
+    }
   ],
   "updates": [
-    {"date": "6 November 2026", "text": "The card step moves to Wednesday 11 November, straight after the walkthrough. Naidene, you stay on the same call. Deon will show you Meta's rates on screen, with a rough total for 300 guests."},
-    {"date": "6 November 2026", "text": "We received your signed page of the data agreement, thank you. Deon will countersign and send you the completed copy. A practice version of the platform is set up for the walkthrough, with invented names only and nothing sent to anyone."},
-    {"date": "26 October 2026", "text": "Your new WhatsApp number (+27 71 472 5395) is connected to your Melted Workx business account, and Meta has approved \"Melted Workx\" as the name guests will see. Thank you for standing by with the phone."},
-    {"date": "26 October 2026", "text": "Your question about keeping guest details longer: yes, partly. With each guest's agreement, basic contact details (name, organisation, email, WhatsApp number and language) can be kept for future events. Passport copies and dietary and accessibility details are still deleted after each event. This is noted for after Botswana, and nothing changes for Botswana."},
-    {"date": "26 October 2026", "text": "Your new WhatsApp number works on the borrowed phone, so no eSIM change is needed and your own phone stays as it is. Your Melted Workx business account is set up on Meta, with you invited as an admin. The data agreement has been emailed to you for signature. Shuttle messages will use a simple shuttle list that Lez uploads."},
-    {"date": "23 October 2026", "text": "Your website is live with everything Meta needs. Thank you, Grant."},
-    {"date": "21 October 2026", "text": "Walkthrough booked for Wednesday 11 November at 10:00 on Google Meet. Grant is needed for the first 20 minutes only."},
-    {"date": "20 October 2026", "text": "Both Botswana registration forms are ready, approved by OSF, with the tick box for travel messages. Local guests will not be messaged, so their form stays as it is. SMS messages will go through Clickatell, a South African provider."},
-    {"date": "19 October 2026", "text": "Agreed: guests register for Botswana on your Google Form as usual, with one added tick box so they agree to receive WhatsApp and SMS messages about their travel."},
-    {"date": "16 October 2026", "text": "Received your iPad details, your company documents for the WhatsApp approval, your Cape Town shuttle list and the headings of your registration sheet. For practice we use a scrambled copy of the Cape Town list, so no real guest details are shared."},
-    {"date": "14 October 2026", "text": "Cape Town dates received (14 to 19 November). We will use them for a quiet practice run alongside your own process."},
-    {"date": "13 October 2026", "text": "Event dates received: Botswana, 30 November to 3 December, with accreditation on 1, 2 and 3 December. Logos received. Manual check-in by name, without a scan, is planned for the day."},
-    {"date": "13 October 2026", "text": "Project approved. Planning complete and the build team is set up. Registration and event setup come first."}
+    {
+      "date": "16 November 2026",
+      "text": "Your step-by-step guide is ready: a tap-through tutorial with pictures of every screen, short quizzes, and a section to test the app on your iPad. It is on this page under \"Your step-by-step guide\" and uses the same password. It shows practice data only."
+    },
+    {
+      "date": "15 November 2026",
+      "text": "Thank you for the walkthrough feedback. We are improving the look of the login page and shortening the wordy screens. We are also adding a \"Send by SMS instead\" button, so if a WhatsApp message does not arrive, your team can resend it by SMS with one tap."
+    },
+    {
+      "date": "11 November 2026",
+      "text": "Walkthrough done and the company card is added in Meta. Thank you, Naidene. Until the event, Deon is your contact on +27 73 302 0683 in normal business hours. From 30 November to 3 December there will be standby cover from 07:00 to 20:00, and we will tell you the standby person's name and number before the event."
+    },
+    {
+      "date": "11 November 2026",
+      "text": "Confirmed: guests arriving on 30 November are checked in that day. Accreditation days stay 1, 2 and 3 December."
+    },
+    {
+      "date": "6 November 2026",
+      "text": "The card step moves to Wednesday 11 November, straight after the walkthrough. Naidene, you stay on the same call. Deon will show you Meta's rates on screen, with a rough total for 300 guests."
+    },
+    {
+      "date": "6 November 2026",
+      "text": "We received your signed page of the data agreement, thank you. Deon will countersign and send you the completed copy. A practice version of the platform is set up for the walkthrough, with invented names only and nothing sent to anyone."
+    },
+    {
+      "date": "26 October 2026",
+      "text": "Your new WhatsApp number (+27 71 472 5395) is connected to your Melted Workx business account, and Meta has approved \"Melted Workx\" as the name guests will see. Thank you for standing by with the phone."
+    },
+    {
+      "date": "26 October 2026",
+      "text": "Your question about keeping guest details longer: yes, partly. With each guest's agreement, basic contact details (name, organisation, email, WhatsApp number and language) can be kept for future events. Passport copies and dietary and accessibility details are still deleted after each event. This is noted for after Botswana, and nothing changes for Botswana."
+    },
+    {
+      "date": "26 October 2026",
+      "text": "Your new WhatsApp number works on the borrowed phone, so no eSIM change is needed and your own phone stays as it is. Your Melted Workx business account is set up on Meta, with you invited as an admin. The data agreement has been emailed to you for signature. Shuttle messages will use a simple shuttle list that Lez uploads."
+    },
+    {
+      "date": "23 October 2026",
+      "text": "Your website is live with everything Meta needs. Thank you, Grant."
+    },
+    {
+      "date": "21 October 2026",
+      "text": "Walkthrough booked for Wednesday 11 November at 10:00 on Google Meet. Grant is needed for the first 20 minutes only."
+    },
+    {
+      "date": "20 October 2026",
+      "text": "Both Botswana registration forms are ready, approved by OSF, with the tick box for travel messages. Local guests will not be messaged, so their form stays as it is. SMS messages will go through Clickatell, a South African provider."
+    },
+    {
+      "date": "19 October 2026",
+      "text": "Agreed: guests register for Botswana on your Google Form as usual, with one added tick box so they agree to receive WhatsApp and SMS messages about their travel."
+    },
+    {
+      "date": "16 October 2026",
+      "text": "Received your iPad details, your company documents for the WhatsApp approval, your Cape Town shuttle list and the headings of your registration sheet. For practice we use a scrambled copy of the Cape Town list, so no real guest details are shared."
+    },
+    {
+      "date": "14 October 2026",
+      "text": "Cape Town dates received (14 to 19 November). We will use them for a quiet practice run alongside your own process."
+    },
+    {
+      "date": "13 October 2026",
+      "text": "Event dates received: Botswana, 30 November to 3 December, with accreditation on 1, 2 and 3 December. Logos received. Manual check-in by name, without a scan, is planned for the day."
+    },
+    {
+      "date": "13 October 2026",
+      "text": "Project approved. Planning complete and the build team is set up. Registration and event setup come first."
+    }
   ],
   "questions": [
-    {"q": "Can we keep guest data longer than one year, so returning OSF guests don't have to give their details again?", "a": "Yes, partly. With each guest's agreement, we can keep name, organisation, email, WhatsApp number and language for future events. Passport copies and dietary and accessibility details are still deleted after each event, because the law treats them as sensitive. Please check with OSF that they are happy for Melted Workx to keep their delegates' details. After Botswana, Deon will send a short proposal for a returning-guest list, with a small update to the data agreement."},
-    {"q": "How much will Meta charge for the WhatsApp messages?", "a": "Meta charges a small amount for each WhatsApp message that is delivered, depending on the guest's country. Deon will show you Meta's rate card on screen when the card is added, with a rough total for 300 guests. Your card only pays these charges, and nothing is sent until messages are switched on."}
+    {
+      "q": "Can we keep guest data longer than one year, so returning OSF guests don't have to give their details again?",
+      "a": "Yes, partly. With each guest's agreement, we can keep name, organisation, email, WhatsApp number and language for future events. Passport copies and dietary and accessibility details are still deleted after each event, because the law treats them as sensitive. Please check with OSF that they are happy for Melted Workx to keep their delegates' details. After Botswana, Deon will send a short proposal for a returning-guest list, with a small update to the data agreement."
+    },
+    {
+      "q": "How much will Meta charge for the WhatsApp messages?",
+      "a": "Meta charges a small amount for each WhatsApp message that is delivered, depending on the guest's country. Your card pays only these charges, and nothing is sent until messages are switched on. For Botswana the rate per message is a fraction of a rand, so for about 300 guests the total is expected to be small. Deon will confirm the exact rate from your WhatsApp Manager and send you a rough total. SMS messages are charged at cost from a prepaid balance, and we only send them with your say-so."
+    }
   ],
   "change_requests": [
-    {"title": "Team photos in guest messages", "status": "Noted for after the December event. In the meantime, messages will name the host (for example, \"Your host today is Thandi\")."},
-    {"title": "Full shuttle manifest and a live arrivals and departures screen", "status": "Noted for after Botswana. For Botswana, Lez uploads a simple shuttle list so the day-before shuttle messages work."},
-    {"title": "Reading passport details automatically from the uploaded photo", "status": "Noted for later. For Botswana, guests upload their passport on your Google Form as usual."},
-    {"title": "Returning-guest list (keep basic contact details between events)", "status": "Noted for after Botswana. Needs each guest's agreement and OSF's go-ahead; passports and dietary or accessibility details are still deleted after each event."},
-    {"title": "Choosing between the excursion and the gala dinner inside the platform, with live numbers", "status": "Noted for after Botswana. For December, a one-question form with a QR code gives you the numbers for the shuttles."}
+    {
+      "title": "Team photos in guest messages",
+      "status": "Noted for after the December event. In the meantime, messages will name the host (for example, \"Your host today is Thandi\")."
+    },
+    {
+      "title": "Full shuttle manifest and a live arrivals and departures screen",
+      "status": "Noted for after Botswana. For Botswana, Lez uploads a simple shuttle list so the day-before shuttle messages work."
+    },
+    {
+      "title": "Reading passport details automatically from the uploaded photo",
+      "status": "Noted for later. For Botswana, guests upload their passport on your Google Form as usual."
+    },
+    {
+      "title": "Returning-guest list (keep basic contact details between events)",
+      "status": "Noted for after Botswana. Needs each guest's agreement and OSF's go-ahead; passports and dietary or accessibility details are still deleted after each event."
+    },
+    {
+      "title": "Choosing between the excursion and the gala dinner inside the platform, with live numbers",
+      "status": "Noted for after Botswana. For December, a one-question form with a QR code gives you the numbers for the shuttles."
+    },
+    {
+      "title": "Email as a backup way to reach guests when WhatsApp fails",
+      "status": "Noted for after Botswana. It needs guests to agree to email on the registration form, plus a line in the privacy wording. For Botswana, the SMS backup button covers this."
+    }
   ]
 }
