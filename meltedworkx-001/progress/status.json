@@ -1,6 +1,6 @@
 {
   "project": "Melted Workx event platform",
-  "updated": "16 November 2026",
+  "updated": "17 November 2026",
   "summary": "The build is on track for Botswana (30 November to 3 December). The walkthrough on 11 November went well and the WhatsApp payment card is in place. Your step-by-step guide is ready, and we meet again on Wednesday 18 November.",
   "phases": [
     {
@@ -31,16 +31,11 @@
     "This week: we polish the look and wording of the screens, based on your feedback from the walkthrough",
     "By Friday 20 November: your shuttle list, once RSVPs close, so the day-before shuttle messages can be set up",
     "Excursion and gala: a one-question form with a QR code to give you the numbers for the shuttles",
-    "Once WhatsApp wording is approved by Meta and the privacy page link is in, we switch on real messages",
+    "Once Meta has approved the WhatsApp wording, we switch on real messages",
     "Afternoon of 30 November in Gaborone: Grant is available to test with us (your current plan)",
     "Week before Botswana: a short dress rehearsal for check-in on the day"
   ],
   "needs_from_you": [
-    {
-      "item": "Grant: put the privacy policy page on your website, and send us the link. Please also tell us who the Information Officer is",
-      "why": "Meta needs the link before WhatsApp can be switched on for real",
-      "needed_by": "As soon as you can"
-    },
     {
       "item": "Your shuttle list (a CSV file) and updated itineraries as they come in",
       "why": "So guests get the right shuttle message the day before they travel",
@@ -73,6 +68,10 @@
     }
   ],
   "updates": [
+    {
+      "date": "17 November 2026",
+      "text": "Your privacy policy page is live on your website, and Naidene is named as the Information Officer. Thank you, Grant. This is what Meta needs before WhatsApp can be switched on for real."
+    },
     {
       "date": "16 November 2026",
       "text": "Your step-by-step guide is ready: a tap-through tutorial with pictures of every screen, short quizzes, and a section to test the app on your iPad. It is on this page under \"Your step-by-step guide\" and uses the same password. It shows practice data only."
