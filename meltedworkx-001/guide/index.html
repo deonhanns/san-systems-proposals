@@ -54,7 +54,7 @@ h1{font-family:var(--display);font-weight:600;font-size:40px;font-size:clamp(34p
 .tip{position:absolute;z-index:5;background:var(--surface);color:var(--ink);border:2px solid var(--gold);border-radius:12px;padding:12px 38px 12px 14px;box-shadow:0 10px 30px rgba(0,0,0,.28);font-size:15.5px;line-height:1.45;display:none}
 .tip.on{display:block}
 .tip.below{position:relative;margin:8px;box-shadow:none}
-.tip b{display:block;font-size:16.5px;margin-bottom:3px}
+.tip b:first-child{display:block;font-size:16.5px;margin-bottom:3px}
 .tip .x{position:absolute;top:4px;right:4px;width:34px;height:34px;border:0;background:transparent;color:var(--muted);font-size:22px;line-height:1;border-radius:8px;padding:0}
 .pin{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;border:2.5px solid #fff;background:#8a3e45;color:#fff;font-weight:700;font-size:15px;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.35);padding:0}
 .pin::before{content:"";position:absolute;top:-9px;right:-9px;bottom:-9px;left:-9px;border-radius:50%;border:2px solid #8a3e45;opacity:0;animation:pulse 2.2s infinite}
@@ -155,10 +155,12 @@ const LESSONS=[
 {id:"sign-in",name:"Sign in",eyebrow:"Lesson 1",title:"Sign in",
  why:"One web address, your email and your password. It works on a laptop, an iPad or a phone.",
  screens:[{label:"Sign-in page",img:"login",pins:[
-  P(49.96,3.5,"The gold strip","This strip means you are in the practice version. Every guest in it is invented and nothing is sent to anyone. The real version has no gold strip."),
-  P(86.88,51.14,"Email","Type the login email Deon sent you. Each of you has your own."),
-  P(86.88,60.87,"Password","Type your password. Keep it to yourself; never send it by email or in a chat."),
-  P(96.4,67.4,"Sign in","Click here. You land on your list of events.")],
+  P(68,2.11,"The gold strip","This strip means you are in the practice version. Every guest in it is invented and nothing is sent to anyone. The real version has no gold strip."),
+  P(35.5,66,"Your event","Shows which event you are signing in to, so you know you are in the right place."),
+  P(86.37,41.5,"Email","Type the login email Deon sent you. Each of you has your own."),
+  P(86.37,52.88,"Password","Type your password. Keep it to yourself; never send it by email or in a chat."),
+  P(85.02,60.96,"Sign in","Click here. You land on your list of events."),
+  P(86.37,75.28,"Need help?","Tap <b>WhatsApp</b> or <b>Call</b> to reach San Systems. Weekdays in business hours; during the event, 07:00 to 20:00.")],
   steps:["Open the link Deon sent you, in Chrome or Safari.","Type your email and password.","Click <b>Sign in</b>."]}],
  quiz:{q:"You see a gold strip across the top of the page. What does it tell you?",o:["Something is broken","This is the practice version, so nothing here is real","You are signed out"],a:1,
   why:"Gold strip = practice. Invented guests, and no message leaves the platform."}},
