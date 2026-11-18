@@ -1,7 +1,7 @@
 {
   "project": "Melted Workx event platform",
-  "updated": "17 November 2026",
-  "summary": "The build is on track for Botswana (30 November to 3 December). The walkthrough on 11 November went well and the WhatsApp payment card is in place. Your step-by-step guide is ready, and we meet again on Wednesday 18 November.",
+  "updated": "18 November 2026",
+  "summary": "The build is on track for Botswana (30 November to 3 December). Thank you for today's catch-up: you, Grant and Lez signed in and we went through the guide, the guest and shuttle uploads and the check-in screens. This week is practice with made-up data. We aim to switch to your real data on Monday 23 November.",
   "phases": [
     {
       "id": "A",
@@ -26,14 +26,15 @@
     }
   ],
   "whats_next": [
-    "Before Wednesday: your logins arrive privately, so you, Grant and Lez can try signing in on your own devices",
-    "Wednesday 18 November, 10:00 to 11:00: catch-up on Google Meet. We test sign-in on your devices (please bring the iPad) and check the app works on the network you will use in Gaborone",
-    "This week: we polish the look and wording of the screens, based on your feedback from the walkthrough",
+    "This week: try the practice files we emailed you (local guests, international guests and the shuttle list) and tell us anything that is unclear or does not work",
+    "This week: try the iPad test in the guide, including the part without internet",
     "By Friday 20 November: your shuttle list, once RSVPs close, so the day-before shuttle messages can be set up",
-    "Excursion and gala: a one-question form with a QR code to give you the numbers for the shuttles",
+    "By Friday 20 November: the extra lines on your privacy page about WhatsApp and SMS messages and how long information is kept",
+    "Tour form: the three-language forms and QR codes are with you to check; the gala dinner is no longer on the form",
+    "Monday 23 November (aim): we clear the practice data and you start with your real files",
+    "Wednesday 25 November, 19:00 (planned): a one-hour session on the live system, recorded so Lez can watch it later",
     "Once Meta has approved the WhatsApp wording, we switch on real messages",
-    "Afternoon of 30 November in Gaborone: Grant is available to test with us (your current plan)",
-    "Week before Botswana: a short dress rehearsal for check-in on the day"
+    "Afternoon of 30 November in Gaborone: Grant is available to test with us (your current plan)"
   ],
   "needs_from_you": [
     {
@@ -42,9 +43,14 @@
       "needed_by": "Friday 20 November"
     },
     {
-      "item": "Join Wednesday's catch-up on the iPad you will use at the event, as well as your laptop",
-      "why": "So we can test sign-in and check for firewall problems on the real devices",
-      "needed_by": "Wednesday 18 November"
+      "item": "One example of the EasyShuttle export",
+      "why": "So we can check it uploads without any changes",
+      "needed_by": "This week"
+    },
+    {
+      "item": "Check the tour form and QR codes in English, French and Portuguese, and tell us if OSF has official French and Portuguese titles",
+      "why": "The QR code will be displayed on 1 December",
+      "needed_by": "This week"
     },
     {
       "item": "Accept the email invitation from Meta to \"Melted Workx\"",
@@ -68,6 +74,10 @@
     }
   ],
   "updates": [
+    {
+      "date": "18 November 2026",
+      "text": "Thank you for the catch-up. We went through the sign-in, the guide, the guest and shuttle uploads and the check-in screens. We emailed you practice files for the uploads. The gala dinner is off the tour form and the three-language tour forms are with you. Real data starts on Monday 23 November (our aim), and we will do a one-hour session on the live system on Wednesday 25 November at 19:00."
+    },
     {
       "date": "17 November 2026",
       "text": "Your privacy policy page is live on your website, and Naidene is named as the Information Officer. Thank you, Grant. This is what Meta needs before WhatsApp can be switched on for real."
