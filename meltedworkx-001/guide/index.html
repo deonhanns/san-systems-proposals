@@ -208,7 +208,7 @@ const LESSONS=[
   P(71.7,14.6,"Export CSV","Downloads the list as a spreadsheet file."),
   P(63.9,14.6,"Print check-in badges","Opens the badges to print. Lesson 11 shows how.")],
   steps:["Click <b>Guests</b> in the menu.","Click a guest's name to see or correct their details."]}],
- quiz:{q:"One guest's flight changed. Where do you fix it?",o:["Upload the whole guest list again","Open Guests and click that guest's name","Phone Deon"],a:1,
+ quiz:{q:"One guest's flight changed. Where do you fix it?",o:["Upload the whole guest list again","Open Guests and click that guest's name","Phone support"],a:1,
   why:"One guest, one click on their name. No need to re-upload anything."}},
 
 {id:"add-guests",name:"Bring in a guest list",eyebrow:"Lesson 5",title:"Bring in a guest list",
@@ -455,12 +455,12 @@ function drawIntro(v){
   c.appendChild(t);v.appendChild(c);
 }
 function drawHelp(v,l){
-  const c=el("section",{class:"card"},`<h2>Who to contact</h2><div class="contact"><span class="num" id="num">+27 73 302 0683</span><button type="button" class="btn ghost" id="copy">Copy number</button></div><p style="margin:8px 0 0;color:var(--muted)">Deon Hanns, San Systems. Normal business hours, South African time. For 30 November to 3 December someone is on standby from 07:00 to 20:00 each day, and Deon will send their name and number before the event.</p>`);
+  const c=el("section",{class:"card"},`<h2>Who to contact</h2><div class="contact"><span class="num" id="num">+27 76 739 2682</span><button type="button" class="btn ghost" id="copy">Copy number</button></div><p style="margin:8px 0 0;color:var(--muted)">San Systems support. Call or message on WhatsApp. Weekdays in business hours, South African time. From 30 November to 3 December, someone is on standby from 07:00 to 20:00 each day.</p>`);
   v.appendChild(c);
   $("#copy").onclick=function(){const b=this;const ok=()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy number",1800)};
-    try{navigator.clipboard.writeText("+27733020683").then(ok,()=>sel())}catch(e){sel()}
+    try{navigator.clipboard.writeText("+27767392682").then(ok,()=>sel())}catch(e){sel()}
     function sel(){const r=document.createRange();r.selectNodeContents($("#num"));const s=getSelection();s.removeAllRanges();s.addRange(r)}};
-  v.appendChild(el("section",{class:"card"},`<h2>If something looks wrong</h2><ol class="do"><li>Take a screenshot of the whole page.</li><li>Note what you clicked just before.</li><li>Send both to Deon. Never send a password.</li></ol>`));
+  v.appendChild(el("section",{class:"card"},`<h2>If something looks wrong</h2><ol class="do"><li>Take a screenshot of the whole page.</li><li>Note what you clicked just before.</li><li>Send both to San Systems support. Never send a password.</li></ol>`));
   v.appendChild(el("section",{class:"card"},`<h2>Words you will see</h2><dl>
    <dt>CSV</dt><dd>A plain spreadsheet file. In Google Sheets: File, Download, Comma-separated values.</dd>
    <dt>Consent</dt><dd>The guest ticked the box agreeing to WhatsApp and SMS messages about their travel.</dd>
@@ -484,7 +484,7 @@ function drawCheck(v,l){
       b.onclick=()=>{st[i]=st[i]===k?undefined:k;try{localStorage.setItem("mw-guide-ipad",JSON.stringify(st))}catch(e){}[...yn.children].forEach(x=>x.setAttribute("aria-pressed","false"));if(st[i])b.setAttribute("aria-pressed","true");summary()};yn.appendChild(b)});
     list.appendChild(r)});
   v.appendChild(list);
-  const s=el("section",{class:"card"},`<h2>Send the result to Deon</h2><p style="margin:0 0 10px;color:var(--muted)">Copy this and send it on WhatsApp, with any screenshots.</p>`);s.appendChild(out);
+  const s=el("section",{class:"card"},`<h2>Send the result to San Systems support</h2><p style="margin:0 0 10px;color:var(--muted)">Copy this and send it on WhatsApp, with any screenshots.</p>`);s.appendChild(out);
   const cp=el("button",{type:"button",class:"btn ghost",style:"margin-top:12px"},"Copy result");
   cp.onclick=()=>{const ok=()=>{cp.textContent="Copied";setTimeout(()=>cp.textContent="Copy result",1800)};const sel=()=>{const r=document.createRange();r.selectNodeContents(out);const g=getSelection();g.removeAllRanges();g.addRange(r)};
     try{navigator.clipboard.writeText(out.textContent).then(ok,sel)}catch(e){sel()}};
