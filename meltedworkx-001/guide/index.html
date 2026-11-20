@@ -301,6 +301,16 @@ const LESSONS=[
   P(60.0,60.4,"Search","Click to see the matching guests, then check the right one in."),
   P(61.3,69.8,"Recent check-ins","The last guests checked in for that day, newest first.")],
   steps:["Click <b>Check-in</b> in the menu.","Make sure the right day is selected.","Type the guest's name, click <b>Search</b>, and check them in.","A green card then shows the guest's name, <b>Checked in for Day N</b>, the date and time, and their reservation."]},
+ {label:"Check the guest in",img:"checkin-guest",pins:[
+  P(58.8,19.9,"The guest","Their name and the details we hold. A dash means nothing was entered."),
+  P(42.0,82.1,"Reservation","The reservation number. If two guests share a name, this tells them apart."),
+  P(70.2,91.1,"Check in","Click the green button to check this guest in for the day you chose. The button names the guest and the date."),
+  P(63.0,6.0,"Search results","Each name that matches shows here with its reservation. Click the right one to open the guest.")],
+  steps:["Click the guest's name in the results.","Check the name and reservation number.","Click the green <b>Check in</b> button."]},
+ {label:"Already checked in",img:"checkin-already",pins:[
+  P(73.1,91.6,"Already checked in","If the guest is already checked in for that day, this note replaces the green button. It says when, and the date."),
+  P(43.0,78.7,"Reservation","Check the reservation number if you are unsure it is the same person.")],
+  steps:["If you see this note, the guest is already in for that day. Do nothing more.","If you expected them on a different day, change the day at the top and search again."]},
  {label:"If the wifi drops",sketch:[
   ["Open the offline desk before doors open","Do it with wifi on, and wait until the guest list has loaded."],
   ["Keep the page open and the iPad plugged in","The guest list is saved on the iPad."],
