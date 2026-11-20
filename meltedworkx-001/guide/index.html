@@ -166,7 +166,7 @@ const LESSONS=[
   why:"Gold strip = practice. Invented guests, and no message leaves the platform."}},
 
 {id:"your-events",name:"Find your event",eyebrow:"Lesson 2",title:"Find your event",
- why:"Each event lives on its own card. Guests from one event never mix with another.",
+ why:"Each event lives on its own card. Guests from one event never mix with another. The same person in two events is two separate guest records, by design.",
  screens:[{label:"Your events",img:"events",pins:[
   P(50.0,66.0,"The event card","The event's name, dates and venue. Botswana has its own card."),
   P(26.1,60.0,"Open","Open means the event is running and ready to use."),
@@ -183,14 +183,14 @@ const LESSONS=[
   P(13.8,51.2,"The menu","Everything about this event: Overview, Guests, Import, Messages, Check-in, Crew, Badges and Event settings. Overview is this page."),
   P(49.5,30.5,"Open the check-in desk","A shortcut to the check-in desk. Lesson 9 shows how to use it."),
   P(32.1,37.5,"Guests","Everyone in the event."),
-  P(50.3,37.5,"Check-ins","How many check-ins have been recorded across all the days."),
+  P(50.3,37.5,"Check-ins","How many check-ins have been recorded. The small line under it says how many days they cover."),
   P(68.1,37.5,"Messages sent","Messages that went out to guests."),
-  P(86.0,37.5,"Failed messages","In red because a person needs to look. Lesson 8 shows what to do.")],
+  P(86.0,37.5,"Failed","In red because a person needs to look. A small line under it says how many need a look. Lesson 8 shows what to do.")],
   steps:["Open your event. You land on <b>Overview</b>.","Read the four numbers from left to right.","If the red number is not zero, scroll down to <b>Needs attention</b>."]},
  {label:"The detail below",img:"overview-low",pins:[
-  P(49.36,23.72,"Check-in, day by day","Arrivals on 30 November, then 1, 2 and 3 December. Each row shows how many guests are checked in for that day."),
+  P(49.36,23.72,"Check-in, day by day","Arrivals on Mon 30 Nov, then 1, 2 and 3 December. Each row shows the day, then how many guests are checked in, for example 121 of 300, with the percentage."),
   P(41.5,57.85,"Who can be messaged","Only guests who ticked the agreement box can be messaged. Guests who said no, or were never asked, are blocked automatically."),
-  P(14,66.2,"Messages","Waiting, sent, failed, and blocked because the guest has not agreed."),
+  P(14,66.2,"Messages","Waiting, Sent, Failed and Blocked. Blocked means the guest has not agreed to be messaged."),
   P(19,88.1,"Needs attention","Your to-do list, in plain words: messages that failed and rows in a file that need a human look.")],
   steps:["Scroll down the Overview page.","Check <b>Needs attention</b> last. If it is empty, you are done."]}],
  quiz:{q:"A guest did not tick the agreement box on the form. Can the platform message them?",o:["Yes, if you choose WhatsApp","No. They are blocked automatically","Only on the day"],a:1,
@@ -214,11 +214,11 @@ const LESSONS=[
 {id:"add-guests",name:"Bring in a guest list",eyebrow:"Lesson 5",title:"Bring in a guest list",
  why:"Your Google Form answers go in as a file. The platform reads it, shows you what it found, and saves nothing until you say so.",
  screens:[{label:"1. Upload",img:"import",pins:[
-  P(47.2,82.7,"Choose file","Pick the file from your computer. It must be a CSV file."),
+  P(47.2,82.7,"Your file","Pick the file from your computer. It must be a CSV file. The page says: upload your guest list or shuttle list as a CSV from Google Forms or Easy Shuttle."),
   P(33.2,90.9,"Upload and check the list","The platform reads the file and shows you a preview. Nothing is saved yet."),
   P(29.8,49.8,"Shuttle list","A different job, for pick-up times. It has its own lesson."),
-  P(56.9,74.0,"CSV only","Up to 5 MB and 5,000 rows. An Excel file (.xlsx) will not upload: download it as a CSV first.")],
-  steps:["In Google Sheets: <b>File, Download, Comma-separated values (.csv)</b>.","In the platform, click <b>Import</b> in the menu.","Click <b>Choose file</b>, pick the CSV, then <b>Upload and check the list</b>."]},
+  P(56.9,74.0,"CSV only","Up to 5 MB and 5,000 rows. In Google Sheets choose File, Download, CSV. An Excel file (.xlsx) will not upload. A file with no name column is rejected: add a name column and upload again.")],
+  steps:["In Google Sheets: <b>File, Download, CSV</b>.","In the platform, click <b>Import</b> in the menu, under <b>Guest list</b>.","Click <b>Choose file</b>, pick the CSV, then <b>Upload and check the list</b>.","Make sure the file has a <b>name</b> column. Without one it is rejected."]},
  {label:"2. Match the columns",img:"import-match",pins:[
   P(11.67,33.75,"Your form's questions","Each line is one question from your Google Form."),
   P(60,33.75,"What the platform thinks it is","It guesses: email, name, dietary, language. Change a guess with the drop-down if it is wrong."),
@@ -232,23 +232,23 @@ const LESSONS=[
   steps:["Scroll the list and read any warnings.","At the bottom, read the summary line, then click the button to add the guests."]},
  {label:"4. The result",img:"import-result",pins:[
   P(24,13.4,"Created","New guests added to the event."),
-  P(30,30.4,"Held back","Rows that look like someone already in the event. The platform does not create them twice."),
+  P(30,30.4,"Held back","Rows that look like someone already in the event, so the platform does not create them twice. A guest with only a name (no email, no booking reference) is held back on a repeat upload as a possible duplicate."),
   P(16,43.2,"View the guest list","Go and see the new guests."),
   P(25,55.2,"Who was held back","The names, so you can check them.")],
-  steps:["Read the result. Every row in your file is accounted for.","For the <b>international</b> form, record consent using the tick-box column when the page asks.","For the <b>local</b> form, skip the consent step. Local guests are not messaged."]}],
- note:"<b>Good to know.</b> Once a file has been added it cannot be added again or undone, so read step 3 before you confirm.",
+  steps:["Read the result. Every row in your file is accounted for.","Check the <b>held back</b> names. Do not use <b>import anyway</b> unless it really is a different person.","For the <b>international</b> form, record consent using the tick-box column when the page asks.","For the <b>local</b> form, skip the consent step. Local guests are not messaged."]}],
+ note:"<b>Safe to repeat.</b> Uploading the same file again, or two copies of it, never doubles a guest. An edited file is fine too: blank fields are filled in, existing details are kept, and new rows are added. Not sure about a file? Click <b>Delete this upload</b> before you confirm: you go back to Import and nothing is added to your guest list.",
  quiz:{q:"Your guest list is an Excel file (.xlsx). Will it upload?",o:["Yes, any spreadsheet works","No. Save or download it as a CSV first","Only on a laptop"],a:1,
   why:"CSV only. In Google Sheets it is File, Download, Comma-separated values."}},
 
 {id:"shuttle-list",name:"Upload the shuttle list",eyebrow:"Lesson 6",title:"Upload the shuttle list",
- why:"One row per guest with their pick-up time. After that, each guest's message fills in their own time. Nobody types a name.",
+ why:"One row per guest with their pick-up time. After that, each guest's message fills in their own time. Nobody types a name. The file comes from Easy Shuttle: flight, pick-up time and hotel.",
  screens:[{label:"The steps",sketch:[
   ["Import, then \"Upload the shuttle list\"","The link sits at the top of the Import page."],
   ["Choose your CSV file","One row per guest: name, flight, pick-up date and time, hotel."],
   ["Say which column is which","Guest name, reservation number, flight, pick-up date and time, hotel. Choose day / month / year for dates."],
   ["Read the preview","Each row is marked Matched, Not matched, or More than one guest with this name."],
   ["Confirm shuttle list","Nothing changes until you click this."]],
-  steps:["Add each guest's email or WhatsApp number to the sheet if you can. Matching is more reliable than names alone.","Upload again whenever flights change. You can do it as often as you like.","Guests who were not matched show up under <b>Needs attention</b> on the Overview."]}],
+  steps:["Include each guest's reservation number if you have it. Guests are matched by name or reservation, and a reservation number is the more reliable of the two.","Upload again whenever flights change. You can do it as often as you like.","Guests who were not matched show up under <b>Needs attention</b> on the Overview."]}],
  note:"<b>Safe to repeat.</b> An empty cell never wipes what is already saved. Times written like 13h00 are fine.",
  quiz:{q:"You upload the list again and one guest's pick-up time is empty this time. What happens to the time already saved?",o:["It is deleted","It stays as it was","The guest is removed"],a:1,
   why:"A blank cell never wipes an existing value."}},
@@ -258,7 +258,7 @@ const LESSONS=[
  screens:[{label:"1. Messages",img:"messaging",pins:[
   P(30.4,69.7,"Templates","The wording of each message, and whether WhatsApp has approved it. Deon looks after these."),
   P(61.3,69.7,"Send to guests","Start here to send. You always see a preview first."),
-  P(92.6,69.7,"Outbox","What happened to every message: sent, delivered, failed or blocked.")],
+  P(92.6,69.7,"Outbox","What happened to every message: Waiting, Sent, Failed or Blocked.")],
   steps:["Click <b>Messages</b> in the menu.","Click <b>Send to guests</b>."]},
  {label:"2. Choose and confirm",img:"send",pins:[
   P(45.1,38.3,"Find a guest","Only for sending to one person. Type a name or reservation number. Skip it to send to everyone."),
@@ -267,10 +267,10 @@ const LESSONS=[
   P(76.6,82.4,"Who gets it","All guests, or one guest. Guests who did not agree are skipped automatically.")],
   steps:["Choose the message and how it is sent.","Choose who gets it: one guest, the guests with a certain pick-up date, or everyone.","Read the preview exactly as the guest will see it, then click <b>Confirm and queue</b>."]},
  {label:"3. See what happened",img:"results",pins:[
-  P(22.7,32.6,"The totals","How many messages, and how many failed."),
+  P(22.7,32.6,"The totals","All messages, how many were Sent, how many Failed and how many are Blocked."),
   P(25.4,46.3,"Send waiting messages now","Only in the practice version, so you can watch it happen. In the real version messages send by themselves."),
-  P(66.9,63.6,"Filters","Click one to see only those messages, for example Failed or Blocked."),
-  P(55.8,78.9,"Blocked, in red","The reason is written under the status. Here the guest never agreed to be messaged, so nothing was sent. Lesson 8 covers messages that failed.")],
+  P(66.9,63.6,"Filters","Click one to see only those messages: Waiting, Sent, Failed or Blocked. Sent includes messages that have been delivered."),
+  P(55.8,78.9,"Blocked, in red","Blocked means nothing was sent. The usual reason is that the guest never agreed to be messaged. Lesson 8 covers messages that failed.")],
   steps:["Open <b>Outbox</b> to follow your messages.","Look for red rows."]}],
  quiz:{q:"You clicked Confirm and queue. Has the guest received the message yet?",o:["Yes, instantly","Not yet. It is in the queue and is sent shortly after","Only if you phone them"],a:1,
   why:"Confirming puts the message in the queue. The Outbox shows when it is sent and delivered."}},
@@ -289,12 +289,12 @@ const LESSONS=[
 {id:"check-in",name:"Check guests in",eyebrow:"Lesson 9",title:"Check guests in",
  why:"On the day you find each guest by name, and check them in for that day.",
  screens:[{label:"The check-in desk",img:"checkin",pins:[
-  P(49.3,31.3,"Pick the day","Day 1 is arrivals on 30 November. Days 2 to 4 are 1, 2 and 3 December."),
-  P(53.4,39.5,"The count","How many guests are checked in for the chosen day."),
-  P(94.5,55.7,"Find a guest","Type part of a name or a reservation number."),
+  P(49.3,31.3,"Pick the day","Each button shows the day number and its date. Day 1 is arrivals on Mon 30 Nov. Days 2 to 4 are 1, 2 and 3 December."),
+  P(53.4,39.5,"Checked in today","How many guests are checked in for the day you chose, for example 121 / 300."),
+  P(94.5,55.7,"Find the next guest","Type part of a name or a reservation number."),
   P(24.0,65.1,"Search","Click to see the matching guests, then check the right one in."),
   P(53.4,77.6,"Recent check-ins","The last guests checked in, newest first.")],
-  steps:["Click <b>Check-in</b> in the menu.","Make sure the right day is selected.","Type the guest's name, click <b>Search</b>, and check them in."]},
+  steps:["Click <b>Check-in</b> in the menu.","Make sure the right day is selected.","Type the guest's name, click <b>Search</b>, and check them in.","A green card then shows the guest's name, <b>Checked in for Day N</b>, the date and time, and their reservation."]},
  {label:"If the wifi drops",sketch:[
   ["Open the offline desk before doors open","Do it with wifi on, and wait until the guest list has loaded."],
   ["Keep the page open and the iPad plugged in","The guest list is saved on the iPad."],
@@ -464,9 +464,9 @@ function drawHelp(v,l){
   v.appendChild(el("section",{class:"card"},`<h2>Words you will see</h2><dl>
    <dt>CSV</dt><dd>A plain spreadsheet file. In Google Sheets: File, Download, Comma-separated values.</dd>
    <dt>Consent</dt><dd>The guest ticked the box agreeing to WhatsApp and SMS messages about their travel.</dd>
-   <dt>Held back</dt><dd>A row in your file that looks like a guest already in the event, so it was not added twice.</dd>
+   <dt>Held back</dt><dd>A row in your file that looks like a guest already in the event, so it was not added twice. Do not use \"import anyway\" unless it really is a different person.</dd>
    <dt>Outbox</dt><dd>The list of every message and what happened to it.</dd>
-   <dt>Blocked</dt><dd>A message the platform refused to send, usually because the guest has not agreed.</dd>
+   <dt>Blocked</dt><dd>A message the platform did not send, usually because the guest has not agreed.</dd>
    <dt>Needs attention</dt><dd>Your to-do list on the Overview page.</dd>
    <dt>Crew</dt><dd>Door staff who only get the check-in desk.</dd></dl>`));
   const f=el("div",{class:"foot"});const back=el("button",{type:"button",class:"btn ghost"},"Back");back.onclick=()=>go(cur-1);
