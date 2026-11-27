@@ -117,25 +117,11 @@ dt{font-weight:700}dd{margin:0;color:var(--muted)}
   dl{grid-template-columns:minmax(0,1fr)} dd{margin-bottom:6px}
 }
 
-#gate{position:fixed;top:0;right:0;bottom:0;left:0;background:var(--rail);color:var(--rail-ink);z-index:999;display:flex;align-items:center;justify-content:center}
-#gate .box{max-width:340px;width:100%;padding:0 24px;text-align:center}
-#gate img{width:210px;max-width:70%;height:auto;margin:0 auto 22px;display:block}
-#gate p{color:var(--rail-muted);font-size:15px;margin:0 0 18px}
-#gate input{width:100%;background:#2e2a29;border:1px solid #4a4442;border-radius:8px;color:var(--rail-ink);padding:12px;font-size:16px;margin-bottom:12px;font-family:inherit}
-#gate button{width:100%;background:var(--gold);color:#2a2827;border:none;border-radius:8px;padding:12px;font-size:16px;font-weight:700;min-height:46px}
-#gate .err{color:#f0a3a0;font-size:14px;margin-top:10px;min-height:18px}
 html,body{height:100%;margin:0}
 </style>
 
 </head>
 <body>
-<div id="gate"><div class="box">
-  <img src="/meltedworkx-001/guide/logo-light.webp" alt="Melted Workx Creative House" onerror="this.style.display='none'">
-  <p>This guide is private. Enter the password you use for the progress page.</p>
-  <input type="password" id="gate-pw" placeholder="Password" autocomplete="off" aria-label="Password">
-  <button id="gate-submit" type="button">Open the guide</button>
-  <div class="err" id="gate-err" role="status"></div>
-</div></div>
 <div class="app">
   <aside class="rail">
     <div class="brand">Melted Workx<small>Platform guide</small></div>
@@ -510,23 +496,6 @@ function drawCheck(v,l){
 }
 function fromHash(){const id=(location.hash||"").slice(1);const i=LESSONS.findIndex(l=>l.id===id);go(i<0?0:i,true)}
 window.addEventListener("hashchange",fromHash);fromHash();
-</script>
-<script>
-(function(){
-  // Same password as the progress page. No plaintext password in source; checked against a SHA-256 hash.
-  var HASH='6ddf588c919716323114588753c67d83baf3799996e8235cfbd4dd012d4f40d1';
-  var g=document.getElementById('gate'),a=document.querySelector('.app');
-  function open(){g.style.display='none';a.style.display=''}
-  a.style.display='none';
-  var ok=false;try{ok=sessionStorage.getItem('mw-progress-unlocked')==='1'}catch(e){}
-  if(ok)open();
-  function hex(t){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return('0'+x.toString(16)).slice(-2)}).join('')})}
-  document.getElementById('gate-submit').addEventListener('click',function(){
-    hex(document.getElementById('gate-pw').value).then(function(h){
-      if(h===HASH){try{sessionStorage.setItem('mw-progress-unlocked','1')}catch(e){}open()}
-      else document.getElementById('gate-err').textContent='Incorrect password'})});
-  document.getElementById('gate-pw').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('gate-submit').click()});
-})();
 </script>
 </body>
 </html>
